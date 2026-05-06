@@ -10,6 +10,8 @@
   * [How It Works](bound-auth/how-it-works.md)
   * [Security Model](bound-auth/security-model.md)
   * [Account Settings](bound-auth/account-settings.md)
+* [Fund Recovery](fund-recovery/README.md)
+  * [Export Private Key](fund-recovery/export-private-key.md)
 * [Trade](trade/README.md)
   * [Trading Interface Overview](trade/trading-interface-overview.md)
   * [Swap Runes](trade/swap-runes.md)
