@@ -19,5 +19,5 @@ Put your BTC to work through covered calls and liquidation-free loans. Earn nati
 Integrate with Bound's trading infrastructure and derivatives marketplace via B2B API. Build on top of Bitcoin-native AMM, options, and lending - or plug into the gossip protocol as a market maker.&#x20;
 
 {% hint style="info" %}
-**Key differentiators vs competitors** — to be filled in by team.
+**Key differentiators vs competitors: ** to be filled in by team.
 {% endhint %}
