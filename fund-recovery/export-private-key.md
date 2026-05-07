@@ -18,25 +18,25 @@ Your private key gives full control over the funds in this wallet. Never share i
 
 Log in to the Bound app and navigate to **Account**.
 
-<!-- screenshot: account-entry -->
+<figure><img src="../.gitbook/assets/account-entry.png" alt=""><figcaption></figcaption></figure>
 
 ### 2. Go to Wallet Management
 
 Inside Account, select the **Wallet Management** tab.
 
-<!-- screenshot: wallet-management-tab -->
+<figure><img src="../.gitbook/assets/wallet-management-tab.png" alt=""><figcaption></figcaption></figure>
 
 ### 3. Locate a Bound wallet
 
 In the **All Wallets** list, find the wallet whose **Provider** column shows `bound`.
 
-<!-- screenshot: all-wallets-list -->
+<figure><img src="../.gitbook/assets/all-wallets-list.png" alt=""><figcaption></figcaption></figure>
 
 ### 4. Click Export
 
 Click the **Export** button on that wallet row. The **Export \[Chain] Wallet** modal opens with a security warning.
 
-<!-- screenshot: export-button -->
+<figure><img src="../.gitbook/assets/export-button.png" alt=""><figcaption></figcaption></figure>
 
 ### 5. Authenticate
 
@@ -45,7 +45,7 @@ Confirm your identity using the method linked to your account:
 * **Passkey account** - click **Verify with Passkey** and approve on your device.
 * **Password account** - enter your account password and click **Verify**.
 
-<!-- screenshot: auth-step -->
+<figure><img src="../.gitbook/assets/auth-step.png" alt=""><figcaption></figcaption></figure>
 
 ### 6. App derives the private key
 
@@ -61,13 +61,13 @@ Once verified, the app derives and prepares the private key in the standard form
 
 The key is hidden by default. Click the **Click to reveal** area to display it.
 
-<!-- screenshot: click-to-reveal -->
+<figure><img src="../.gitbook/assets/click-to-reveal.png" alt=""><figcaption></figcaption></figure>
 
 ### 8. Copy the private key
 
 After it is revealed, click **Copy Private Key** to copy it to your clipboard. Paste it directly into your password manager or target wallet - do not leave it on the clipboard longer than necessary.
 
-<!-- screenshot: copy-private-key -->
+<figure><img src="../.gitbook/assets/copy-private-key.png" alt=""><figcaption></figcaption></figure>
 
 ### 9. Close the modal
 
@@ -129,7 +129,3 @@ If your wallet expects a different format (e.g. a 12/24-word seed phrase), it is
 Nothing is lost - simply repeat the flow from step 4. The key is re-derived locally each time and is never stored by Bound.
 
 </details>
-
-{% hint style="info" %}
-Screenshots will be added once the final UI is approved.
-{% endhint %}
