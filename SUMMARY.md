@@ -28,31 +28,36 @@
   * [Create A Token](launchpad/create-a-token.md)
   * [Diamond Hands](launchpad/diamond-hands.md)
   * [Virtual Mint Mechanics](launchpad/virtual-mint-mechanics.md)
-* Borrow
-  * [Overview](borrow/overview.md)
-  * [Loan Lifecycle](borrow/liquidation-free-loans.md)
-  * [Repayment And Walk-Away](borrow/repaying-loans.md)
-  * [Trust And Custody Model](borrow/trust-and-custody-model.md)
-* [Protocol-Architecture](protocol-architecture/README.md)
-  * [Architecture Overview](protocol-architecture/architecture-overview.md)
-  * [Runes AMM Technical](protocol-architecture/runes-amm-technical.md)
-  * [Bitcoin Settlement](protocol-architecture/bitcoin-settlement.md)
-  * [Sodax Integration](protocol-architecture/sodax-integration.md)
-  * [bUSD Technical Spec](protocol-architecture/busd-technical-spec.md)
-* [Developer-Guide](developer-guide/README.md)
-  * [API Overview](developer-guide/api-overview.md)
-  * [Authentication Guide](developer-guide/authentication-guide.md)
-  * [API Reference](developer-guide/api-reference/README.md)
-    * ```yaml
-      type: builtin:openapi
-      props:
-        models: true
-        downloadLink: false
-      dependencies:
-        spec:
-          ref:
-            kind: openapi
-            spec: api-bound
-      ```
-  * [Affiliate Fee Integration](developer-guide/affiliate-fee-integration.md)
-  * [Glossary](developer-guide/glossary.md)
+## Borrow
+
+* [Overview](borrow/overview.md)
+* [Loan Lifecycle](borrow/liquidation-free-loans.md)
+* [Repayment And Walk-Away](borrow/repaying-loans.md)
+* [Trust And Custody Model](borrow/trust-and-custody-model.md)
+
+## Protocol Architecture
+
+* [Architecture Overview](protocol-architecture/architecture-overview.md)
+* [Runes AMM Technical](protocol-architecture/runes-amm-technical.md)
+* [Bitcoin Settlement](protocol-architecture/bitcoin-settlement.md)
+* [Sodax Integration](protocol-architecture/sodax-integration.md)
+* [bUSD Technical Spec](protocol-architecture/busd-technical-spec.md)
+
+## Developer Guide
+
+* [API Overview](developer-guide/api-overview.md)
+* [Authentication Guide](developer-guide/authentication-guide.md)
+* [API Reference](developer-guide/api-reference/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: true
+      downloadLink: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: api-bound
+    ```
+* [Affiliate Fee Integration](developer-guide/affiliate-fee-integration.md)
+* [Glossary](developer-guide/glossary.md)
