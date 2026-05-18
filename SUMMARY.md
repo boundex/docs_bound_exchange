@@ -13,10 +13,7 @@
 * [How It Works](bound-auth/how-it-works.md)
 * [Security Model](bound-auth/security-model.md)
 * [Account Settings](bound-auth/account-settings.md)
-
-## Fund Recovery
-
-* [Export Private Key](fund-recovery/export-private-key.md)
+* [Fund Recovery](fund-recovery/export-private-key.md)
 
 ## Trade
 
