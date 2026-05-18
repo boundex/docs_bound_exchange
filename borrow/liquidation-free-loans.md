@@ -1,34 +1,34 @@
-# Liquidation Free Loans
+# Loan Lifecycle
 
-{% hint style="warning" %}
-Coming after initial launch. Details will be updated when this feature ships.
-{% endhint %}
+Bound term loans are coordinated through PSBTs and enforced by Bitcoin Script.
 
-## How it works
+## Origination
 
-Lock your BTC as collateral and borrow stablecoins - at **no liquidation risk, at any price**.
+At origination, the borrower, lender, and Bound sign a single Bitcoin transaction. The transaction coordinates the loan legs together:
 
-Loans are fixed-term and fixed-rate. If you choose not to repay, you simply walk away - this is called the **walk-away option**. Your BTC is forfeited to the lender, but you keep the stablecoins. No cascading liquidations, no surprise margin calls.
+* The borrower locks BTC into escrow.
+* The lender provides bUSD.
+* The borrower receives the agreed bUSD loan amount.
+* Any origination fee is settled as part of the same transaction.
 
-## For borrowers
+Because origination is atomic, either every transfer settles together or the transaction does not complete.
 
-* Access liquidity without selling your BTC
-* No liquidation at any price - ever
-* Fixed terms so you always know your obligations
-* Embedded downside protection via the walk-away option
+## Escrow
 
-## For lenders
+The BTC collateral sits in a 2-of-2 multisig escrow with a timelock. The escrow has two spending paths:
 
-* Fixed income from interest payments
-* On default: receive BTC at a discounted acquisition price
-* Predictable, structured returns
+| Path | When it applies | Required signer | Result |
+| --- | --- | --- | --- |
+| Repayment path | During the term and grace period | Borrower plus Bound or lender | Borrower repays and receives BTC back |
+| Default path | After the grace period | Lender | Lender claims the BTC collateral |
 
-## Who it's for
+During the term, the borrower must be a signer for the BTC to move. Bound cannot move collateral by itself.
 
-**Borrowers:** Retail BTC holders, runes/ordinals community, high-net-worth individuals
+## Resolution
 
-**Institutional borrowers:** Foundations, DATs (Decentralized Autonomous Treasuries)
+There are two ways a loan resolves:
 
-{% hint style="info" %}
-**VERIFY** - LTV ratios, interest rates, and loan term lengths to be confirmed with team before publishing.
-{% endhint %}
+* **Repayment** - the borrower repays principal plus interest and receives the escrowed BTC back.
+* **Walk-away** - the borrower does not repay by the end of the grace period, keeps the borrowed bUSD, and the lender claims the BTC.
+
+The walk-away outcome is what removes price-based liquidation from the loan. The loan state is based on time and repayment, not BTC market price.
