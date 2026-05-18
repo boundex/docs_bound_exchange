@@ -1,23 +1,27 @@
-# Getting Started
+# Platform Overview
 
-Bound is a self-custodial exchange delivering CEX-grade UX on DEX infrastructure. Trade, earn yield, borrow, and swap across chains from a single account - you always control your own keys.
+Bound is organized into three core layers, each building on the one below.
 
-## For traders
+<figure><img src=".gitbook/assets/bound.drawio.png" alt=""><figcaption></figcaption></figure>
 
-Swap Bitcoin-native tokens and cross-chain assets (ETH, SOL, USDC and more) with near-instant execution - directly from a self-custodial wallet. No CEX account, no seed phrase, no bridging.
+<br>
 
-## For Liquidity providers
+## Layer 1 - Infrastructure
 
-Earn yield on your BTC and runes by depositing into AMM pools on Bitcoin mainnet. Set a custom price range, collect trading fees, and withdraw anytime - all on-chain.
+* **Bound Auth** - Passkey-based authentication that creates self-custodial wallets across BTC, EVM, and Solana. All user-facing products require Bound Auth.
+* **Bound APIs** - B2B API access layer for trading infrastructure and derivatives marketplace.
 
-## For Yield seekers & BTC holders
+## Layer 2 - Trading Engine
 
-Put your BTC to work through covered calls and liquidation-free loans. Earn native BTC yield or borrow stablecoins against your BTC -without selling, without wrapping, without liquidation risk.
+* **Runes AMM** - Native Bitcoin token swaps and liquidity provisioning on Bitcoin mainnet.
+* **SODAX Crosschain** -Native cross-chain swaps across BTC, ETH, SOL, USDC, and more - no wrapping, no bridging.
 
-## For developers
+## Layer 3 - Products
 
-Integrate with Bound's trading infrastructure and derivatives marketplace via B2B API. Build on top of Bitcoin-native AMM, options, and lending - or plug into the gossip protocol as a market maker.&#x20;
+* **Launchpad** - Token creation and launch via Virtual Mint. Uses Runes AMM for post-launch liquidity.
+* **Lend / Borrow** -Liquidation-free loans and overcollateralized loans against BTC.
+* **Derivatives (Options)** - Covered calls and put options for BTC yield and downside protection.
 
-{% hint style="info" %}
-**Key differentiators vs competitors: ** to be filled in by team.
-{% endhint %}
+## bUSD - Settlement layer
+
+bUSD is Bound's native Runes-based stablecoin on Bitcoin, backed 1:1 by other stablecoins. It acts as the settlement layer for all Bound structured products - every loan, option, and escrow settles in bUSD.
