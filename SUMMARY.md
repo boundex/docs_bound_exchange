@@ -28,7 +28,7 @@
   * [Create A Token](launchpad/create-a-token.md)
   * [Diamond Hands](launchpad/diamond-hands.md)
   * [Virtual Mint Mechanics](launchpad/virtual-mint-mechanics.md)
-* [Borrow](borrow/README.md)
+* Borrow
   * [Overview](borrow/overview.md)
   * [Loan Lifecycle](borrow/liquidation-free-loans.md)
   * [Repayment And Walk-Away](borrow/repaying-loans.md)
