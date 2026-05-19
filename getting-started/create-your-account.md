@@ -4,7 +4,7 @@ Bound uses passkey-based authentication with built-in account backup and recover
 
 ## Sign up
 
-1. Go to [app.bound.exchange](https://app.bound.exchange/)
+1. Go to <a href="https://app.bound.exchange/register" target="_blank">app.bound.exchange/register</a>
 2. Follow the prompts to create your account.
 3. Create or confirm your passkey when prompted.
 4. Bound creates self-custodial wallets for supported networks.
