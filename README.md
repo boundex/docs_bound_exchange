@@ -1,27 +1,37 @@
-# Platform Overview
+# Overview
 
-Bound is organized into three core layers, each building on the one below.
+Bound is a self-custodial exchange built for Bitcoin DeFi.
 
-<figure><img src=".gitbook/assets/bound.drawio.png" alt=""><figcaption></figcaption></figure>
+Bound gives users one account to trade, borrow, and access Bitcoin-native assets while keeping control of their keys. Instead of relying on pooled liquidity, wrapped assets, or custodial intermediaries, Bound uses RFQ-powered markets and atomic settlement so trades and loans execute all-or-nothing with clear terms before signing.
 
-<br>
+## What you can do with Bound
 
-## Layer 1 - Infrastructure
+### Trade BTC
 
-* **Bound Auth** - Passkey-based authentication that creates self-custodial wallets across BTC, EVM, and Solana. All user-facing products require Bound Auth.
-* **Bound APIs** - B2B API access layer for trading infrastructure and derivatives marketplace.
+Trade BTC at competitive, market-set rates. Execution requires your signature, and settlement happens directly on Bitcoin.
 
-## Layer 2 - Trading Engine
+### Swap across chains
 
-* **Runes AMM** - Native Bitcoin token swaps and liquidity provisioning on Bitcoin mainnet.
-* **SODAX Crosschain** -Native cross-chain swaps across BTC, ETH, SOL, USDC, and more - no wrapping, no bridging.
+Swap major assets into BTC without relying on bridges, wrapped tokens, or custodial intermediaries. Bound is designed around atomic, onchain settlement.
 
-## Layer 3 - Products
+### Borrow against BTC
 
-* **Launchpad** - Token creation and launch via Virtual Mint. Uses Runes AMM for post-launch liquidity.
-* **Lend / Borrow** -Liquidation-free loans and overcollateralized loans against BTC.
-* **Derivatives (Options)** - Covered calls and put options for BTC yield and downside protection.
+Access fixed-rate, fixed-term bUSD liquidity using BTC collateral. Bound loans are designed with no price-based liquidation and no margin calls. Your BTC remains locked on Bitcoin and is never pooled or rehypothecated.
 
-## bUSD - Settlement layer
+### Access Bitcoin-native assets
 
-bUSD is Bound's native Runes-based stablecoin on Bitcoin, backed 1:1 by other stablecoins. It acts as the settlement layer for all Bound structured products - every loan, option, and escrow settles in bUSD.
+Use one self-custodial account to access stablecoins, tokens, and collectibles issued on Bitcoin.
+
+## How Bound works
+
+Bound is powered by a request-for-quote network. When you trade or borrow, professional solvers compete in real time to provide pricing. This creates peer-to-peer execution instead of routing users through shared liquidity pools.
+
+Every transaction is designed to settle atomically: either every leg completes together, or nothing executes.
+
+## Why Bound is different
+
+* **Self-custodial by design** - users hold their keys, and Bound cannot access or rehypothecate funds.
+* **Built for Bitcoin** - BTC stays native, with settlement designed around Bitcoin's security model.
+* **No pooled funds** - user assets are not concentrated in a shared contract or pool.
+* **RFQ-powered pricing** - solvers compete to quote trades and loans.
+* **Unified account experience** - one account for Bitcoin, Ethereum, and Solana wallets, with passkey-based authentication and account recovery support.

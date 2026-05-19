@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-* [Platform Overview](README.md)
+* [Overview](README.md)
 * [Create Your Account](getting-started/create-your-account.md)
 * [Connect An Existing Wallet](getting-started/connect-an-existing-wallet.md)
 * [Supported Assets And Chains](getting-started/supported-assets-and-chains.md)
