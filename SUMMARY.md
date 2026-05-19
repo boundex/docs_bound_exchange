@@ -47,7 +47,7 @@
 ## Protocol Architecture
 
 * [Architecture Overview](protocol-architecture/architecture-overview.md)
-* [Runes AMM Technical](protocol-architecture/runes-amm-technical.md)
+* [Runes AMM](protocol-architecture/runes-amm-technical.md)
 * [Bitcoin Settlement](protocol-architecture/bitcoin-settlement.md)
 * [Sodax Integration](protocol-architecture/sodax-integration.md)
 * [bUSD Technical Spec](protocol-architecture/busd-technical-spec.md)
