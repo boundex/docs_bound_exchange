@@ -5,7 +5,7 @@
 * **AMM (Automated Market Maker)**\
   A protocol that automatically prices assets based on a mathematical formula, allowing users to trade without a traditional order book.
 * **Bound Auth**\
-  Bound's passkey-based authentication system that creates self-custodial wallets across BTC, EVM, and Solana — no seed phrases required.
+  Bound's passkey-based authentication system that creates self-custodial wallets across BTC, EVM, and Solana, with account backup and recovery support.
 * **bUSD**\
   Bound's native Runes-based stablecoin on Bitcoin, backed 1:1 by other stablecoins. Settlement layer for all Bound structured products.
 * **BIP322**\

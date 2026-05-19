@@ -1,6 +1,6 @@
 # Create Your Account
 
-Bound uses passkey-based authentication - no seed phrases, no browser extensions required.
+Bound uses passkey-based authentication with built-in account backup and recovery.
 
 ## Sign up
 
