@@ -30,19 +30,19 @@
 * [Managing Your Position](provide-liquidity/managing-your-position.md)
 * [Risk Considerations](provide-liquidity/risk-considerations.md)
 
-## Launchpad
-
-* [Overview](launchpad/overview.md)
-* [Create A Token](launchpad/create-a-token.md)
-* [Diamond Hands](launchpad/diamond-hands.md)
-* [Virtual Mint Mechanics](launchpad/virtual-mint-mechanics.md)
-
 ## Borrow
 
 * [Overview](borrow/overview.md)
 * [Loan Lifecycle](borrow/liquidation-free-loans.md)
 * [Repayment And Walk-Away](borrow/repaying-loans.md)
 * [Trust And Custody Model](borrow/trust-and-custody-model.md)
+
+## Launchpad
+
+* [Overview](launchpad/overview.md)
+* [Create A Token](launchpad/create-a-token.md)
+* [Diamond Hands](launchpad/diamond-hands.md)
+* [Virtual Mint Mechanics](launchpad/virtual-mint-mechanics.md)
 
 ## Protocol Architecture
 
