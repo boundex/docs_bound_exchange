@@ -1,6 +1,6 @@
 # Overview
 
-Bound is a self-custodial exchange that brings trading, borrowing, and Bitcoin-native assets into one unified account.
+Bound is a self-custodial exchange that brings investing, borrowing, and Bitcoin-native assets into one unified account.
 
 Bound gives users one account to trade, borrow, and access Bitcoin-native assets while keeping control of their keys. Instead of relying on pooled liquidity, wrapped assets, or custodial intermediaries, Bound uses RFQ-powered markets and atomic settlement so trades and loans execute all-or-nothing with clear terms before signing.
 
