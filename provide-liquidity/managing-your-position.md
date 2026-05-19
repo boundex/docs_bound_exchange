@@ -23,6 +23,8 @@ All active LP positions are visible in the **Positions** tab. Each position show
 If the AMM quote changes between your request and confirmation, the withdrawal request may be dropped. Simply try again.
 {% endhint %}
 
-{% hint style="info" %}
-**VERIFY** - In-range vs out-of-range behaviour details, and rebalancing guidance, to be confirmed with team.
-{% endhint %}
+## In-range vs out-of-range
+
+Your position earns fees only when the current market price is within your selected range.
+
+If the price moves outside your range, your position becomes **out-of-range** and stops earning fees until the price returns within the range.

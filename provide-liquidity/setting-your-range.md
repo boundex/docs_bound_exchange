@@ -27,5 +27,5 @@ Custom ranges are a powerful tool to execute a specific trading strategy - wheth
 {% endhint %}
 
 {% hint style="info" %}
-**VERIFY** - Minimum deposit amount per pool to be confirmed with team.
+There is no fixed minimum deposit. The required token amounts depend on your chosen range — as long as at least one of the two token amounts is greater than zero, your position is valid. Tighter ranges may require only one token depending on where the current price sits relative to your min and max.
 {% endhint %}

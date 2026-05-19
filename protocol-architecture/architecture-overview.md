@@ -44,7 +44,3 @@ Sequencers are nodes operated by Bound and other stakeholders. They:
 3. Update state on the EVM chain
 4. Co-sign the Bitcoin transaction
 5. When consensus is reached, broadcast the final BTC transaction to mainnet
-
-{% hint style="info" %}
-**VERIFY** - Bound-specific architecture decisions and rationale to be added by engineering team.
-{% endhint %}

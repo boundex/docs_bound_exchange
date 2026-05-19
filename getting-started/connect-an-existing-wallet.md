@@ -17,7 +17,10 @@ In addition to your Bound Auth wallet, you can import an existing wallet to view
 {% endstepper %}
 
 {% hint style="info" %}
-**VERIFY** - Supported wallet types (Unisat, Xverse, Leather, MetaMask, etc.) and connection flow to be confirmed with team.
+**Supported wallets:**
+- **Bitcoin:** Xverse, UniSat, OKX Wallet
+- **EVM:** MetaMask, Rabby Wallet, OKX Wallet
+- **Solana:** Phantom, OKX Wallet
 {% endhint %}
 
 ## Bound Auth wallet vs imported wallet
@@ -25,10 +28,6 @@ In addition to your Bound Auth wallet, you can import an existing wallet to view
 |                | Bound Auth wallet | Imported wallet |
 | -------------- | ----------------- | --------------- |
 | Created by     | Bound on signup   | You, externally |
-| Trading        | ✓ Full access     | To be confirmed |
+| Trading        | ✓ Full access     | ✓               |
 | Portfolio view | ✓                 | ✓               |
 | Self-custodial | ✓                 | ✓               |
-
-{% hint style="info" %}
-**VERIFY** - What imported wallets can do on Bound (trade, LP, or view only) to be confirmed with team.
-{% endhint %}

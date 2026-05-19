@@ -25,7 +25,3 @@ For every trade, fees are split:
 ## Quote validity
 
 Quotes are valid at the moment of request. If another user's activity changes the pool state before you confirm, your quote may expire. You'll need to request a new quote and resubmit.
-
-{% hint style="info" %}
-**VERIFY** — Slippage tolerance settings and user controls during the swap flow to be confirmed with team.
-{% endhint %}

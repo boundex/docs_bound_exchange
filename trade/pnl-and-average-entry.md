@@ -7,10 +7,6 @@ Bound tracks your profit/loss and average entry cost across all positions, visib
 * **PnL** - Your profit or loss per position
 * **Average entry cost** - The average price at which you entered a position
 
-{% hint style="info" %}
-**VERIFY** - PnL calculation methodology (realized vs unrealized, BTC vs USD denomination, fee inclusion) to be confirmed with team before publishing.
-{% endhint %}
-
 ## Where to view
 
 Your trading history and full activity feed are available in the **Analytics** page.

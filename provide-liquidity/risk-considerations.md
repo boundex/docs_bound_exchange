@@ -9,7 +9,3 @@ Tighter ranges earn more fees per unit of capital when price stays within range 
 ## Quote expiry
 
 If another user's activity changes the pool state between your request and confirmation, your AMM request will be dropped. You'll need to request a new quote and resubmit. This is a feature, not a bug - it ensures you always transact at a fair price.
-
-{% hint style="info" %}
-**VERIFY** - Impermanent loss explanation, and pool-specific risk disclosures, to be confirmed with team before publishing. Risk disclosure policy TBD.
-{% endhint %}

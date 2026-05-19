@@ -34,7 +34,3 @@ After submitting your etch transaction:
 ## Cheap etch option
 
 The **Cheap etch** switch is on by default. It restricts image size so your etching transaction costs no more than $30. Turn it off if you want to submit a larger image.
-
-{% hint style="info" %}
-**VERIFY** - Team token vesting terms to be confirmed with team.
-{% endhint %}

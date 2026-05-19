@@ -16,6 +16,16 @@ When you first connect, Bound creates a **Trading Wallet** - a 2-of-2 timelocked
 
 This setup enables near-instant trade execution while maintaining security. If Bound's signature expires (after 3 months), you can always withdraw your funds independently - even if Bound is unavailable.
 
-{% hint style="info" %}
-**VERIFY** - Detailed passkey key generation, storage, session management, and multi-device support details to be confirmed with engineering team.
-{% endhint %}
+## Key storage
+
+When you register, an encrypted copy of your keystore is stored on Bound's servers. This copy can only be decrypted by your passkey — the decryption key never leaves your device.
+
+## Multi-device support
+
+You can add additional devices to your account from the **Account Settings** page. The new device receives an encrypted copy of your keystore via a secure device-to-device handshake — Bound never has access to the unencrypted keys at any point.
+
+Removing a device immediately revokes all of its active sessions.
+
+## Session management
+
+Every login creates a session tied to your device. You can view and revoke active sessions at any time from **Account Settings → Active Sessions**. Use **Log out all other devices** to revoke all sessions except your current one.

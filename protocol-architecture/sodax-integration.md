@@ -12,6 +12,4 @@ Bound's cross-chain swap functionality is powered by **SODAX** - enabling native
 
 BTC · ETH · SOL · USDC · BNB · AVAX · HYPE · and expanding
 
-{% hint style="info" %}
-**VERIFY** - Technical architecture of SODAX native-to-native routing, and upcoming chains roadmap, to be confirmed with team. Consider linking to SODAX documentation for developer-level detail.
-{% endhint %}
+* Go to <a href="https://docs.sodax.com/" target="_blank">https://docs.sodax.com/</a> for developer-level detail.
