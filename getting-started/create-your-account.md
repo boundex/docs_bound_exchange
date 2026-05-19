@@ -4,10 +4,10 @@ Bound uses passkey-based authentication with built-in account backup and recover
 
 ## Sign up
 
-1. Go to [bound.exchange](https://bound.exchange/) _(update with actual URL)_
-2. Click **Get Started**
-3. Create a passkey or password when prompted
-4. Bound automatically creates self-custodial wallets for you across BTC, EVM, and Solana
+1. Go to [app.bound.exchange](https://app.bound.exchange/)
+2. Follow the prompts to create your account.
+3. Create or confirm your passkey when prompted.
+4. Bound creates self-custodial wallets for supported networks.
 
 You sign up like any normal app - but you always maintain full self-custody of your assets.
 
@@ -20,11 +20,3 @@ When you create an account, Bound generates:
 * A **Solana wallet** for SOL and Solana-based assets
 
 All three wallets are accessible from a single login.
-
-{% hint style="info" %}
-**VERIFY** - Technical details of passkey key generation and storage to be confirmed with engineering team.
-{% endhint %}
-
-{% hint style="info" %}
-Screenshots and UI walkthrough will be added after Phase 1 launch.
-{% endhint %}
