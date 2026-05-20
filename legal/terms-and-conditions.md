@@ -38,7 +38,7 @@ Bound Exchange provides an integrated investing interface through which users ma
 All Services are accessed through a self-custodial account provisioned via passkey authentication. Users retain control of their private keys at all times. Bound Exchange never takes unilateral custody of user assets.
 
 * **Trading Wallet:** Prior to using the AMM or lending Services, users must fund a trading wallet. This wallet is a 2-of-2 multisig between the user and Bound Exchange, in which Bound Exchange's co-signing authority has a predetermined expiration date, ensuring users can always reclaim custody of their assets.
-* **Passkey Onboarding:** Account creation requires a single biometric passkey. No seed phrases are issued or required. Users are solely responsible for maintaining access to their passkey credentials.
+* **Passkey Onboarding:** Account creation uses passkey authentication, with backup and recovery available through supported recovery methods. Users are solely responsible for maintaining access to their account credentials and recovery materials.
 
 ## 3. Agency Pool Mechanics
 
