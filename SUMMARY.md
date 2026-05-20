@@ -70,3 +70,8 @@
     ```
 * [Affiliate Fee Integration](developer-guide/affiliate-fee-integration.md)
 * [Glossary](developer-guide/glossary.md)
+
+## Legal
+
+* [Terms and Conditions](legal/terms-and-conditions.md)
+* [Privacy Policy](legal/privacy-policy.md)
