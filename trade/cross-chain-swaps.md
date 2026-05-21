@@ -1,6 +1,6 @@
 # Cross Chain Swaps
 
-Bound supports native cross-chain swaps powered by SODAX - swap between BTC, ETH, SOL, USDC, and more without wrapping or bridging.
+Bound supports native cross-chain swaps powered by <a href="https://docs.sodax.com/" target="_blank">SODAX</a> - swap between BTC, ETH, SOL, USDC, and more without wrapping or bridging.
 
 ## Supported assets
 
