@@ -1,6 +1,6 @@
 # Sodax Integration
 
-Bound's cross-chain swap functionality is powered by **SODAX** - enabling native asset swaps across BTC, ETH, SOL, and more without any bridging or wrapping.
+Bound's cross-chain swap functionality is powered by <a href="https://docs.sodax.com/" target="_blank">SODAX</a> - enabling native asset swaps across BTC, ETH, SOL, and more without any bridging or wrapping.
 
 ## Key properties
 

@@ -18,7 +18,7 @@ Bound supports native assets across multiple chains - no wrapping, no bridging.
 
 ## Expanding regularly
 
-The asset list powered by SODAX is expanding on a regular basis. Check the platform for the latest supported assets.
+The asset list powered by <a href="https://docs.sodax.com/" target="_blank">SODAX</a> is expanding on a regular basis. Check the platform for the latest supported assets.
 
 {% hint style="info" %}
 All assets are native - Bound does not use wrapped tokens or bridging at any point.
