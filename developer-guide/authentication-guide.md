@@ -260,3 +260,30 @@ POST /api/auth/2fa/verify
 | 4007 | Signature Verification Failed | 400 | BIP322 verification failed |
 | 4008 | Wallet Creation Failed | 400 | Wallet creation failed during auth |
 | 4009 | Invalid Taproot Address | 400 | Address doesn't match taproot format |
+
+## Server-to-Server / Non-Browser Requests
+
+By default, Bound's API is protected by strict WAF (Web Application Firewall) rules that block automated tools, scripts, and server-to-server requests (such as `curl`, Postman, or backend services), returning an HTML `403 Forbidden` error.
+
+If you are accessing the Bound API directly from a server or terminal, you must include a dedicated API key in your request headers to bypass the WAF check.
+
+### WAF Bypass Header
+
+Include the following header in **every** API request:
+
+| Header Name | Header Value | Description |
+| --- | --- | --- |
+| `X-API-Key` | `YOUR_ASSIGNED_API_KEY` | Provided by the Bound team |
+
+### Example via cURL
+
+```bash
+curl -i -X POST [https://api.bound.exchange/api/auth/authenticate](https://api.bound.exchange/api/auth/authenticate) \
+  -H "X-API-Key: bound_ink_..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message": "1759413612750",
+    "signature": "AUE5z8iM+Y3M6e...==",
+    "address": "bc1py27...zlzu",
+    "publicKey": "0324e27cae...7c03"
+  }'
