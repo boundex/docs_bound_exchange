@@ -278,7 +278,7 @@ Include the following header in **every** API request:
 ### Example via cURL
 
 ```bash
-curl -i -X POST [https://api.bound.exchange/api/auth/authenticate](https://api.bound.exchange/api/auth/authenticate) \
+curl -i -X POST https://api.bound.exchange/api/auth/authenticate \
   -H "X-API-Key: bound_ink_..." \
   -H "Content-Type: application/json" \
   -d '{
