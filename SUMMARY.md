@@ -22,6 +22,7 @@
 * [Cross Chain Swaps](trade/cross-chain-swaps.md)
 * [Pricing And Fees](trade/pricing-and-fees.md)
 * [PNL And Average Entry](trade/pnl-and-average-entry.md)
+* [Claimable Receipts](trade/claimable-receipts.md)
 
 ## Provide Liquidity
 
@@ -58,10 +59,10 @@
 * [Authentication Guide](developer-guide/authentication-guide.md)
 * [API Reference](developer-guide/api-reference/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: true
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
