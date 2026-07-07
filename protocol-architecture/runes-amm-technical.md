@@ -1,4 +1,4 @@
-# Runes AMM Technical
+# Runes AMM
 
 ## Pricing model
 
@@ -34,6 +34,18 @@ Bound supports 8 AMM transaction types:
 | Increase Liquidity     | Add to an existing position                 |
 | Migrate Pool           | Move pool to a new address                  |
 | Migrate Pool Init UTXO | Move pool init UTXO to a new address        |
+
+## Data Outputs & Unspendable UTXOs
+
+Bound records certain protocol metadata directly on Bitcoin for transparency. Instead of using `OP_RETURN`, Bound derives a deterministic Bitcoin address from its message script and creates an output to that address. These outputs are intentionally **unspendable**.
+
+You may occasionally see outputs similar to:
+
+```
+bc1vy2qsqqqqqqqqqqqqqzsg6phwangsvexgqyusqqx545av6rq89kuhm
+```
+
+This is **not a user wallet**. It is a deterministic address generated from protocol's internal message script.
 
 ## FROST Multisig
 
