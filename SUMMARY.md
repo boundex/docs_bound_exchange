@@ -22,7 +22,7 @@
 * [Cross Chain Swaps](trade/cross-chain-swaps.md)
 * [Pricing And Fees](trade/pricing-and-fees.md)
 * [PNL And Average Entry](trade/pnl-and-average-entry.md)
-* [Claimable Receipts](trade/claimable-receipts.md)
+* [Slippage & Claimable Receipts](trade/slippage-and-claimable-receipts.md)
 
 ## Provide Liquidity
 

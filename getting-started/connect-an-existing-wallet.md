@@ -4,23 +4,24 @@ In addition to your Bound Auth wallet, you can import an existing wallet to view
 
 {% stepper %}
 {% step %}
-### Go to **Portfolio** in the navigation
+#### Go to **Portfolio** in the navigation
 {% endstep %}
 
 {% step %}
-### Click **Connect wallet**
+#### Click **Connect wallet**
 {% endstep %}
 
 {% step %}
-### Select your wallet type and follow the prompts
+#### Select your wallet type and follow the prompts
 {% endstep %}
 {% endstepper %}
 
 {% hint style="info" %}
 **Supported wallets:**
-- **Bitcoin:** Xverse, UniSat, OKX Wallet
-- **EVM:** MetaMask, Rabby Wallet, OKX Wallet
-- **Solana:** Phantom, OKX Wallet
+
+* **Bitcoin:** Xverse, UniSat, OKX Wallet
+* **EVM:** MetaMask, Rabby Wallet, OKX Wallet
+* **Solana:** Phantom, OKX Wallet
 {% endhint %}
 
 ## Bound Auth wallet vs imported wallet

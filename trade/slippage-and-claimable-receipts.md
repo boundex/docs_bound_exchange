@@ -1,8 +1,8 @@
-# Claimable Receipts
+# Slippage & Claimable Receipts
 
 ### Overview
 
-In certain situations, a swap may result in a **claimable receipt** instead of immediately transferring the output asset to your wallet.
+In certain situations, **such as when a swap executes with high slippage**, the protocol may issue a **claimable receipt** instead of immediately transferring the output asset to your wallet.
 
 When this happens, the assets are securely held by the protocol on your behalf, and the Bound application displays your claimable balance. Since the assets have not yet been transferred on-chain to your wallet, blockchain explorers may temporarily show a different balance than the application.
 
