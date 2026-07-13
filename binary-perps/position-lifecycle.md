@@ -14,15 +14,7 @@ Understanding these states helps explain the current status of your position and
 
 ### Lifecycle States
 
-| State                     | Description                                                                                                                        |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **Proposed**              | The position has been validated and prepared for signing but has not yet been submitted to Hyperliquid. No market exposure exists. |
-| **Active**                | The position has been successfully opened on Hyperliquid and is actively monitored by Bound.                                       |
-| **Resolved – Won**        | The selected price level was reached first and the position closed in profit.                                                      |
-| **Resolved – Lost**       | The opposite price level was reached first, resulting in liquidation.                                                              |
-| **Resolved – Cashed Out** | The position was closed early by the user before either price level was reached.                                                   |
-| **Voided**                | The position was modified outside of Bound and can no longer be tracked as a Binary Perp.                                          |
-| **Aborted**               | The position was never opened because the proposal expired or the signing process was abandoned.                                   |
+<table data-search="false"><thead><tr><th>State</th><th>Description</th></tr></thead><tbody><tr><td><strong>Proposed</strong></td><td>The position has been validated and prepared for signing but has not yet been submitted to Hyperliquid. No market exposure exists.</td></tr><tr><td><strong>Active</strong></td><td>The position has been successfully opened on Hyperliquid and is actively monitored by Bound.</td></tr><tr><td><strong>Resolved – Won</strong></td><td>The selected price level was reached first and the position closed in profit.</td></tr><tr><td><strong>Resolved – Lost</strong></td><td>The opposite price level was reached first, resulting in liquidation.</td></tr><tr><td><strong>Resolved – Cashed Out</strong></td><td>The position was closed early by the user before either price level was reached.</td></tr><tr><td><strong>Voided</strong></td><td>The position was modified outside of Bound and can no longer be tracked as a Binary Perp.</td></tr><tr><td><strong>Aborted</strong></td><td>The position was never opened because the proposal expired or the signing process was abandoned.</td></tr></tbody></table>
 
 ***
 
