@@ -57,7 +57,7 @@
 
 * [Overview](binary-perps/overview.md)
 * [How It Works](binary-perps/how-it-works.md)
-* [Prediction Lifecycle](binary-perps/prediction-lifecycle.md)
+* [Position Lifecycle](binary-perps/position-lifecycle.md)
 * [Trade Flow](binary-perps/trade-flow.md)
 * [Bet Construction](binary-perps/bet-construction.md)
 * [Monitoring & Resolution](binary-perps/monitoring-and-resolution.md)

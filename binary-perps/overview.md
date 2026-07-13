@@ -62,9 +62,3 @@ If BTC reaches **$95,000** first, the position is liquidated and the position is
 * Every action requires the user's wallet signature.
 * Bound never has custody of user funds.
 * Positions may be closed early through a user-initiated cash-out before either price level is reached.
-
-***
-
-### Architecture
-
-<figure><img src="../.gitbook/assets/seq.png" alt=""><figcaption></figcaption></figure>
