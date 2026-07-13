@@ -8,36 +8,7 @@ Understanding these states helps explain the current status of your position and
 
 ### Lifecycle Overview
 
-```mermaid
-stateDiagram-v2
-    [*] --> Proposed
-
-    Proposed --> Active : Position Opened
-    Proposed --> Aborted : Proposal Expired / Abandoned
-
-    Active --> ResolvedWon : Take Profit Reached
-    Active --> ResolvedLost : Liquidated
-    Active --> ResolvedCashedOut : User Cash-Out
-    Active --> Voided : External Modification
-
-    ResolvedWon --> [*]
-    ResolvedLost --> [*]
-    ResolvedCashedOut --> [*]
-    Voided --> [*]
-    Aborted --> [*]
-
-    state ResolvedWon {
-        [*] --> Won
-    }
-
-    state ResolvedLost {
-        [*] --> Lost
-    }
-
-    state ResolvedCashedOut {
-        [*] --> CashedOut
-    }
-```
+<figure><img src="../.gitbook/assets/Screenshot 2026-07-13 at 1.17.33 PM.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

@@ -63,6 +63,7 @@
 * [Monitoring & Resolution](binary-perps/monitoring-and-resolution.md)
 * [Fees](binary-perps/fees.md)
 * [Limitations & Design Decisions](binary-perps/limitations-and-design-decisions.md)
+* [FAQ](binary-perps/faq.md)
 
 ## Developer Guide
 
