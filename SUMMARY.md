@@ -59,9 +59,10 @@
 * [How It Works](binary-perps/how-it-works.md)
 * [Position Lifecycle](binary-perps/position-lifecycle.md)
 * [Trade Flow](binary-perps/trade-flow.md)
-* [Bet Construction](binary-perps/bet-construction.md)
+* [Position Construction & Validation](binary-perps/position-construction-and-validation.md)
 * [Monitoring & Resolution](binary-perps/monitoring-and-resolution.md)
 * [Fees](binary-perps/fees.md)
+* [Limitations & Design Decisions](binary-perps/limitations-and-design-decisions.md)
 
 ## Developer Guide
 
