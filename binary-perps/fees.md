@@ -57,19 +57,3 @@ The total cost of a Binary Perp may include:
 * Bound Builder Fee
 
 These costs are reflected in the final settlement of the position.
-
-***
-
-### Frequently Asked Questions
-
-#### What is the Builder Fee?
-
-The Builder Fee is Hyperliquid's native mechanism for compensating third-party applications that facilitate trading. It is automatically included on orders submitted through Bound.
-
-#### Does Bound charge any additional fees?
-
-No. Bound only receives the Builder Fee attached to orders through Hyperliquid's Builder Fee mechanism.
-
-#### Does a cash-out incur fees?
-
-Yes. A cash-out closes the underlying perpetual position and is subject to the same applicable trading fees and Builder Fee as any other position close.
