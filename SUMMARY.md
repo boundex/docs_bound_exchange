@@ -53,6 +53,16 @@
 * [Sodax Integration](protocol-architecture/sodax-integration.md)
 * [bUSD Technical Spec](protocol-architecture/busd-technical-spec.md)
 
+## Binary Perps
+
+* [Overview](binary-perps/overview.md)
+* [How It Works](binary-perps/how-it-works.md)
+* [Prediction Lifecycle](binary-perps/prediction-lifecycle.md)
+* [Trade Flow](binary-perps/trade-flow.md)
+* [Bet Construction](binary-perps/bet-construction.md)
+* [Monitoring & Resolution](binary-perps/monitoring-and-resolution.md)
+* [Fees](binary-perps/fees.md)
+
 ## Developer Guide
 
 * [API Overview](developer-guide/api-overview.md)
