@@ -97,16 +97,6 @@ Bound automatically calculates the leverage required to align the perpetual posi
 
 ***
 
-### User-Favorable Rounding
-
-Exact liquidation prices cannot always be achieved due to leverage increments, tick sizes, and exchange mechanics.
-
-When rounding is required, Bound always rounds in favor of the user.
-
-This guarantees that liquidation will never occur before the selected liquidation price is reached, although liquidation may occur slightly beyond it.
-
-***
-
 ### Entry Slippage
 
 Market orders are submitted using a configurable maximum slippage.

@@ -66,18 +66,6 @@ During periods of high volatility or limited liquidity, your actual execution pr
 
 <details>
 
-<summary>Why was my liquidation price slightly different from the price I selected?</summary>
-
-Binary Perps calculate leverage so that the liquidation price aligns as closely as possible with your selected price level.
-
-Because of exchange mechanics such as leverage increments, maintenance margin calculations, and price tick sizes, an exact liquidation price is not always possible.
-
-When adjustments are required, Bound always rounds in favor of the user, ensuring liquidation never occurs before the selected liquidation price.
-
-</details>
-
-<details>
-
 <summary>Does Bound ever take custody of my funds?</summary>
 
 No.

@@ -60,16 +60,6 @@ As a result, the actual execution price may differ slightly from the selected pr
 
 ***
 
-### User-Favorable Liquidation Rounding
-
-Exact liquidation prices cannot always be achieved due to exchange mechanics such as leverage increments, maintenance margin calculations, and price tick sizes.
-
-When adjustments are required, Bound always rounds in favor of the user.
-
-This guarantees that liquidation will never occur before the selected liquidation price is reached, although it may occur slightly beyond it.
-
-***
-
 ### Funding Rate Drift
 
 Funding payments continue to accrue while a Binary Perp remains open.
