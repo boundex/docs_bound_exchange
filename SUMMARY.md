@@ -86,6 +86,7 @@
 
 * [API Overview](developer-guide/api-overview.md)
 * [Authentication Guide](developer-guide/authentication-guide.md)
+* [Barrier Perps API](developer-guide/barrier-perps-api.md)
 * [API Reference](developer-guide/api-reference/README.md)
   * ```yaml
     props:
