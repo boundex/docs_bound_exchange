@@ -53,17 +53,22 @@
 * [Sodax Integration](protocol-architecture/sodax-integration.md)
 * [bUSD Technical Spec](protocol-architecture/busd-technical-spec.md)
 
-## Binary Perps
+## Barrier Perps
 
-* [Overview](binary-perps/overview.md)
-* [How It Works](binary-perps/how-it-works.md)
-* [Position Lifecycle](binary-perps/position-lifecycle.md)
-* [Trade Flow](binary-perps/trade-flow.md)
-* [Position Construction & Validation](binary-perps/position-construction-and-validation.md)
-* [Monitoring & Resolution](binary-perps/monitoring-and-resolution.md)
-* [Fees](binary-perps/fees.md)
-* [Limitations & Design Decisions](binary-perps/limitations-and-design-decisions.md)
-* [FAQ](binary-perps/faq.md)
+* [Overview](barrier-perps/README.md)
+* [How Barrier Perps Work](barrier-perps/how-it-works.md)
+* Products
+  * [Vanilla Barrier Perps](barrier-perps/products/vanilla-barrier-perps.md)
+* Pricing
+  * [Pricing Overview](barrier-perps/pricing/README.md)
+  * [Vanilla Barrier Perps Pricing](barrier-perps/pricing/vanilla-barrier-perps.md)
+* [Quotes & Opening a Position](barrier-perps/quotes-and-opening.md)
+* [Position Lifecycle](barrier-perps/position-lifecycle.md)
+* [Settlement & Claims](barrier-perps/settlement-and-claims.md)
+* [Closing Early](barrier-perps/closing-early.md)
+* [Liquidity & Hedging](barrier-perps/liquidity-and-hedging.md)
+* [Risks & Safeguards](barrier-perps/risks-and-safeguards.md)
+* [FAQ](barrier-perps/faq.md)
 
 ## Developer Guide
 
