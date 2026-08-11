@@ -46,8 +46,8 @@ This hedging happens at the protocol level. Your position remains a fixed-payout
 
 The product's settlement condition determines the outcome. For Vanilla Barrier Perps, the position resolves when one of the two barriers is observed crossing first.
 
-* If your chosen barrier crosses first, the position is **Resolved — Won**.
-* If the other barrier crosses first, the position is **Resolved — Lost**.
+* If your chosen barrier crosses first, the position is **Resolved: Won**.
+* If the other barrier crosses first, the position is **Resolved: Lost**.
 
 ## 6. Claim or Close Early
 

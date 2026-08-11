@@ -6,13 +6,13 @@ Bound is built on a layered stack where each layer depends on the one below.
 
 ```
 ┌─────────────────────────────────────┐
-│  Layer 3 — Products                 │
+│  Layer 3: Products                  │
 │  Launchpad · Lend/Borrow · Options  │
 ├─────────────────────────────────────┤
-│  Layer 2 — Trading Engine           │
+│  Layer 2: Trading Engine            │
 │  Runes AMM · SODAX Crosschain       │
 ├─────────────────────────────────────┤
-│  Layer 1 — Infrastructure           │
+│  Layer 1: Infrastructure            │
 │  Bound Auth · Bound APIs            │
 └─────────────────────────────────────┘
 ```

@@ -9,9 +9,9 @@ Every Barrier Perp follows a defined lifecycle from quote request through settle
 | **Quoting** | The request is being validated and priced. No funds or exposure exist. |
 | **Proposed** | A quote has been delivered and is awaiting acceptance. No funds or exposure exist. |
 | **Active** | The stake has been deposited, the payout and conditions are fixed, and the position is part of the hedged book. |
-| **Resolved — Won** | The selected outcome occurred. The fixed payout is claimable. |
-| **Resolved — Lost** | The other outcome occurred. The stake was lost. |
-| **Resolved — Closed Early** | The position owner accepted a buyback before a terminal outcome. |
+| **Resolved: Won** | The selected outcome occurred. The fixed payout is claimable. |
+| **Resolved: Lost** | The other outcome occurred. The stake was lost. |
+| **Resolved: Closed Early** | The position owner accepted a buyback before a terminal outcome. |
 | **Aborted** | The request was rejected, withdrawn, abandoned, or expired before opening. |
 
 ## State Transitions
@@ -22,9 +22,9 @@ flowchart LR
     Q -->|"Rejected or withdrawn"| A["Aborted"]
     P -->|"Accepted and funded"| AC["Active"]
     P -->|"Expired or abandoned"| A
-    AC -->|"Chosen outcome occurs"| W["Resolved — Won"]
-    AC -->|"Other outcome occurs"| L["Resolved — Lost"]
-    AC -->|"Buyback accepted"| E["Resolved — Closed Early"]
+    AC -->|"Chosen outcome occurs"| W["Resolved: Won"]
+    AC -->|"Other outcome occurs"| L["Resolved: Lost"]
+    AC -->|"Buyback accepted"| E["Resolved: Closed Early"]
 ```
 
 ## Before Opening

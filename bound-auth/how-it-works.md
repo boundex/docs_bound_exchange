@@ -18,11 +18,11 @@ This setup enables near-instant trade execution while maintaining security. If B
 
 ## Key storage
 
-When you register, an encrypted copy of your keystore is stored on Bound's servers. This copy can only be decrypted by your passkey — the decryption key never leaves your device.
+When you register, an encrypted copy of your keystore is stored on Bound's servers. This copy can only be decrypted by your passkey. The decryption key never leaves your device.
 
 ## Multi-device support
 
-You can add additional devices to your account from the **Account Settings** page. The new device receives an encrypted copy of your keystore via a secure device-to-device handshake — Bound never has access to the unencrypted keys at any point.
+You can add additional devices to your account from the **Account Settings** page. The new device receives an encrypted copy of your keystore via a secure device-to-device handshake. Bound never has access to the unencrypted keys at any point.
 
 Removing a device immediately revokes all of its active sessions.
 

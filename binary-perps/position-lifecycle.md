@@ -67,7 +67,7 @@ The user voluntarily closed the position before either price level was reached.
 
 ### Voided
 
-The position was modified outside of Bound—for example, by manually closing the position, cancelling orders, or adjusting margin directly on Hyperliquid.
+The position was modified outside of Bound, for example by manually closing the position, cancelling orders, or adjusting margin directly on Hyperliquid.
 
 Once this occurs, Bound can no longer guarantee that the position follows the Binary Perp rules, so the position is marked as **Voided**.
 

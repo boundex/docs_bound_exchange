@@ -68,4 +68,4 @@ Before costs and spread, a 20% outcome implies a fair gross payout of approximat
 1,000 / 20% = 5,000 USDC
 ```
 
-The actual quote may be lower or higher depending on expected costs and how the position changes the book's existing exposure. The accepted onchain quote—not this simplified estimate—determines the fixed payout.
+The actual quote may be lower or higher depending on expected costs and how the position changes the book's existing exposure. The accepted onchain quote, not this simplified estimate, determines the fixed payout.

@@ -8,7 +8,7 @@ Bound supports three authentication methods depending on the account type:
 | **Passkey (WebAuthn)** | Bound Auth accounts | Authenticate with a device passkey (Face ID, Touch ID, hardware key) |
 | **SRP** | Bound Auth accounts | Authenticate with a password using the Secure Remote Password protocol |
 
-All methods return the same JWT pair — an **access token** (10 min) and a **refresh token** (7 days) — used to authorize subsequent API calls.
+All methods return the same JWT pair, consisting of an **access token** (10 min) and a **refresh token** (7 days), used to authorize subsequent API calls.
 
 ---
 
@@ -24,7 +24,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 ### Refresh when expired
 
-Each refresh token is **single-use** — replace both tokens on every successful refresh call.
+Each refresh token is **single-use**. Replace both tokens on every successful refresh call.
 
 ```http
 POST /api/auth/refresh-token
