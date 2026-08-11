@@ -18,7 +18,7 @@ If you accept a valid quote:
 
 1. The contract validates the position and quote again.
 2. The buyback amount is paid to the position owner.
-3. The position becomes **Resolved: Closed Early**.
+3. The position becomes **Resolved — Closed Early**.
 4. The position leaves the active book.
 5. The protocol updates its hedge.
 
