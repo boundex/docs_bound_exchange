@@ -71,7 +71,6 @@
   * [Configuration Parameters](barrier-perps/appendix/configuration-parameters.md)
   * [Glossary](barrier-perps/appendix/glossary.md)
   * [Roles](barrier-perps/appendix/roles.md)
-  * [Future Considerations](barrier-perps/appendix/future-considerations.md)
 * [FAQ](barrier-perps/faq.md)
 
 ## Bound Auth
