@@ -7,14 +7,6 @@
 * [Connect An Existing Wallet](getting-started/connect-an-existing-wallet.md)
 * [Supported Assets And Chains](getting-started/supported-assets-and-chains.md)
 
-## Bound Auth
-
-* [What is Bound Auth](bound-auth/what-is-bound-auth.md)
-* [How It Works](bound-auth/how-it-works.md)
-* [Security Model](bound-auth/security-model.md)
-* [Account Settings](bound-auth/account-settings.md)
-* [Fund Recovery](fund-recovery/export-private-key.md)
-
 ## Trade
 
 * [Trading Interface Overview](trade/trading-interface-overview.md)
@@ -69,6 +61,14 @@
 * [Liquidity & Hedging](barrier-perps/liquidity-and-hedging.md)
 * [Risks & Safeguards](barrier-perps/risks-and-safeguards.md)
 * [FAQ](barrier-perps/faq.md)
+
+## Bound Auth
+
+* [What is Bound Auth](bound-auth/what-is-bound-auth.md)
+* [How It Works](bound-auth/how-it-works.md)
+* [Security Model](bound-auth/security-model.md)
+* [Account Settings](bound-auth/account-settings.md)
+* [Fund Recovery](fund-recovery/export-private-key.md)
 
 ## Developer Guide
 
