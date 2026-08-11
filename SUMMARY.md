@@ -60,6 +60,18 @@
 * [Closing Early](barrier-perps/closing-early.md)
 * [Liquidity & Hedging](barrier-perps/liquidity-and-hedging.md)
 * [Risks & Safeguards](barrier-perps/risks-and-safeguards.md)
+* Technical Reference
+  * [Pricing Model](barrier-perps/technical-reference/pricing-model.md)
+  * [Hedging Model](barrier-perps/technical-reference/hedging-model.md)
+  * [LP Accounting & Buffer](barrier-perps/technical-reference/lp-accounting-and-buffer.md)
+  * [Settlement Mechanics](barrier-perps/technical-reference/settlement-mechanics.md)
+  * [Circuit Breakers](barrier-perps/technical-reference/circuit-breakers.md)
+  * [Contract Architecture](barrier-perps/technical-reference/contract-architecture.md)
+* Appendix
+  * [Configuration Parameters](barrier-perps/appendix/configuration-parameters.md)
+  * [Glossary](barrier-perps/appendix/glossary.md)
+  * [Roles](barrier-perps/appendix/roles.md)
+  * [Future Considerations](barrier-perps/appendix/future-considerations.md)
 * [FAQ](barrier-perps/faq.md)
 
 ## Bound Auth
