@@ -110,7 +110,7 @@ The initial quote is indicative. During acceptance, the contract:
 4. Compares it with the user's `minPayout`.
 5. Reverts if the new payout is below `minPayout`.
 
-The accepted payout is fixed for the life of the position.
+The accepted payout is fixed as the book's recorded liability for the life of the position. A last-resort socialized-loss adjustment can reduce the final amount paid if the book becomes insolvent.
 
 ## Leverage Padding
 

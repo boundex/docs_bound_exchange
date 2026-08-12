@@ -26,6 +26,8 @@ Gross profit = fixed payout − stake
 
 Fees should also be considered when assessing the net result.
 
+The accepted payout is the book's fixed liability under normal operation. In an extreme insolvency, the final amount paid may be reduced by the protocol's [socialized-loss mechanism](../risks-and-safeguards.md#insolvency-and-reduced-payouts).
+
 ## Quote Expiration
 
 Quotes are only valid for a short period because market prices, funding conditions, and book exposure can change.

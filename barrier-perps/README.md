@@ -14,10 +14,14 @@ With a Barrier Perp, you:
 4. Review a quote showing the fixed payout and fee.
 5. Accept the quote to open the position.
 
-Your maximum loss is the stake committed to the position. If your selected outcome occurs, you receive the fixed payout shown when the position opened. If the other outcome occurs, you lose the stake.
+Your maximum loss is the stake committed to the position. If your selected outcome occurs, the fixed payout shown when the position opened becomes the book's liability to you. If the other outcome occurs, you lose the stake.
 
 {% hint style="info" %}
 **Payout includes your returned stake.** Net profit is the payout minus your original stake and any fees.
+{% endhint %}
+
+{% hint style="warning" %}
+The payout is locked under normal operation. In an extreme book insolvency, a last-resort socialized-loss mechanism may proportionally reduce the amount paid to affected users. See [Risks & Safeguards](risks-and-safeguards.md#insolvency-and-reduced-payouts).
 {% endhint %}
 
 ## Example
@@ -36,7 +40,7 @@ Bound returns a quote with a fixed payout. If you accept it and BTC reaches $110
 ## Key Characteristics
 
 * **Defined maximum loss:** You cannot lose more than your stake on the position.
-* **Fixed payout:** The payout is locked when the position opens.
+* **Fixed payout:** The payout is locked when the position opens, subject to the disclosed last-resort insolvency mechanism.
 * **Flexible expression:** Products define clear market outcomes without requiring a prediction of the final price at a specific time.
 * **Early close:** Active positions may be closed early by accepting a new buyback quote.
 * **Onchain settlement:** Positions settle through the Bound contract on HyperEVM using Hyperliquid market data.

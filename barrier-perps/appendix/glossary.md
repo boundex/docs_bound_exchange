@@ -18,7 +18,7 @@ The USDC committed to a position. It is the position's maximum loss and becomes 
 
 ## Fixed Payout
 
-The gross total claimable after a win, including the returned stake. It is fixed when the position opens.
+The gross liability recorded after a win, including the returned stake. It is fixed when the position opens. A last-resort socialized-loss adjustment can reduce the final amount paid during insolvency.
 
 ## Protocol Fee
 
@@ -67,6 +67,18 @@ The net asset value belonging to LPs:
 ```text
 NAV = book_assets - marked_liability
 ```
+
+## Book Shortfall
+
+The positive amount by which marked liabilities exceed book assets:
+
+```text
+book_shortfall = max(0, marked_liability - book_assets)
+```
+
+## Socialized Loss
+
+A last-resort proportional reduction applied across affected user positions when a book cannot cover its liabilities. It distributes the shortfall according to position value rather than claim order.
 
 ## Core Equity
 

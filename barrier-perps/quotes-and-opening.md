@@ -36,7 +36,7 @@ Before accepting, review:
 | Field | Meaning |
 | --- | --- |
 | Stake | Maximum amount at risk |
-| Fixed payout | Total claimable amount if the position wins, including the stake |
+| Fixed payout | Book liability recorded if the position wins, including the stake; subject to last-resort insolvency handling |
 | Protocol fee | Fee paid in addition to the stake |
 | Barriers and outcome | Conditions that determine the result |
 | Quote expiry | Deadline for accepting the quote |
