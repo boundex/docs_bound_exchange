@@ -714,12 +714,27 @@ type Bet = {
 
   createdAt: number;              // epoch ms — NOT an ISO string
   updatedAt: number;              // epoch ms — bumped by every write
+
+  // Internal bookkeeping — currently serialized, but do not build on these.
+  accountId: string;              // Bound's internal account id
+  relayClaimedAt: string | null;  // ISO — internal relay-once claim stamp
+  deletedAt: string | null;       // soft-delete marker, always null on a live bet
 };
 ```
 
-`BetConstruction` is the 13 fields of `Construction` plus four venue-snapshot fields the
-bet records at proposal time: `assetIndex`, `szDecimals`, `maintenanceMarginFraction`,
-`builderFeeRate`. `POST /quote` returns only the 13.
+`BetConstruction` is **not** the same shape `POST /quote` returns:
+
+- it **adds** four venue-snapshot fields recorded at proposal time — `assetIndex`,
+  `szDecimals`, `maintenanceMarginFraction`, `builderFeeRate`;
+- it **drops `wager`**. The persisted construction does not carry it.
+
+So `/quote` returns 13 fields; a persisted `bet.construction` has 16.
+
+{% hint style="warning" %}
+**`bet.construction.wager` does not exist.** Read the wager from the bet's own top-level
+field — `bet.wager`. Code that reads it from the construction works against a `/quote`
+response and silently yields `undefined` against a stored bet.
+{% endhint %}
 
 {% hint style="info" %}
 **Two different time formats in the same object.** `createdAt` and `updatedAt` are **epoch
@@ -728,6 +743,14 @@ strings**. Parse each accordingly.
 
 Prefer `resolvedAt` over `updatedAt` when you need the moment a bet resolved — `updatedAt`
 moves on every write.
+{% endhint %}
+
+{% hint style="warning" %}
+**`accountId`, `relayClaimedAt` and `deletedAt` are internal.** They are listed above
+because the API currently returns them, not because they are part of the contract —
+`accountId` is Bound's own account key, `relayClaimedAt` belongs to the relay-once
+mechanism, and `deletedAt` is a soft-delete marker. All three may stop being serialized
+without notice. Do not build on them.
 {% endhint %}
 
 **Example:**
