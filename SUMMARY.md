@@ -68,7 +68,6 @@
   * [Circuit Breakers](barrier-perps/technical-reference/circuit-breakers.md)
   * [Contract Architecture](barrier-perps/technical-reference/contract-architecture.md)
 * [Appendix](barrier-perps/appendix/README.md)
-  * [Configuration Parameters](barrier-perps/appendix/configuration-parameters.md)
   * [Glossary](barrier-perps/appendix/glossary.md)
   * [Roles](barrier-perps/appendix/roles.md)
 * [FAQ](barrier-perps/faq.md)
