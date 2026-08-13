@@ -20,10 +20,6 @@ Your maximum loss is the stake committed to the position. If your selected outco
 **Payout includes your returned stake.** Net profit is the payout minus your original stake and any fees.
 {% endhint %}
 
-{% hint style="warning" %}
-The payout is locked under normal operation. In an extreme book insolvency, a last-resort socialized-loss mechanism may proportionally reduce the amount paid to affected users. See [Risks & Safeguards](risks-and-safeguards.md#insolvency-and-reduced-payouts).
-{% endhint %}
-
 ## Example
 
 Assume BTC is trading at **$100,000**. You configure a Vanilla Barrier Perp with:
