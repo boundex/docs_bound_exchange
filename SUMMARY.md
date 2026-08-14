@@ -1,5 +1,40 @@
 # Table of contents
 
+## Barrier Perps
+
+* [Overview](README.md)
+* [How Barrier Perps Work](barrier-perps/how-it-works.md)
+* [Products](barrier-perps/products/README.md)
+  * [Vanilla Barrier Perps](barrier-perps/products/vanilla-barrier-perps.md)
+* [Pricing](barrier-perps/pricing/README.md)
+  * [Pricing Overview](<barrier-perps/pricing/README (1).md>)
+  * [Vanilla Barrier Perps Pricing](barrier-perps/pricing/vanilla-barrier-perps.md)
+* [Quotes & Opening a Position](barrier-perps/quotes-and-opening.md)
+* [Position Lifecycle](barrier-perps/position-lifecycle.md)
+* [Settlement & Claims](barrier-perps/settlement-and-claims.md)
+* [Closing Early](barrier-perps/closing-early.md)
+* [Liquidity & Hedging](barrier-perps/liquidity-and-hedging.md)
+* [Risks & Safeguards](barrier-perps/risks-and-safeguards.md)
+* [Technical Reference](barrier-perps/technical-reference/README.md)
+  * [Pricing Model](barrier-perps/technical-reference/pricing-model.md)
+  * [Hedging Model](barrier-perps/technical-reference/hedging-model.md)
+  * [LP Accounting & Buffer](barrier-perps/technical-reference/lp-accounting-and-buffer.md)
+  * [Settlement Mechanics](barrier-perps/technical-reference/settlement-mechanics.md)
+  * [Circuit Breakers](barrier-perps/technical-reference/circuit-breakers.md)
+  * [Contract Architecture](barrier-perps/technical-reference/contract-architecture.md)
+* [Appendix](barrier-perps/appendix/README.md)
+  * [Glossary](barrier-perps/appendix/glossary.md)
+  * [Roles](barrier-perps/appendix/roles.md)
+* [FAQ](barrier-perps/faq.md)
+
+## Bound Auth
+
+* [What is Bound Auth](bound-auth/what-is-bound-auth.md)
+* [How It Works](bound-auth/how-it-works.md)
+* [Security Model](bound-auth/security-model.md)
+* [Account Settings](bound-auth/account-settings.md)
+* [Fund Recovery](fund-recovery/export-private-key.md)
+
 ## Getting Started
 
 * [Create Your Account](getting-started/create-your-account.md)
@@ -43,41 +78,6 @@
 * [Bitcoin Settlement](protocol-architecture/bitcoin-settlement.md)
 * [Sodax Integration](protocol-architecture/sodax-integration.md)
 * [bUSD Technical Spec](protocol-architecture/busd-technical-spec.md)
-
-## Barrier Perps
-
-* [Overview](README.md)
-* [How Barrier Perps Work](barrier-perps/how-it-works.md)
-* [Products](barrier-perps/products/README.md)
-  * [Vanilla Barrier Perps](barrier-perps/products/vanilla-barrier-perps.md)
-* [Pricing](barrier-perps/pricing/README.md)
-  * [Pricing Overview](<barrier-perps/pricing/README (1).md>)
-  * [Vanilla Barrier Perps Pricing](barrier-perps/pricing/vanilla-barrier-perps.md)
-* [Quotes & Opening a Position](barrier-perps/quotes-and-opening.md)
-* [Position Lifecycle](barrier-perps/position-lifecycle.md)
-* [Settlement & Claims](barrier-perps/settlement-and-claims.md)
-* [Closing Early](barrier-perps/closing-early.md)
-* [Liquidity & Hedging](barrier-perps/liquidity-and-hedging.md)
-* [Risks & Safeguards](barrier-perps/risks-and-safeguards.md)
-* [Technical Reference](barrier-perps/technical-reference/README.md)
-  * [Pricing Model](barrier-perps/technical-reference/pricing-model.md)
-  * [Hedging Model](barrier-perps/technical-reference/hedging-model.md)
-  * [LP Accounting & Buffer](barrier-perps/technical-reference/lp-accounting-and-buffer.md)
-  * [Settlement Mechanics](barrier-perps/technical-reference/settlement-mechanics.md)
-  * [Circuit Breakers](barrier-perps/technical-reference/circuit-breakers.md)
-  * [Contract Architecture](barrier-perps/technical-reference/contract-architecture.md)
-* [Appendix](barrier-perps/appendix/README.md)
-  * [Glossary](barrier-perps/appendix/glossary.md)
-  * [Roles](barrier-perps/appendix/roles.md)
-* [FAQ](barrier-perps/faq.md)
-
-## Bound Auth
-
-* [What is Bound Auth](bound-auth/what-is-bound-auth.md)
-* [How It Works](bound-auth/how-it-works.md)
-* [Security Model](bound-auth/security-model.md)
-* [Account Settings](bound-auth/account-settings.md)
-* [Fund Recovery](fund-recovery/export-private-key.md)
 
 ## Developer Guide <a href="#developer-guide-backup" id="developer-guide-backup"></a>
 
