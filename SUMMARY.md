@@ -2,7 +2,6 @@
 
 ## Getting Started
 
-* [Overview](README.md)
 * [Create Your Account](getting-started/create-your-account.md)
 * [Connect An Existing Wallet](getting-started/connect-an-existing-wallet.md)
 * [Supported Assets And Chains](getting-started/supported-assets-and-chains.md)
@@ -47,7 +46,7 @@
 
 ## Barrier Perps
 
-* [Overview](barrier-perps/README.md)
+* [Overview](README.md)
 * [How Barrier Perps Work](barrier-perps/how-it-works.md)
 * [Products](barrier-perps/products/README.md)
   * [Vanilla Barrier Perps](barrier-perps/products/vanilla-barrier-perps.md)
