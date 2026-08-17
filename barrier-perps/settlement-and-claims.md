@@ -34,6 +34,14 @@ After a win, the fixed payout becomes a liability of the contract and can be cla
 
 Claims are permissionless in the sense that settlement does not depend on Bound submitting the transaction. Calling the claim cannot redirect the payout to a different recipient.
 
+## Insolvency
+
+Settlement can establish a winning liability even when the book is temporarily unable to pay it. If the solvency breaker is active, claims may be blocked while the book attempts to restore coverage through buybacks or additional capital.
+
+If the shortfall cannot be recovered, the protocol applies a proportional socialized-loss adjustment across affected positions. The adjustment is calculated before claims resume, so calling earlier does not avoid the reduction or consume funds owed proportionally to other users.
+
+The position remains **Resolved — Won**, but the final claimable amount may be lower than the payout recorded at opening. See [LP Accounting & Buffer](technical-reference/lp-accounting-and-buffer.md#insolvency-and-socialized-loss) for the allocation model.
+
 ## Delayed Settlement
 
 Network congestion, keeper downtime, safety restrictions, or Hyperliquid availability can delay settlement. A delay does not by itself change the position's barriers or fixed payout. Stored mark readings allow an observed crossing to be settled after normal operation resumes.

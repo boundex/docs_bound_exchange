@@ -38,7 +38,8 @@ Every configurable value should have an onchain hard bound, a timelock, or both.
 | Outflow allowance | Maximum share of `book_assets` transferable per window | 25% per 24 hours | Confirmed |
 | `max_book_leverage` | Book hedge-leverage ceiling | 7x proposed | Needs engineering input |
 | `solvency_multiplier` | Minimum assets relative to marked liabilities | 1.5 proposed | Needs quantitative input |
-| Shortfall handling | Policy if assets fall below fixed payouts owed | Proportional reduction, claim queue, or migration freeze | Awaiting business decision |
+| Shortfall handling | Last-resort allocation when book assets cannot cover liabilities | Pro-rata socialized loss based on affected position value | Confirmed design |
+| Non-positive NAV recapitalization | LP share issuance when pre-deposit NAV is zero or negative | Explicit recapitalization rule required | Needs implementation confirmation |
 
 ## Hedge Parameters
 

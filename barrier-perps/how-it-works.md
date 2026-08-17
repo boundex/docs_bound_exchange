@@ -51,6 +51,6 @@ The product's settlement condition determines the outcome. For Vanilla Barrier P
 
 ## 6. Claim or Close Early
 
-After a win, the fixed payout becomes claimable to the position owner.
+After a win, the fixed payout becomes a liability owed to the position owner and is claimable under normal solvency conditions. A last-resort socialized-loss adjustment may apply if the book cannot cover its liabilities.
 
 Before either outcome occurs, you may also request a buyback quote to close the position early. Accepting it closes the position for the quoted amount. Declining it leaves the position active.

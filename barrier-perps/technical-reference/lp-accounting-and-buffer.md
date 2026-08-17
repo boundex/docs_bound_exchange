@@ -71,7 +71,44 @@ LP withdrawals are blocked while any breaker is tripped.
 
 LP capital is junior to winner payouts. Hedge losses or cost variance reduce NAV before they affect the fixed liabilities owed to winning users under normal operation.
 
-The source specification leaves catastrophic shortfall handling as a policy decision. Possible approaches include proportional reductions, a claim queue, or a migration freeze. Until that policy is finalized, the documentation should not imply that the buffer eliminates all solvency risk.
+## Insolvency and Socialized Loss
+
+Breaker 2 is the first response when book assets approach the book's marked liabilities. It stops new positions and permits only buybacks, which retire liabilities and can improve coverage.
+
+If the book remains unable to cover its liabilities, claims are blocked while the contract calculates a last-resort socialized loss. The positive book shortfall is:
+
+```text
+book_shortfall = max(0, marked_liability - book_assets)
+```
+
+The shortfall is allocated across affected user positions in proportion to their marked position values:
+
+```text
+user_shortfall_share =
+  user_position_value / total_affected_position_value
+  * book_shortfall
+
+adjusted_amount = max(0, normal_amount - user_shortfall_share)
+```
+
+`book_shortfall` is expressed as a positive amount. This avoids the sign ambiguity that would result from subtracting a negative LP value.
+
+The contract snapshots the affected positions, their values, total affected position value, book assets, and marked liabilities for the allocation. The adjustment applies consistently to affected claims and buybacks so claim order cannot allow early callers to exhaust the remaining assets. The allocated reduction remains in the book and helps restore solvency. Once the contract has finalized the allocation and the applicable safety conditions are satisfied, users can receive their adjusted amounts.
+
+Socialized loss is a last-resort mechanism. It does not change which barrier won, but it can reduce the amount ultimately paid below the payout recorded when the position opened.
+
+## LP Share Issuance During Losses
+
+Ordinary LP deposits use the pre-deposit NAV per share:
+
+```text
+NAV per share = NAV / total share supply
+shares minted = deposit / NAV per share
+```
+
+If NAV remains positive but has declined, the share price is lower and a new depositor receives more shares for the same deposit. Existing LPs retain their proportional ownership of the impaired pool before the new deposit.
+
+If NAV is zero or negative, the ordinary formula cannot produce a valid positive share amount. A deposit may recapitalize the book economically, but share issuance requires an explicit recapitalization rule rather than division by a non-positive NAV. The deployed contract's recapitalization policy is authoritative for that edge case.
 
 ## Fee Accounting
 

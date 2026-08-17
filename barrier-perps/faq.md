@@ -14,13 +14,15 @@ Your maximum loss on a position is its USDC stake. The protocol fee is paid sepa
 
 ## Is the payout fixed?
 
-Yes. The payout is fixed when the position opens and does not change afterward. Indicative quotes can change before acceptance.
+The payout is locked when the position opens and becomes the book's recorded liability if the position wins. Indicative quotes can change before acceptance.
+
+In an extreme insolvency where book assets cannot cover liabilities, a last-resort socialized-loss mechanism may proportionally reduce the amount ultimately paid to affected users.
 
 ## Does payout mean profit?
 
 No. Payout is the total amount received after a win and includes the returned stake.
 
-```text
+```
 Gross profit = payout − stake
 ```
 
@@ -44,7 +46,13 @@ You may request a buyback quote while the position is active. Accepting the quot
 
 ## How do I receive a winning payout?
 
-After the position settles as won, its fixed payout becomes claimable to the position owner. Claims are permissionless, but the recipient cannot be changed by the caller.
+After the position settles as won, its recorded payout becomes claimable to the position owner under normal solvency conditions. Claims are permissionless, but the recipient cannot be changed by the caller. An insolvency restriction or socialized-loss adjustment may delay or reduce payment.
+
+## What happens if a book becomes insolvent?
+
+The solvency breaker stops new positions and initially permits only buybacks that reduce liabilities. Claims are blocked while the book attempts to recover through buybacks or additional capital.
+
+If a shortfall remains, it is allocated across affected positions according to their share of total position value. This can reduce winning claims or early-close amounts and prevents claim order from determining who absorbs the loss.
 
 ## Does Bound open a perpetual position in my account?
 
@@ -52,7 +60,7 @@ No. The Barrier Perp is held through the Bound contract. Bound manages and hedge
 
 ## How does Bound price positions?
 
-Pricing begins with the product's estimated outcome probability, then accounts for expected hedge costs, book exposure, and spread. See [Pricing Overview](pricing/README.md) and [Vanilla Barrier Perps Pricing](pricing/vanilla-barrier-perps.md).
+Pricing begins with the product's estimated outcome probability, then accounts for expected hedge costs, book exposure, and spread. See [Pricing Overview](<pricing/README (1).md>) and [Vanilla Barrier Perps Pricing](pricing/vanilla-barrier-perps.md).
 
 ## What happens if services are unavailable?
 

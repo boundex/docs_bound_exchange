@@ -54,6 +54,14 @@ The multiplier covers residual risk not captured by the position-marking model, 
 
 Only buybacks are allowed because they retire a position below its marked liability and improve coverage. New opens are refused even when they would reduce net exposure.
 
+### If Buybacks Do Not Restore Solvency
+
+Breaker 2 detects and contains the condition, but it does not by itself eliminate an unrecoverable shortfall. Claims remain blocked while the book cannot meet its liabilities.
+
+If buybacks and additional capital do not restore coverage, the contract applies the [socialized-loss procedure](lp-accounting-and-buffer.md#insolvency-and-socialized-loss). The positive shortfall is allocated across affected positions according to their share of total position value, reducing claims and buybacks consistently. This prevents claim ordering from determining which users absorb the loss.
+
+Normal processing resumes only after the allocation is finalized and the book satisfies the applicable recovery conditions.
+
 ## Breaker 3: Hedge Staleness
 
 ```text

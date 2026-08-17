@@ -1,0 +1,1225 @@
+openapi: 3.0.3
+info:
+  title: Barrier Perps API
+  description: |
+    Programmatic access to Barrier Perps (internally `which-first`) on Bound Exchange.
+
+    Pick two price barriers around the current market price, bet on which one is reached first.
+    Positions are non-custodial: Bound builds and prices every action, but the user's own wallet
+    signs it and the position lives in the user's own Hyperliquid account.
+
+    **Base URL:** `https://api.bound.exchange`
+
+    All endpoints require a JWT (`Authorization: Bearer <access_token>`) and are rate-limited.
+  version: 1.0.0
+  contact:
+    name: Bound Exchange
+    url: https://bound.exchange
+
+servers:
+  - url: https://api.bound.exchange
+    description: Production
+  - url: https://testnet-api.bound.exchange
+    description: Testnet
+
+security:
+  - bearerAuth: []
+
+tags:
+  - name: Setup
+    description: One-time wallet setup (deposit, referral, builder fee)
+  - name: Bet
+    description: Place, execute, and exit bets
+  - name: Read
+    description: List and read bets
+  - name: Off-ramp
+    description: Withdraw USDC back to HyperEVM
+
+paths:
+  /api/which-first/deposit:
+    post:
+      operationId: createDeposit
+      tags: [Setup]
+      summary: Fund the account
+      description: |
+        Returns an unsigned two-transaction HyperEVM plan that moves USDC into the wallet's
+        Hyperliquid account. Sign and broadcast both transactions yourself via `eth_sendRawTransaction`
+        on the plan's `rpcUrl`. Do **not** use `signL1Action`.
+
+        The `approve` is for the exact amount — send both transactions on every deposit.
+        Broadcast approve first, deposit second, with consecutive nonces.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepositRequest'
+            example:
+              userAddress: "0xc12b0a4a5fdd42d1f4aa2a08c2193d1ac49c8167"
+              amount: "10"
+      responses:
+        '200':
+          description: Deposit plan returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse_DepositPlan'
+              example:
+                code: "1"
+                message: "common.success"
+                data:
+                  usdcToken: "0xb88339…"
+                  depositContract: "0x6b9e77…"
+                  rpcUrl: "https://…hyperevm-rpc"
+                  from: "0xc12b…"
+                  amount: "10"
+                  txs:
+                    - chainId: 999
+                      to: "0xb88339…"
+                      data: "0x095ea7b3…"
+                      value: "0"
+                    - chainId: 999
+                      to: "0x6b9e77…"
+                      data: "0x2b2dfd2c…"
+                      value: "0"
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+
+  /api/which-first/referral:
+    post:
+      operationId: createReferral
+      tags: [Setup]
+      summary: Referral opt-in (one-time)
+      description: |
+        Returns an unsigned `setReferrer` action, or `null` when no referral code is configured
+        or the wallet already has a referrer. Sign with `signL1Action` and POST directly to
+        Hyperliquid `/exchange`.
+
+        Hyperliquid only lets a wallet set a referrer while cumulative volume is under $10k.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAddressRequest'
+            example:
+              userAddress: "0xc12b0a4a5fdd42d1f4aa2a08c2193d1ac49c8167"
+      responses:
+        '200':
+          description: Referral action or null
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse_ReferralResponse'
+              example:
+                code: "1"
+                message: "common.success"
+                data:
+                  kind: "set_referrer"
+                  action:
+                    type: "setReferrer"
+                    code: "BOUND"
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+
+  /api/which-first/builder-fee-approval:
+    post:
+      operationId: createBuilderFeeApproval
+      tags: [Setup]
+      summary: Approve builder fee (one-time)
+      description: |
+        Returns an unsigned `approveBuilderFee` action. Sign with `signUserSignedAction` (EIP-712),
+        then POST the signed envelope directly to Hyperliquid `/exchange`.
+
+        Sign once per wallet; afterwards the `builderFeeNotApproved` gate stops firing.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+            example: {}
+      responses:
+        '200':
+          description: Builder fee approval action
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse_BuilderFeeApproval'
+              example:
+                code: "1"
+                message: "common.success"
+                data:
+                  kind: "approve_builder_fee"
+                  action:
+                    type: "approveBuilderFee"
+                    hyperliquidChain: "Mainnet"
+                    signatureChainId: "0xa4b1"
+                    maxFeeRate: "0.05%"
+                    builder: "0x…"
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+
+  /api/which-first/limits:
+    get:
+      operationId: getLimits
+      tags: [Bet]
+      summary: Bound constraints
+      description: |
+        Per-asset constraints so you can validate bounds without a `/quote` round-trip.
+        Same source as the server-side gates, so values never drift.
+
+        `coin` is optional and defaults to the launch asset.
+        URL-encode HIP-3 names: `?coin=xyz%3ATSLA`, not `?coin=xyz:TSLA`.
+      parameters:
+        - name: coin
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Asset name (e.g. BTC, ETH). URL-encode HIP-3 names.
+          example: BTC
+      responses:
+        '200':
+          description: Limit constraints for the asset
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse_Limits'
+              example:
+                code: "1"
+                message: "common.success"
+                data:
+                  coin: "BTC"
+                  mark: "61000"
+                  maxLeverage: 40
+                  maxBoundDistance: "0.1"
+                  minAgainstDistance:
+                    upper_first: "0.015158"
+                    lower_first: "0.014846"
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+
+  /api/which-first/quote:
+    post:
+      operationId: createQuote
+      tags: [Bet]
+      summary: Price a bet
+      description: |
+        Pure pricing preview. No wallet gates, no persistence, no side effects.
+
+        `wager` is isolated margin, not order notional.
+        `payoutMultiple` is profit / wager. To show a total-return multiple, use `1 + payoutMultiple`.
+
+        This endpoint deliberately does not enforce the configured wager range or Hyperliquid's
+        $10 minimum order notional. Treat `/proposals` as the authoritative gate.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuoteRequest'
+            example:
+              side: "upper_first"
+              upperBound: "63500"
+              lowerBound: "59000"
+              wager: "20"
+              coin: "BTC"
+      responses:
+        '200':
+          description: Construction preview
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse_Construction'
+              example:
+                code: "1"
+                message: "common.success"
+                data:
+                  direction: "long"
+                  leverage: 17
+                  notional: "340"
+                  coinSize: "0.0056"
+                  chosenBound: "63500"
+                  losingBound: "59000"
+                  takeProfitPrice: "63500"
+                  liquidationPrice: "58656.39"
+                  payoutMultiple: "0.66"
+                  payoutEstimate: "13.25"
+                  maxSlippage: "0.01"
+                  entryPrice: "61000"
+                  wager: "20"
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+
+  /api/which-first/proposals:
+    post:
+      operationId: createProposal
+      tags: [Bet]
+      summary: Create the bet
+      description: |
+        Runs every gate, persists a `proposed` bet (which holds the per-asset slot),
+        and returns the actions to sign.
+
+        Only one open bet per asset per account — including from a different wallet
+        on the same account. A retry while one is open returns `26007`.
+
+        Enforces the configured wager range (default 10-100,000 USDC) and requires
+        `price * coinSize >= $10` for both order wires.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProposalRequest'
+            example:
+              side: "upper_first"
+              upperBound: "63500"
+              lowerBound: "59000"
+              wager: "20"
+              coin: "BTC"
+              userAddress: "0xc12b0a4a5fdd42d1f4aa2a08c2193d1ac49c8167"
+      responses:
+        '200':
+          description: Proposal with unsigned actions to sign
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse_ProposalResult'
+              example:
+                code: "1"
+                message: "common.success"
+                data:
+                  betId: "6a3d…"
+                  state: "proposed"
+                  proposalExpiresAt: "2026-06-26T10:30:00.000Z"
+                  construction:
+                    leverage: 17
+                    takeProfitPrice: "63500"
+                  unsignedActions:
+                    - kind: "update_leverage"
+                      action:
+                        type: "updateLeverage"
+                    - kind: "entry"
+                      action:
+                        type: "order"
+                        grouping: "normalTpsl"
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+
+  /api/which-first/{id}/execute:
+    post:
+      operationId: executeBet
+      tags: [Bet]
+      summary: Relay the signed bundle
+      description: |
+        The only signed bodies Bound relays. Sign the `unsignedActions` from `/proposals` (entry)
+        or `/cash-out`, keep each original `kind`, and send them in order.
+
+        **Relay-once:** `26028` fires when order ids are already recorded, another relay is in flight,
+        or a retry found venue evidence. Never re-sign — a new nonce defeats Hyperliquid's dedup.
+
+        **`26025`** is the only definitive "nothing landed" verdict — retrying after it is safe.
+      parameters:
+        - $ref: '#/components/parameters/BetId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExecuteRequest'
+            example:
+              actions:
+                - kind: "update_leverage"
+                  action:
+                    type: "updateLeverage"
+                  nonce: 1719396000000
+                  signature: "0x…"
+                - kind: "entry"
+                  action:
+                    type: "order"
+                    grouping: "normalTpsl"
+                  nonce: 1719396000001
+                  signature: "0x…"
+      responses:
+        '200':
+          description: Updated bet after execution
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse_Bet'
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+
+  /api/which-first/{id}/cash-out:
+    post:
+      operationId: cashOut
+      tags: [Bet]
+      summary: Exit early
+      description: |
+        Returns an unsigned bundle that cancels the resting take-profit and closes the position
+        reduce-only. Only for an `active` bet.
+
+        Sign both actions and send them to `POST /{id}/execute` — same as the entry bundle.
+        Repeating a cash-out is a no-op; a bet that is no longer active returns `26012`.
+      parameters:
+        - $ref: '#/components/parameters/BetId'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+            example: {}
+      responses:
+        '200':
+          description: Cash-out bundle with unsigned actions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse_CashOutResult'
+              example:
+                code: "1"
+                message: "common.success"
+                data:
+                  betId: "6a3d…"
+                  unsignedActions:
+                    - kind: "cancel"
+                      action:
+                        type: "cancel"
+                    - kind: "cash_out_close"
+                      action:
+                        type: "order"
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+
+  /api/which-first:
+    get:
+      operationId: listBets
+      tags: [Read]
+      summary: List your bets
+      description: |
+        Paginated. Regular users always see only their own bets — the account scope is enforced
+        server-side.
+
+        Filters use the `field_eq=value` grammar. A bare `?state=…` does **not** filter.
+        `evmAddress_eq` must be lower-cased.
+      parameters:
+        - name: state_eq
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [proposed, active, won, lost, cashed_out, voided, aborted]
+          description: Filter by bet state
+        - name: evmAddress_eq
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Filter by wallet address (must be lower-cased)
+        - name: coin_eq
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Filter by asset name
+        - name: side_eq
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [upper_first, lower_first]
+          description: Filter by bet side
+        - name: createdAt_gte
+          in: query
+          required: false
+          schema:
+            type: number
+          description: Created at lower bound (epoch ms)
+        - name: createdAt_lte
+          in: query
+          required: false
+          schema:
+            type: number
+          description: Created at upper bound (epoch ms)
+        - name: activatedAt_gte
+          in: query
+          required: false
+          schema:
+            type: number
+          description: Activated at lower bound (epoch ms)
+        - name: activatedAt_lte
+          in: query
+          required: false
+          schema:
+            type: number
+          description: Activated at upper bound (epoch ms)
+        - name: resolvedAt_gte
+          in: query
+          required: false
+          schema:
+            type: number
+          description: Resolved at lower bound (epoch ms)
+        - name: resolvedAt_lte
+          in: query
+          required: false
+          schema:
+            type: number
+          description: Resolved at upper bound (epoch ms)
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+          description: Page number
+        - name: pageSize
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 50
+          description: Items per page
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Sort field (prefix with `-` for descending, e.g. `-createdAt`)
+      responses:
+        '200':
+          description: Paginated list of bets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse_BetList'
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+
+  /api/which-first/{id}:
+    get:
+      operationId: getBet
+      tags: [Read]
+      summary: Read one bet
+      description: |
+        Owner only. A well-formed but unknown or foreign id returns `26001` or `26002`.
+        An `id` that is not 24-hex does not match the route at all and returns a plain 404.
+      parameters:
+        - $ref: '#/components/parameters/BetId'
+      responses:
+        '200':
+          description: Single bet
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse_Bet'
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+        '404':
+          description: Bet not found
+
+  /api/which-first/withdraw:
+    post:
+      operationId: createWithdraw
+      tags: [Off-ramp]
+      summary: Move USDC back to HyperEVM
+      description: |
+        Returns an unsigned `sendAsset` action — the deposit's mirror. Funds are credited to the
+        signing wallet itself on HyperEVM.
+
+        Sign with `signUserSignedAction` (EIP-712, `HyperliquidTransaction:SendAsset` types).
+        Add `nonce` (ms) to the action object, sign, then POST `{ action, nonce, signature }`
+        directly to Hyperliquid `/exchange`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WithdrawRequest'
+            example:
+              userAddress: "0xc12b0a4a5fdd42d1f4aa2a08c2193d1ac49c8167"
+              amount: "10"
+      responses:
+        '200':
+          description: Withdraw action to sign
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse_WithdrawAction'
+              example:
+                code: "1"
+                message: "common.success"
+                data:
+                  kind: "withdraw"
+                  action:
+                    type: "sendAsset"
+                    hyperliquidChain: "Mainnet"
+                    signatureChainId: "0xa4b1"
+                    destination: "0x2000000000000000000000000000000000000000"
+                    sourceDex: "spot"
+                    destinationDex: "spot"
+                    token: "USDC:0xeb62eee3685fc4c43992febcd9e75443"
+                    amount: "10"
+                    fromSubAccount: ""
+        '400':
+          $ref: '#/components/responses/ErrorResponse'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token from `POST /auth/authenticate`
+
+  parameters:
+    BetId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Bet ID (24-char hex string)
+      example: "6a3d1f2e3b4c5d6e7f8a9b0c"
+
+  responses:
+    ErrorResponse:
+      description: Error response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+          example:
+            code: "26003"
+            message: "whichFirst.invalidBounds"
+            details: "Upper must be above the current price and lower below it"
+
+  schemas:
+    # ── Request schemas ──────────────────────────────────────────
+
+    DepositRequest:
+      type: object
+      required: [userAddress, amount]
+      properties:
+        userAddress:
+          type: string
+          description: EVM wallet address that signs and owns the Hyperliquid position
+        amount:
+          type: string
+          description: USDC amount to deposit
+
+    UserAddressRequest:
+      type: object
+      required: [userAddress]
+      properties:
+        userAddress:
+          type: string
+          description: EVM wallet address
+
+    QuoteRequest:
+      type: object
+      required: [side, upperBound, lowerBound, wager]
+      properties:
+        side:
+          type: string
+          enum: [upper_first, lower_first]
+          description: Which bound you bet on being touched first
+        upperBound:
+          type: string
+          description: Upper price barrier
+        lowerBound:
+          type: string
+          description: Lower price barrier
+        wager:
+          type: string
+          description: Isolated margin amount in USDC
+        coin:
+          type: string
+          description: Asset name (e.g. BTC, ETH). Optional — defaults to the launch asset if omitted.
+
+    ProposalRequest:
+      type: object
+      required: [side, upperBound, lowerBound, wager, userAddress]
+      properties:
+        side:
+          type: string
+          enum: [upper_first, lower_first]
+        upperBound:
+          type: string
+        lowerBound:
+          type: string
+        wager:
+          type: string
+        coin:
+          type: string
+          description: Optional — defaults to the launch asset if omitted
+        userAddress:
+          type: string
+          description: EVM wallet that signs and owns the position
+
+    ExecuteRequest:
+      type: object
+      required: [actions]
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SignedAction'
+          description: Signed actions in order (from proposals or cash-out)
+
+    SignedAction:
+      type: object
+      required: [kind, action, nonce, signature]
+      properties:
+        kind:
+          type: string
+          enum: [update_leverage, entry, cancel, cash_out_close, take_profit, approve_builder_fee, set_referrer, withdraw]
+          description: Action kind — must match the unsigned action's kind. Entry bundles use update_leverage + entry; cash-out bundles use cancel + cash_out_close.
+        action:
+          $ref: '#/components/schemas/HlAction'
+        nonce:
+          type: number
+          description: Monotonic nonce in milliseconds
+        signature:
+          description: Hex-encoded signature string, or an {r, s, v} object
+
+    WithdrawRequest:
+      type: object
+      required: [userAddress, amount]
+      properties:
+        userAddress:
+          type: string
+          description: EVM wallet address
+        amount:
+          type: string
+          description: USDC amount to withdraw
+
+    # ── Response wrappers ────────────────────────────────────────
+
+    ErrorEnvelope:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          description: Error code (26xxx for Barrier Perps errors)
+        message:
+          type: string
+          description: Error message key
+        details:
+          type: string
+          description: Human-readable detail (present on some errors)
+
+    PaginationMeta:
+      type: object
+      properties:
+        totalItems:
+          type: integer
+        currentPage:
+          type: integer
+        pageSize:
+          type: integer
+        totalPages:
+          type: integer
+
+    ApiResponse_DepositPlan:
+      type: object
+      properties:
+        code:
+          type: string
+          example: "1"
+        message:
+          type: string
+          example: "common.success"
+        data:
+          $ref: '#/components/schemas/DepositPlan'
+
+    ApiResponse_ReferralResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/ReferralResponse'
+
+    ApiResponse_BuilderFeeApproval:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/BuilderFeeApproval'
+
+    ApiResponse_Limits:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/Limits'
+
+    ApiResponse_Construction:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/Construction'
+
+    ApiResponse_ProposalResult:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/ProposalResult'
+
+    ApiResponse_Bet:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/Bet'
+
+    ApiResponse_BetList:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bet'
+        metaData:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    ApiResponse_CashOutResult:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/CashOutResult'
+
+    ApiResponse_WithdrawAction:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/WithdrawAction'
+
+    # ── Domain schemas ───────────────────────────────────────────
+
+    HlAction:
+      type: object
+      additionalProperties: true
+      description: |
+        Opaque Hyperliquid action object. Bound builds it; you sign it byte for byte
+        and never edit it. Bound re-derives the expected body when you relay it back.
+
+    EvmTx:
+      type: object
+      required: [chainId, to, data, value]
+      properties:
+        chainId:
+          type: integer
+          description: "999 for mainnet, 998 for testnet"
+        to:
+          type: string
+          description: Contract address
+        data:
+          type: string
+          description: Encoded calldata
+        value:
+          type: string
+          description: ETH value (typically "0")
+
+    DepositPlan:
+      type: object
+      required: [usdcToken, depositContract, rpcUrl, from, amount, txs]
+      properties:
+        usdcToken:
+          type: string
+          description: USDC ERC-20 contract address
+        depositContract:
+          type: string
+          description: Pull-based deposit contract address
+        rpcUrl:
+          type: string
+          description: HyperEVM RPC URL — broadcast both signed txs here
+        from:
+          type: string
+          description: The signing wallet address
+        amount:
+          type: string
+          description: USDC amount
+        txs:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvmTx'
+          minItems: 2
+          maxItems: 2
+          description: "[approve, deposit] — sign and broadcast IN ORDER"
+
+    ReferralResponse:
+      nullable: true
+      type: object
+      properties:
+        kind:
+          type: string
+          enum: [set_referrer]
+        action:
+          $ref: '#/components/schemas/HlAction'
+      description: "null when no referral code is configured or wallet already has a referrer"
+
+    BuilderFeeApproval:
+      type: object
+      required: [kind, action]
+      properties:
+        kind:
+          type: string
+          enum: [approve_builder_fee]
+        action:
+          $ref: '#/components/schemas/HlAction'
+
+    Limits:
+      type: object
+      required: [coin, mark, maxLeverage, maxBoundDistance, minAgainstDistance]
+      properties:
+        coin:
+          type: string
+        mark:
+          type: string
+          description: Snapshot mark price at fetch time
+        maxLeverage:
+          type: integer
+        maxBoundDistance:
+          type: string
+          description: Each bound must be within this fraction of mark (e.g. "0.1" = 10%)
+        minAgainstDistance:
+          type: object
+          required: [upper_first, lower_first]
+          properties:
+            upper_first:
+              type: string
+              description: "LONG: lower bound must be >= this fraction below mark"
+            lower_first:
+              type: string
+              description: "SHORT: upper bound must be >= this fraction above mark"
+
+    Construction:
+      type: object
+      required:
+        - direction
+        - leverage
+        - notional
+        - coinSize
+        - chosenBound
+        - losingBound
+        - takeProfitPrice
+        - liquidationPrice
+        - payoutMultiple
+        - payoutEstimate
+        - maxSlippage
+        - entryPrice
+        - wager
+      properties:
+        direction:
+          type: string
+          enum: [long, short]
+        leverage:
+          type: integer
+          description: Integer, rounded down
+        notional:
+          type: string
+          description: leverage * wager
+        coinSize:
+          type: string
+        chosenBound:
+          type: string
+          description: The bound you bet on — becomes take-profit
+        losingBound:
+          type: string
+          description: The opposing bound — liquidation level
+        takeProfitPrice:
+          type: string
+        liquidationPrice:
+          type: string
+          description: Pre-trade estimate at the mark
+        payoutMultiple:
+          type: string
+          description: "profit / wager (NOT total return — add 1 for total-return multiple)"
+        payoutEstimate:
+          type: string
+          description: Profit in USDC if won, before fees and funding
+        maxSlippage:
+          type: string
+        entryPrice:
+          type: string
+          description: Mark price used to price
+        wager:
+          type: string
+
+    UnsignedAction:
+      type: object
+      required: [kind, action]
+      properties:
+        kind:
+          type: string
+          enum: [update_leverage, entry, cancel, cash_out_close]
+        action:
+          $ref: '#/components/schemas/HlAction'
+
+    ProposalResult:
+      type: object
+      required: [betId, state, proposalExpiresAt, construction, unsignedActions]
+      properties:
+        betId:
+          type: string
+        state:
+          type: string
+          enum: [proposed]
+        proposalExpiresAt:
+          type: string
+          format: date-time
+          description: Sign and execute BEFORE this time
+        construction:
+          $ref: '#/components/schemas/Construction'
+        unsignedActions:
+          type: array
+          items:
+            $ref: '#/components/schemas/UnsignedAction'
+
+    CashOutResult:
+      type: object
+      required: [betId, unsignedActions]
+      properties:
+        betId:
+          type: string
+        unsignedActions:
+          type: array
+          items:
+            $ref: '#/components/schemas/UnsignedAction'
+          minItems: 2
+          maxItems: 2
+          description: "[cancel, cash_out_close]"
+
+    WithdrawAction:
+      type: object
+      required: [kind, action]
+      properties:
+        kind:
+          type: string
+          enum: [withdraw]
+        action:
+          $ref: '#/components/schemas/HlAction'
+
+    VenueRefs:
+      type: object
+      properties:
+        entryOid:
+          type: string
+          nullable: true
+        takeProfitOid:
+          type: string
+          nullable: true
+          description: "null for up to one monitor cycle (~30s) right after execute"
+        closeOid:
+          type: string
+          nullable: true
+
+    BetActuals:
+      type: object
+      description: Post-fill data — every field null until the venue event lands
+      properties:
+        actualEntryPrice:
+          type: string
+          nullable: true
+        actualLiquidationPrice:
+          type: string
+          nullable: true
+          description: On-venue value — use this once active
+        actualPayoutMultiple:
+          type: string
+          nullable: true
+        actualCoinSize:
+          type: string
+          nullable: true
+        actualMarginUsed:
+          type: string
+          nullable: true
+        fundingAtActivation:
+          type: string
+          nullable: true
+        finalProceeds:
+          type: string
+          nullable: true
+          description: "GROSS realized PnL — before fees and funding. Not the user's result."
+        feesPaid:
+          type: string
+          nullable: true
+          description: Close-side exchange fee
+        fundingPaid:
+          type: string
+          nullable: true
+          description: "Signed; negative = paid"
+        netProceeds:
+          type: string
+          nullable: true
+          description: |
+            Authoritative NET (finalProceeds - fees + funding). Nullable — best-effort.
+            When null, recompute from Hyperliquid userFills + userFunding.
+
+    BetConstruction:
+      type: object
+      description: |
+        Construction snapshot recorded at proposal time. Contains the same pricing fields
+        as Construction (except `wager`, which is stored at the top-level Bet) plus 4
+        venue-snapshot fields.
+      properties:
+        direction:
+          type: string
+          enum: [long, short]
+        leverage:
+          type: integer
+        notional:
+          type: string
+        coinSize:
+          type: string
+        chosenBound:
+          type: string
+        losingBound:
+          type: string
+        takeProfitPrice:
+          type: string
+        liquidationPrice:
+          type: string
+        payoutMultiple:
+          type: string
+        payoutEstimate:
+          type: string
+        maxSlippage:
+          type: string
+        entryPrice:
+          type: string
+        assetIndex:
+          type: integer
+        szDecimals:
+          type: integer
+        maintenanceMarginFraction:
+          type: string
+        builderFeeRate:
+          type: string
+
+    Bet:
+      type: object
+      required:
+        - _id
+        - coin
+        - evmAddress
+        - side
+        - upperBound
+        - lowerBound
+        - wager
+        - construction
+        - state
+        - proposalExpiresAt
+        - venueRefs
+        - actuals
+        - createdAt
+        - updatedAt
+      properties:
+        _id:
+          type: string
+          description: Bet ID (the list returns `_id`; only /proposals returns `betId`)
+        accountId:
+          type: string
+          description: Internal account identifier
+        coin:
+          type: string
+        evmAddress:
+          type: string
+          description: Stored lower-cased
+        side:
+          type: string
+          enum: [upper_first, lower_first]
+        upperBound:
+          type: string
+        lowerBound:
+          type: string
+        wager:
+          type: string
+          description: Isolated margin, USDC
+        construction:
+          $ref: '#/components/schemas/BetConstruction'
+        state:
+          type: string
+          enum: [proposed, active, won, lost, cashed_out, voided, aborted]
+        proposalExpiresAt:
+          type: string
+          format: date-time
+        activatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Entry fill verified -> active
+        resolvedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Reached won / lost / cashed_out / voided
+        abortReason:
+          type: string
+          nullable: true
+          enum: [proposal_expired, user_abandoned, null]
+        voidReason:
+          type: string
+          nullable: true
+          enum: [tp_cancelled, margin_changed, position_closed, position_resized, other, null]
+        cashOutPending:
+          type: boolean
+          description: True once a cash-out was requested
+        boundBreachFlagged:
+          type: boolean
+          description: The real fill put liquidation inside the losing bound
+        venueRefs:
+          $ref: '#/components/schemas/VenueRefs'
+        actuals:
+          $ref: '#/components/schemas/BetActuals'
+        relayClaimedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Internal relay-claim timestamp
+        createdAt:
+          type: number
+          description: "Epoch ms (NOT an ISO string)"
+        updatedAt:
+          type: number
+          description: "Epoch ms — bumped by every write"
+        deletedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Internal — soft-delete timestamp from BaseEntity. May stop being serialized.

@@ -1,8 +1,42 @@
 # Table of contents
 
-## Getting Started
+## Barrier Perps
 
 * [Overview](README.md)
+* [How Barrier Perps Work](barrier-perps/how-it-works.md)
+* [Products](barrier-perps/products/README.md)
+  * [Vanilla Barrier Perps](barrier-perps/products/vanilla-barrier-perps.md)
+* [Pricing](barrier-perps/pricing/README.md)
+  * [Pricing Overview](<barrier-perps/pricing/README (1).md>)
+  * [Vanilla Barrier Perps Pricing](barrier-perps/pricing/vanilla-barrier-perps.md)
+* [Quotes & Opening a Position](barrier-perps/quotes-and-opening.md)
+* [Position Lifecycle](barrier-perps/position-lifecycle.md)
+* [Settlement & Claims](barrier-perps/settlement-and-claims.md)
+* [Closing Early](barrier-perps/closing-early.md)
+* [Liquidity & Hedging](barrier-perps/liquidity-and-hedging.md)
+* [Risks & Safeguards](barrier-perps/risks-and-safeguards.md)
+* [Technical Reference](barrier-perps/technical-reference/README.md)
+  * [Pricing Model](barrier-perps/technical-reference/pricing-model.md)
+  * [Hedging Model](barrier-perps/technical-reference/hedging-model.md)
+  * [LP Accounting & Buffer](barrier-perps/technical-reference/lp-accounting-and-buffer.md)
+  * [Settlement Mechanics](barrier-perps/technical-reference/settlement-mechanics.md)
+  * [Circuit Breakers](barrier-perps/technical-reference/circuit-breakers.md)
+  * [Contract Architecture](barrier-perps/technical-reference/contract-architecture.md)
+* [Appendix](barrier-perps/appendix/README.md)
+  * [Glossary](barrier-perps/appendix/glossary.md)
+  * [Roles](barrier-perps/appendix/roles.md)
+* [FAQ](barrier-perps/faq.md)
+
+## Bound Auth
+
+* [What is Bound Auth](bound-auth/what-is-bound-auth.md)
+* [How It Works](bound-auth/how-it-works.md)
+* [Security Model](bound-auth/security-model.md)
+* [Account Settings](bound-auth/account-settings.md)
+* [Fund Recovery](fund-recovery/export-private-key.md)
+
+## Getting Started
+
 * [Create Your Account](getting-started/create-your-account.md)
 * [Connect An Existing Wallet](getting-started/connect-an-existing-wallet.md)
 * [Supported Assets And Chains](getting-started/supported-assets-and-chains.md)
@@ -45,49 +79,11 @@
 * [Sodax Integration](protocol-architecture/sodax-integration.md)
 * [bUSD Technical Spec](protocol-architecture/busd-technical-spec.md)
 
-## Barrier Perps
+## Developer Guide <a href="#developer-guide-backup" id="developer-guide-backup"></a>
 
-* [Overview](barrier-perps/README.md)
-* [How Barrier Perps Work](barrier-perps/how-it-works.md)
-* Products
-  * [Vanilla Barrier Perps](barrier-perps/products/vanilla-barrier-perps.md)
-* Pricing
-  * [Pricing Overview](barrier-perps/pricing/README.md)
-  * [Vanilla Barrier Perps Pricing](barrier-perps/pricing/vanilla-barrier-perps.md)
-* [Quotes & Opening a Position](barrier-perps/quotes-and-opening.md)
-* [Position Lifecycle](barrier-perps/position-lifecycle.md)
-* [Settlement & Claims](barrier-perps/settlement-and-claims.md)
-* [Closing Early](barrier-perps/closing-early.md)
-* [Liquidity & Hedging](barrier-perps/liquidity-and-hedging.md)
-* [Risks & Safeguards](barrier-perps/risks-and-safeguards.md)
-* Technical Reference
-  * [Pricing Model](barrier-perps/technical-reference/pricing-model.md)
-  * [Hedging Model](barrier-perps/technical-reference/hedging-model.md)
-  * [LP Accounting & Buffer](barrier-perps/technical-reference/lp-accounting-and-buffer.md)
-  * [Settlement Mechanics](barrier-perps/technical-reference/settlement-mechanics.md)
-  * [Circuit Breakers](barrier-perps/technical-reference/circuit-breakers.md)
-  * [Contract Architecture](barrier-perps/technical-reference/contract-architecture.md)
-* Appendix
-  * [Configuration Parameters](barrier-perps/appendix/configuration-parameters.md)
-  * [Glossary](barrier-perps/appendix/glossary.md)
-  * [Roles](barrier-perps/appendix/roles.md)
-  * [Future Considerations](barrier-perps/appendix/future-considerations.md)
-* [FAQ](barrier-perps/faq.md)
-
-## Bound Auth
-
-* [What is Bound Auth](bound-auth/what-is-bound-auth.md)
-* [How It Works](bound-auth/how-it-works.md)
-* [Security Model](bound-auth/security-model.md)
-* [Account Settings](bound-auth/account-settings.md)
-* [Fund Recovery](fund-recovery/export-private-key.md)
-
-## Developer Guide
-
-* [API Overview](developer-guide/api-overview.md)
-* [Authentication Guide](developer-guide/authentication-guide.md)
-* [Barrier Perps API](developer-guide/barrier-perps-api.md)
-* [API Reference](developer-guide/api-reference/README.md)
+* [API Overview](developer-guide-backup/api-overview.md)
+* [Authentication Guide](developer-guide-backup/authentication-guide.md)
+* [API Reference](developer-guide-backup/api-reference/README.md)
   * ```yaml
     props:
       models: true
@@ -99,8 +95,25 @@
           kind: openapi
           spec: api-bound
     ```
-* [Affiliate Fee Integration](developer-guide/affiliate-fee-integration.md)
-* [Glossary](developer-guide/glossary.md)
+* [Affiliate Fee Integration](developer-guide-backup/affiliate-fee-integration.md)
+* [Glossary](developer-guide-backup/glossary.md)
+
+## Developer Guide
+
+* [Barrier Perps API](developer-guide/barrier-perps-api.md)
+* [API Reference](developer-guide/api-reference/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: true
+      downloadLink: false
+      grouping: by-tag
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: barrier-perps
+    ```
 
 ## Legal
 

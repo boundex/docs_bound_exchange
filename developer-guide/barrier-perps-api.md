@@ -10,7 +10,7 @@ Endpoint paths use the internal name `which-first` — the product's former name
 
 **Base URL:** `https://api.bound.exchange`
 
-All endpoints require a JWT (see the [Authentication Guide](authentication-guide.md)) and are rate-limited.
+All endpoints require a JWT (see the [Authentication Guide](../developer-guide-backup/authentication-guide.md)) and are rate-limited.
 
 ```http
 Authorization: Bearer <access_token>

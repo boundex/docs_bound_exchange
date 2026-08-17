@@ -33,4 +33,4 @@ Authorization: Bearer <access_token>
 | `activity-feed`   | Unified activity feed                    |
 | `refund`          | Refund requests                          |
 | `event-source`    | Server-Sent Events (SSE)                 |
-| `which-first`     | Barrier Perps — see [Barrier Perps API](barrier-perps-api.md) |
+| `which-first`     | Barrier Perps — see [Barrier Perps API](../developer-guide/barrier-perps-api.md) |

@@ -43,6 +43,14 @@ Stored observations can allow previously observed outcomes to settle after servi
 
 Smart contracts can contain defects or behave unexpectedly. Book isolation and open-interest caps limit the exposure concentrated in one contract instance, but they do not eliminate smart-contract risk.
 
+## Insolvency and Reduced Payouts
+
+A position's payout is locked when it opens under normal operation. In an extreme insolvency event where book assets cannot cover user liabilities, claims may be temporarily blocked and a last-resort socialized-loss mechanism may reduce the amounts owed.
+
+The shortfall is allocated across affected positions according to their share of total position value. This is designed to distribute an unrecoverable loss consistently instead of allowing earlier claims to exhaust the remaining assets.
+
+Socialized loss does not change whether a position won or lost, but it can reduce a winning claim or early-close amount. Circuit breakers, the liquidity buffer, exposure limits, and buybacks are intended to act before this mechanism is needed.
+
 ## Protocol Safeguards
 
 The protocol is designed with several safeguards:
