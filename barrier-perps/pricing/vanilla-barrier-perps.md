@@ -12,13 +12,13 @@ Let:
 
 For an upper-first position, the simplified touch probability is:
 
-```text
+```
 upper-first probability = (S − L) / (U − L)
 ```
 
 For a lower-first position:
 
-```text
+```
 lower-first probability = (U − S) / (U − L)
 ```
 
@@ -30,19 +30,17 @@ All else equal:
 
 * Moving the chosen barrier closer makes the selected outcome more likely and generally lowers the payout multiple.
 * Moving the chosen barrier farther away makes the selected outcome less likely and generally raises the payout multiple.
-* Moving the non-chosen barrier changes both the probability and the hedge required to support the position.
+* Moving the non-chosen barrier changes both the probability and the hedge required to support the position. It has opposite behavior to moving chosen barriers.
 
 ## Quoted Payout
 
 At a high level, the quote applies the chosen outcome's probability to the portion of the stake remaining after expected costs and spread:
 
-```text
+```
 fixed payout =
   (stake − funding reserve − execution reserve − spread)
   / chosen-outcome probability
 ```
-
-The protocol fee is charged separately and is not deducted from the stake in this formula.
 
 ## Worked Example
 
@@ -56,7 +54,7 @@ Assume:
 
 The simplified upper-first probability is:
 
-```text
+```
 (100,000 − 97,500) / (110,000 − 97,500)
 = 2,500 / 12,500
 = 20%
@@ -64,7 +62,7 @@ The simplified upper-first probability is:
 
 Before costs and spread, a 20% outcome implies a fair gross payout of approximately:
 
-```text
+```
 1,000 / 20% = 5,000 USDC
 ```
 

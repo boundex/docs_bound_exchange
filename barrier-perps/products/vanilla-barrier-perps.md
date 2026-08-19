@@ -19,9 +19,9 @@ The barrier you select is the **chosen barrier**. The other is the **non-chosen 
 ## Outcomes
 
 | First barrier crossed | Upper-first position | Lower-first position |
-| --- | --- | --- |
-| Upper barrier | Won | Lost |
-| Lower barrier | Lost | Won |
+| --------------------- | -------------------- | -------------------- |
+| Upper barrier         | Won                  | Lost                 |
+| Lower barrier         | Lost                 | Won                  |
 
 A barrier counts as crossed when the settlement price reaches or passes it. The market does not need to stop or trade continuously at the exact barrier value.
 
@@ -38,7 +38,7 @@ Because the upper barrier is farther from the current price than the lower barri
 
 If the accepted quote shows a fixed payout of **5,000 USDC**:
 
-* BTC reaching $110,000 first records a winning payout of 5,000 USDC, claimable under normal solvency conditions.
+* BTC reaching $110,000 first records a winning payout of 5,000 USDC
 * BTC reaching $97,500 first loses the 1,000 USDC stake.
 
 The 5,000 USDC payout includes the original 1,000 USDC stake, so the gross profit before fees is 4,000 USDC.

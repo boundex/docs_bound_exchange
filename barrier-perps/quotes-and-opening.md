@@ -29,18 +29,6 @@ A request may be rejected if:
 
 Validation rules can vary by asset because leverage, volatility, liquidity, and gap risk differ across markets.
 
-## Reviewing the Quote
-
-Before accepting, review:
-
-| Field | Meaning |
-| --- | --- |
-| Stake | Maximum amount at risk |
-| Fixed payout | Book liability recorded if the position wins, including the stake; subject to last-resort insolvency handling |
-| Protocol fee | Fee paid in addition to the stake |
-| Barriers and outcome | Conditions that determine the result |
-| Quote expiry | Deadline for accepting the quote |
-
 ## Accepting the Quote
 
 Acceptance happens atomically. The contract:
@@ -56,4 +44,4 @@ If any check fails, the transaction reverts and no position opens.
 
 ## After Opening
 
-The position becomes **Active**. Its maximum loss, barriers, and payout are fixed. Bound then updates the protocol's hedge to account for the change in net exposure.
+The position becomes **Active**. Its maximum loss, barriers, and payout are fixed, and Bound has updated the protocol's hedge to account for the change in net exposure.

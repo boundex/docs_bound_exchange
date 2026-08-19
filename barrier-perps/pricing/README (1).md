@@ -12,7 +12,7 @@ A quote can depend on:
 * The USDC stake
 * Expected funding and hedge execution costs
 * The exposure already held by the book
-* The protocol's spread
+* The liquidity pool's spread
 
 Different Barrier Perps products can use different pricing models. Each product therefore has its own page explaining how its inputs affect the payout.
 
@@ -20,11 +20,9 @@ Different Barrier Perps products can use different pricing models. Each product 
 
 The displayed payout is the total amount paid on a win, including the returned stake. It is not the same as profit.
 
-```text
+```
 Gross profit = fixed payout − stake
 ```
-
-Fees should also be considered when assessing the net result.
 
 The accepted payout is the book's fixed liability under normal operation. In an extreme insolvency, the final amount paid may be reduced by the protocol's [socialized-loss mechanism](../risks-and-safeguards.md#insolvency-and-reduced-payouts).
 
@@ -34,16 +32,18 @@ Quotes are only valid for a short period because market prices, funding conditio
 
 When you accept a quote, the contract recomputes the payout using current conditions. Your transaction includes a **minimum payout**. If the new payout is lower than that amount, the transaction reverts and no position opens.
 
-## Costs and Spread
+## Pricing Model Factors
 
-The pricing model accounts for the expected cost of maintaining the protocol's hedge, including:
+The pricing model accounts for the expected cost of maintaining the protocol's hedge, among other factors, including:
 
 * Expected funding costs
-* Expected trading fees and execution costs
-* A spread earned by the liquidity pool
+* Expected hedge execution costs
+* Impact on net exposure\*
+* Volatility of the underlying asset
+* Liquidity pool spread
 
-The spread may also reflect how the new position changes the book's net exposure. A position that offsets existing exposure can receive more favorable pricing than one that increases imbalance.
+_\*A new position impacts the book's net exposure. A position that offsets existing exposure can receive more favorable pricing than one that increases imbalance._
 
 ## Protocol Fee
 
-A protocol fee is charged separately when a position opens. It is shown before acceptance and is paid in addition to the stake. Because it is separate, the full stake remains the basis for the position's payout and hedge calculations.
+A protocol fee is charged separately when a position opens and on early-close. It is shown before acceptance and is paid in addition to the stake. Because it is separate, the full stake remains the basis for the position's payout and hedge calculations.

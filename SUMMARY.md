@@ -102,11 +102,11 @@
 
 * [API Reference](developer-guide/api-reference/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: true
       downloadLink: false
       grouping: by-tag
+    type: builtin:openapi
     dependencies:
       spec:
         ref:

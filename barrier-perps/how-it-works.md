@@ -6,12 +6,13 @@ Every Barrier Perp follows the same basic flow, while each product defines its o
 
 Select a Barrier Perps product and its underlying asset, then configure the product-specific parameters.
 
-For a Vanilla Barrier Perp, you select:
+For a Vanilla Barrier Perp on a given asset, you select:
 
 * An upper price barrier
 * A lower price barrier
 * Which barrier you believe will be reached first
 * A USDC stake
+* A minimum acceptable payoff (slippage)
 
 ## 2. Request a Quote
 
@@ -40,7 +41,7 @@ If acceptance succeeds:
 
 The contract combines active positions into a net book for each underlying asset. It uses the position stakes and a liquidity buffer as collateral while hedging the book's net market exposure on Hyperliquid.
 
-This hedging happens at the protocol level. Your position remains a fixed-payout Barrier Perp and does not become a perpetual futures position in your personal Hyperliquid account.
+This hedging happens at the protocol level. Your position remains a fixed-payout Barrier Perp.
 
 ## 5. The Position Resolves
 

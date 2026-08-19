@@ -1,6 +1,6 @@
 # Liquidity & Hedging
 
-Bound manages Barrier Perps as a portfolio rather than opening a separate perpetual futures position for every user position.
+Bound manages Barrier Perps as a delta-neutral book, netting user positions into a single position held on HyperCore for optimal capital efficiency.
 
 ## Per-Underlying Net Books
 
@@ -23,7 +23,8 @@ The protocol executes the hedge on Hyperliquid. Hedge gains and losses are part 
 
 User stakes provide the primary collateral supporting the hedge. Liquidity providers supply an additional USDC buffer that:
 
-* Tops up hedge margin beyond user stakes
+* Provides additional hedge margin beyond user stakes
+* Enables higher implied leverage positions
 * Absorbs funding and execution variance
 * Supports payout obligations during market movement
 * Earns the spread included in position pricing
@@ -45,4 +46,4 @@ If one group of positions benefits from upward price movement and another benefi
 * Funding costs
 * Trading activity
 
-These efficiencies can be reflected in the quotes offered to users.
+These efficiencies can be reflected in the quotes offered to users and as added incentive for LPs.

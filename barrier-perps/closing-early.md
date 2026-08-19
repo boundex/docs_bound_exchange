@@ -10,7 +10,7 @@ The contract values the position using current market conditions and returns an 
 * The position's fixed payout
 * Expected hedge adjustment costs
 * The book's current exposure
-* The applicable spread and early-close fee
+* The applicable spread and protocol fee
 
 ## Accepting or Declining
 
@@ -28,6 +28,5 @@ If you decline the quote or let it expire, the position remains active and its o
 
 * A buyback value is not guaranteed to exceed the original stake.
 * Early-close quotes expire as market conditions change.
-* Closing early may have a separate fee.
 * A terminal product outcome takes precedence if it is established before the buyback executes.
 * Early closing may be temporarily unavailable when safety limits restrict outflows or quoting.
