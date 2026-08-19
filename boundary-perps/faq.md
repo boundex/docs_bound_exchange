@@ -60,7 +60,7 @@ No. The Barrier Perp is held through the Bound contract. Bound manages and hedge
 
 ## How does Bound price positions?
 
-Pricing begins with the product's estimated outcome probability, then accounts for expected hedge costs, book exposure, and spread. See [Pricing Overview](<pricing/README (1).md>) and [Vanilla Barrier Perps Pricing](pricing/vanilla-barrier-perps.md).
+Pricing begins with the product's estimated outcome probability, then accounts for expected hedge costs, book exposure, and spread. See [Pricing Overview](pricing/readme-1.md) and [Vanilla Barrier Perps Pricing](pricing/vanilla-barrier-perps.md).
 
 ## What happens if services are unavailable?
 

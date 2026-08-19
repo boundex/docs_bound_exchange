@@ -1,15 +1,15 @@
 # Overview
 
-Barrier Perps are fixed-payout derivatives whose outcome depends on a price barrier event. You choose a market outcome with clearly defined conditions, a maximum loss, and a payout that is fixed when the position opens.
+Boundary Perps are fixed-payout derivatives whose outcome depends on a price bound event. You choose a market outcome with clearly defined conditions, a maximum loss, and a payout that is fixed when the position opens.
 
-The first product in this family is **Vanilla Barrier Perps**. It lets you choose two price barriers around the current market price and take a position on which barrier will be reached first.
+The first product in this family is **Vanilla Boundary Perps**. It lets you choose two price boundaries around the current market price and take a position on which boundary will be reached first.
 
 ## At a Glance
 
-With a Barrier Perp, you:
+With a Boundary Perp, you:
 
 1. Select an underlying asset.
-2. Configure its barriers and choose an outcome.
+2. Configure its boundaries and choose an outcome.
 3. Enter the amount of USDC you want to stake.
 4. Review a quote showing the fixed payout and fee.
 5. Accept the quote to open the position.
@@ -22,14 +22,14 @@ Your maximum loss is the stake committed to the position. If your selected outco
 
 ## Example
 
-Assume BTC is trading at **$100,000**. You configure a Vanilla Barrier Perp with:
+Assume BTC is trading at **$100,000**. You configure a Vanilla Boundary Perp with:
 
-| Parameter     | Selection           |
-| ------------- | ------------------- |
-| Upper barrier | $110,000            |
-| Lower barrier | $97,500             |
-| Position      | Upper barrier first |
-| Stake         | 1,000 USDC          |
+| Parameter   | Selection         |
+| ----------- | ----------------- |
+| Upper bound | $110,000          |
+| Lower bound | $97,500           |
+| Position    | Upper bound first |
+| Stake       | 1,000 USDC        |
 
 Bound returns a quote with a fixed payout. If you accept it and BTC reaches $110,000 before $97,500, the position resolves as won and the payout becomes claimable. If BTC reaches $97,500 first, the position resolves as lost and the stake is lost.
 
@@ -42,4 +42,4 @@ Bound returns a quote with a fixed payout. If you accept it and BTC reaches $110
 * **Onchain settlement:** Positions settle through the Bound contract on HyperEVM using Hyperliquid market data.
 * **Decentralized Execution:** The entire position lifecycle is executed on HyperEVM and HyperCore via smart contracts without reliance on a trusted third-party
 
-Continue to [How Barrier Perps Work](barrier-perps/how-it-works.md) for the complete position flow, or see [Vanilla Barrier Perps](barrier-perps/products/vanilla-barrier-perps.md) for the first product.
+Continue to [How Boundary Perps Work](boundary-perps/how-it-works.md) for the complete position flow, or see [Vanilla Boundary Perps](boundary-perps/products/vanilla-barrier-perps.md) for the first product.

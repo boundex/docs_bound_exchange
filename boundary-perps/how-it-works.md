@@ -1,16 +1,16 @@
-# How Barrier Perps Work
+# How Boundary Perps Work
 
-Every Barrier Perp follows the same basic flow, while each product defines its own outcome and pricing model.
+Every Boundary Perp follows the same basic flow, while each product defines its own outcome and pricing model.
 
 ## 1. Configure a Position
 
-Select a Barrier Perps product and its underlying asset, then configure the product-specific parameters.
+Select a Boundary Perps product and its underlying asset, then configure the product-specific parameters.
 
-For a Vanilla Barrier Perp on a given asset, you select:
+For a Vanilla Boundary Perp on a given asset, you select:
 
-* An upper price barrier
-* A lower price barrier
-* Which barrier you believe will be reached first
+* An upper price boundary
+* A lower price boundary
+* Which boundary you believe will be reached first
 * A USDC stake
 * A minimum acceptable payoff (slippage)
 
@@ -34,21 +34,21 @@ When you accept, the contract validates the position again and recomputes the pa
 If acceptance succeeds:
 
 * Your stake and protocol fee transfer to the contract.
-* Your barriers and fixed payout are locked.
+* Your boundaries and fixed payout are locked.
 * The position becomes **Active**.
 
 ## 4. Bound Manages the Book
 
 The contract combines active positions into a net book for each underlying asset. It uses the position stakes and a liquidity buffer as collateral while hedging the book's net market exposure on Hyperliquid.
 
-This hedging happens at the protocol level. Your position remains a fixed-payout Barrier Perp.
+This hedging happens at the protocol level. Your position remains a fixed-payout Boundary Perp.
 
 ## 5. The Position Resolves
 
-The product's settlement condition determines the outcome. For Vanilla Barrier Perps, the position resolves when one of the two barriers is observed crossing first.
+The product's settlement condition determines the outcome. For Vanilla Boundary Perps, the position resolves when one of the two boundaries is observed crossing first.
 
-* If your chosen barrier crosses first, the position is **Resolved — Won**.
-* If the other barrier crosses first, the position is **Resolved — Lost**.
+* If your chosen boundary crosses first, the position is **Resolved — Won**.
+* If the other boundary crosses first, the position is **Resolved — Lost**.
 
 ## 6. Claim or Close Early
 
