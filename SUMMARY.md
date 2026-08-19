@@ -5,7 +5,7 @@
 * [Overview](README.md)
 * [How Boundary Perps Work](boundary-perps/how-it-works.md)
 * [Products](boundary-perps/products/README.md)
-  * [Vanilla Barrier Perps](boundary-perps/products/vanilla-barrier-perps.md)
+  * [Vanilla Boundary Perps](boundary-perps/products/vanilla-barrier-perps.md)
 * [Pricing](boundary-perps/pricing/README.md)
   * [Pricing Overview](boundary-perps/pricing/readme-1.md)
   * [Vanilla Barrier Perps Pricing](boundary-perps/pricing/vanilla-barrier-perps.md)

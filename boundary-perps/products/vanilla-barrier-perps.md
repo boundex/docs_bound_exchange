@@ -1,40 +1,40 @@
-# Vanilla Barrier Perps
+# Vanilla Boundary Perps
 
-Vanilla Barrier Perps let you take a position on which of two price barriers an asset will reach first.
+Vanilla Boundary Perps let you take a position on which of two price boundaries an asset will reach first.
 
 ## Defining the Position
 
-The current market price must sit strictly between two barriers:
+The current market price must sit strictly between two boundaries:
 
-* **Upper barrier:** A price above the current market price
-* **Lower barrier:** A price below the current market price
+* **Upper bound:** A price above the current market price
+* **Lower bound:** A price below the current market price
 
 You then choose one of two outcomes:
 
-* **Upper first:** The upper barrier will be reached before the lower barrier.
-* **Lower first:** The lower barrier will be reached before the upper barrier.
+* **Upper first:** The upper bound will be reached before the lower bound.
+* **Lower first:** The lower bound will be reached before the upper bound.
 
-The barrier you select is the **chosen barrier**. The other is the **non-chosen barrier**.
+The boundary you select is the **chosen boundary**. The other is the **non-chosen boundary**.
 
 ## Outcomes
 
-| First barrier crossed | Upper-first position | Lower-first position |
-| --------------------- | -------------------- | -------------------- |
-| Upper barrier         | Won                  | Lost                 |
-| Lower barrier         | Lost                 | Won                  |
+| First boundary crossed | Upper-first position | Lower-first position |
+| ---------------------- | -------------------- | -------------------- |
+| Upper bound            | Won                  | Lost                 |
+| Lower bound            | Lost                 | Won                  |
 
-A barrier counts as crossed when the settlement price reaches or passes it. The market does not need to stop or trade continuously at the exact barrier value.
+A boundary counts as crossed when the settlement price reaches or passes it. The market does not need to stop or trade continuously at the exact boundary value.
 
 ## Example
 
 BTC is trading at **$100,000**. You choose:
 
-* Upper barrier: **$110,000**
-* Lower barrier: **$97,500**
+* Upper boundary: **$110,000**
+* Lower boundary: **$97,500**
 * Outcome: **Upper first**
 * Stake: **1,000 USDC**
 
-Because the upper barrier is farther from the current price than the lower barrier, upper-first is the less likely outcome under the pricing model and therefore offers a larger potential payout.
+Because the upper boundary is farther from the current price than the lower boundary, upper-first is the less likely outcome under the pricing model and therefore offers a larger potential payout.
 
 If the accepted quote shows a fixed payout of **5,000 USDC**:
 
@@ -45,11 +45,11 @@ The 5,000 USDC payout includes the original 1,000 USDC stake, so the gross profi
 
 ## Position Rules
 
-* Both barriers must be within the supported range for the asset.
-* The non-chosen barrier must satisfy the configured minimum distance.
+* Both boundaries must be within the supported range for the asset.
+* The non-chosen boundary must satisfy the configured minimum distance.
 * The stake must be within the supported limits.
 * A user may hold multiple positions on the same underlying, subject to available book capacity.
-* Barriers and payout cannot be changed after the position opens.
-* An active position can resolve at a barrier or be [closed early](../closing-early.md).
+* Boundaries and payout cannot be changed after the position opens.
+* An active position can resolve at a boundary or be [closed early](../closing-early.md).
 
-See [Vanilla Barrier Perps Pricing](../pricing/vanilla-barrier-perps.md) to understand how barrier placement affects the quote.
+See [Vanilla Bounbary Perps Pricing](../pricing/vanilla-barrier-perps.md) to understand how boundary placement affects the quote.
