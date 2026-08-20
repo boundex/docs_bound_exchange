@@ -55,7 +55,7 @@ The design assumes Hyperliquid and its precompiles perform as specified.
 
 ## Settlement Keeper
 
-The keeper monitors active positions and submits `settlePosition` calls when barrier evidence exists. Settlement is permissionless, so the keeper improves promptness but does not hold exclusive authority.
+The keeper monitors active positions and submits `settlePosition` calls when boundary evidence exists. Settlement is permissionless, so the keeper improves promptness but does not hold exclusive authority.
 
 ## Mark Worker
 
@@ -65,4 +65,4 @@ The mark worker periodically calls the contract to read the HyperCore mark preco
 
 Bound operates reference mark-worker and settlement-keeper services, monitors book and breaker health, manages authorized configuration changes, and may invoke the admin pause when required.
 
-Operational authority does not allow Bound to change an accepted position's barriers or payout.
+Operational authority does not allow Bound to change an accepted position's boundaries or payout.

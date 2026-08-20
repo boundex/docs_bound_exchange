@@ -1,14 +1,14 @@
-# Vanilla Barrier Perps Pricing
+# Vanilla Boundary Perps Pricing
 
-Vanilla Barrier Perps pricing begins with the probability that the chosen barrier is reached before the other barrier. The position's fair payout is then adjusted for expected hedge costs and the pool's spread.
+Vanilla Boundary Perps pricing begins with the probability that the chosen boundary is reached before the other boundary. The position's fair payout is then adjusted for expected hedge costs and the pool's spread.
 
-## Barrier Geometry
+## Boundary Geometry
 
 Let:
 
 * `S` be the current Hyperliquid mark price.
-* `U` be the upper barrier.
-* `L` be the lower barrier.
+* `U` be the upper boundary.
+* `L` be the lower boundary.
 
 For an upper-first position, the simplified touch probability is:
 
@@ -22,15 +22,15 @@ For a lower-first position:
 lower-first probability = (U − S) / (U − L)
 ```
 
-These formulas illustrate how barrier placement influences a quote. The binding quote is always the value returned by the contract.
+These formulas illustrate how boundary placement influences a quote. The binding quote is always the value returned by the contract.
 
-## How Barrier Placement Affects Payout
+## How Boundary Placement Affects Payout
 
 All else equal:
 
-* Moving the chosen barrier closer makes the selected outcome more likely and generally lowers the payout multiple.
-* Moving the chosen barrier farther away makes the selected outcome less likely and generally raises the payout multiple.
-* Moving the non-chosen barrier changes both the probability and the hedge required to support the position. It has opposite behavior to moving chosen barriers.
+* Moving the chosen boundary closer makes the selected outcome more likely and generally lowers the payout multiple.
+* Moving the chosen boundary farther away makes the selected outcome less likely and generally raises the payout multiple.
+* Moving the non-chosen boundary changes both the probability and the hedge required to support the position. It has opposite behavior to moving chosen boundaries.
 
 ## Quoted Payout
 
@@ -47,8 +47,8 @@ fixed payout =
 Assume:
 
 * BTC mark price: **$100,000**
-* Upper barrier: **$110,000**
-* Lower barrier: **$97,500**
+* Upper boundary: **$110,000**
+* Lower boundary: **$97,500**
 * Chosen outcome: **Upper first**
 * Stake: **1,000 USDC**
 

@@ -1,15 +1,15 @@
 # Quotes & Opening a Position
 
-A Barrier Perp opens through a quote-and-accept flow. No position exists until the acceptance transaction succeeds.
+A Boundary Perp opens through a quote-and-accept flow. No position exists until the acceptance transaction succeeds.
 
 ## Requesting a Quote
 
-Provide the inputs required by the selected product. For Vanilla Barrier Perps, these are:
+Provide the inputs required by the selected product. For Vanilla Boundary Perps, these are:
 
 * Underlying asset
-* Upper barrier
-* Lower barrier
-* Chosen barrier
+* Upper boundary
+* Lower boundary
+* Chosen boundary
 * USDC stake
 
 The contract checks the request before returning a quote.
@@ -18,9 +18,9 @@ The contract checks the request before returning a quote.
 
 A request may be rejected if:
 
-* The current mark is not strictly between the barriers.
-* A barrier is outside the supported distance from the mark.
-* The non-chosen barrier is closer than the supported minimum.
+* The current mark is not strictly between the boundaries.
+* A boundary is outside the supported distance from the mark.
+* The non-chosen boundary is closer than the supported minimum.
 * The stake is outside the supported range.
 * The wallet does not have enough USDC for the stake and fee.
 * The resulting payout does not satisfy protocol requirements.
@@ -37,11 +37,11 @@ Acceptance happens atomically. The contract:
 2. Recomputes the payout using the current mark and book exposure.
 3. Checks the recomputed payout against your minimum payout.
 4. Transfers the stake and fee.
-5. Locks the barriers and payout.
+5. Locks the boundaries and payout.
 6. Opens the position and adds it to the book.
 
 If any check fails, the transaction reverts and no position opens.
 
 ## After Opening
 
-The position becomes **Active**. Its maximum loss, barriers, and payout are fixed, and Bound has updated the protocol's hedge to account for the change in net exposure.
+The position becomes **Active**. Its maximum loss, boundaries, and payout are fixed, and Bound has updated the protocol's hedge to account for the change in net exposure.

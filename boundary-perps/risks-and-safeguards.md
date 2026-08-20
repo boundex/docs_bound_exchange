@@ -1,6 +1,6 @@
 # Risks & Safeguards
 
-Barrier Perps have defined position-level risk, but they still depend on smart contracts, market infrastructure, liquidity, and successful hedging. Review these risks before opening a position.
+Boundary Perps have defined position-level risk, but they still depend on smart contracts, market infrastructure, liquidity, and successful hedging. Review these risks before opening a position.
 
 ## Position Risk
 
@@ -8,11 +8,11 @@ Your maximum position loss is the stake committed when the position opens. If th
 
 Closing early does not guarantee recovery of the original stake. The buyback value depends on current conditions and may be substantially lower.
 
-## Barrier Observation Risk
+## Boundary Observation Risk
 
-Vanilla Barrier Perps settle using stored HyperCore mark readings. A very brief crossing that occurs and reverses between observable readings may not be captured.
+Vanilla Boundary Perps settle using stored HyperCore mark readings. A very brief crossing that occurs and reverses between observable readings may not be captured.
 
-Gaps can also move the mark across a barrier between readings. The stored observation sequence, rather than an assumed continuous path, determines the onchain result.
+Gaps can also move the mark across a boundary between readings. The stored observation sequence, rather than an assumed continuous path, determines the onchain result.
 
 ## Market and Hedge Risk
 
@@ -29,7 +29,7 @@ The liquidity buffer absorbs this variance under normal conditions.
 
 ## Infrastructure Risk
 
-Barrier Perps depend on HyperEVM, HyperCore market data, Hyperliquid execution, and the Bound contracts. Outages or congestion can temporarily prevent:
+Boundary Perps depend on HyperEVM, HyperCore market data, Hyperliquid execution, and the Bound contracts. Outages or congestion can temporarily prevent:
 
 * New quotes or position openings
 * Hedge adjustments

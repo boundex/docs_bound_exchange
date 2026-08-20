@@ -32,10 +32,10 @@ An active position is valued using its current chosen-outcome probability:
 active position value = current probability * fixed payout
 ```
 
-The probability is capped to `[0, 1]`. If there is evidence that a barrier has already crossed but settlement has not yet executed, the position is marked at its resolved value:
+The probability is capped to `[0, 1]`. If there is evidence that a boundary has already crossed but settlement has not yet executed, the position is marked at its resolved value:
 
-* Full payout if the chosen barrier crossed first.
-* Zero if the non-chosen barrier crossed first.
+* Full payout if the chosen boundary crossed first.
+* Zero if the non-chosen boundary crossed first.
 
 Resolved but unclaimed winning payouts remain liabilities at their full value.
 
@@ -95,7 +95,7 @@ adjusted_amount = max(0, normal_amount - user_shortfall_share)
 
 The contract snapshots the affected positions, their values, total affected position value, book assets, and marked liabilities for the allocation. The adjustment applies consistently to affected claims and buybacks so claim order cannot allow early callers to exhaust the remaining assets. The allocated reduction remains in the book and helps restore solvency. Once the contract has finalized the allocation and the applicable safety conditions are satisfied, users can receive their adjusted amounts.
 
-Socialized loss is a last-resort mechanism. It does not change which barrier won, but it can reduce the amount ultimately paid below the payout recorded when the position opened.
+Socialized loss is a last-resort mechanism. It does not change which boundary won, but it can reduce the amount ultimately paid below the payout recorded when the position opened.
 
 ## LP Share Issuance During Losses
 

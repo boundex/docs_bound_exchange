@@ -1,6 +1,6 @@
 # Hedging Model
 
-The Bound contract is the counterparty to every Barrier Perp. It does not create an independent Hyperliquid position for each user. Instead, it combines active positions into a per-underlying net book and hedges the resulting exposure.
+The Bound contract is the counterparty to every Boundary Perp. It does not create an independent Hyperliquid position for each user. Instead, it combines active positions into a per-underlying net book and hedges the resulting exposure.
 
 ## Position Delta
 
@@ -30,8 +30,8 @@ This linear delta is an illustrative launch model. The core requirement is that 
 Assume BTC has:
 
 * Mark price: $100,000
-* Upper barrier: $110,000
-* Lower barrier: $97,500
+* Upper boundary: $110,000
+* Lower boundary: $97,500
 * Position: upper first
 * Stake: 1,000 USDC
 * Gross payout before costs: 5,000 USDC
@@ -65,8 +65,8 @@ The hedge makes the contract approximately indifferent to the first-touch outcom
 Suppose the book already contains the `+0.4 BTC` position above. A second user opens:
 
 * Mark price: $100,000
-* Upper barrier: $105,000
-* Lower barrier: $95,000
+* Upper boundary: $105,000
+* Lower boundary: $95,000
 * Position: lower first
 * Stake: 2,500 USDC
 * Gross payout before costs: 5,000 USDC
@@ -94,7 +94,7 @@ Net exposure changes when:
 * A position closes early.
 * The mark changes the position's probability and delta.
 
-Positions with different barriers do not offset perfectly across all prices. If one position resolves, its delta disappears from the book immediately, potentially causing a large target change. The protocol therefore recalculates and rebalances the hedge after every state-changing action and during ongoing market movement.
+Positions with different boundaries do not offset perfectly across all prices. If one position resolves, its delta disappears from the book immediately, potentially causing a large target change. The protocol therefore recalculates and rebalances the hedge after every state-changing action and during ongoing market movement.
 
 ## Hedge Execution Controls
 

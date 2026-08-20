@@ -42,4 +42,4 @@ Bound returns a quote with a fixed payout. If you accept it and BTC reaches $110
 * **Onchain settlement:** Positions settle through the Bound contract on HyperEVM using Hyperliquid market data.
 * **Decentralized Execution:** The entire position lifecycle is executed on HyperEVM and HyperCore via smart contracts without reliance on a trusted third-party
 
-Continue to [How Boundary Perps Work](boundary-perps/how-it-works.md) for the complete position flow, or see [Vanilla Boundary Perps](boundary-perps/products/vanilla-barrier-perps.md) for the first product.
+Continue to [How Boundary Perps Work](boundary-perps/how-it-works.md) for the complete position flow, or see [Vanilla Boundary Perps](boundary-perps/products/vanilla-boundary-perps.md) for the first product.

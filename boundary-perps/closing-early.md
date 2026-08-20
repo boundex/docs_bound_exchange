@@ -1,6 +1,6 @@
 # Closing Early
 
-An active Barrier Perp may be closed before its terminal outcome by accepting a contract-quoted buyback.
+An active Boundary Perp may be closed before its terminal outcome by accepting a contract-quoted buyback.
 
 ## Requesting a Buyback
 
@@ -22,7 +22,7 @@ If you accept a valid quote:
 4. The position leaves the active book.
 5. The protocol updates its hedge.
 
-If you decline the quote or let it expire, the position remains active and its original barriers and fixed payout are unchanged.
+If you decline the quote or let it expire, the position remains active and its original boundaries and fixed payout are unchanged.
 
 ## Important Considerations
 

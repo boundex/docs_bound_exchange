@@ -8,8 +8,8 @@ Every configurable value should have an onchain hard bound, a timelock, or both.
 
 | Parameter | Description | Current specification | Status |
 | --- | --- | --- | --- |
-| Maximum barrier distance | Per-asset cap on each barrier's distance from the mark | 10% suggested | Awaiting business decision |
-| Minimum non-chosen barrier distance | Per-asset floor derived from venue leverage at zero padding | `100 / max leverage`; BTC example 2.5% at 40x | Confirmed default |
+| Maximum boundary distance | Per-asset cap on each boundary's distance from the mark | 10% suggested | Awaiting business decision |
+| Minimum non-chosen boundary distance | Per-asset floor derived from venue leverage at zero padding | `100 / max leverage`; BTC example 2.5% at 40x | Confirmed default |
 | Stake minimum and maximum | Allowed stake range per position | TBD | Awaiting business decision |
 | Quote validity window | Lifetime of an opening quote | TBD | Needs engineering input |
 | Buyback quote validity window | Lifetime of an early-close quote | TBD | Needs engineering input |

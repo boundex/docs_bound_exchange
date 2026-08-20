@@ -1,16 +1,16 @@
 # Glossary
 
-## Barrier
+## Boundary
 
-An upper or lower price level defining a Vanilla Barrier Perp. The upper barrier crosses when the mark reaches or exceeds it. The lower barrier crosses when the mark reaches or falls below it.
+An upper or lower price level defining a Vanilla Boundary Perp. The upper boundary crosses when the mark reaches or exceeds it. The lower boundary crosses when the mark reaches or falls below it.
 
-## Chosen Barrier
+## Chosen Boundary
 
-The barrier selected by the user. Crossing it first produces **Resolved — Won**.
+The boundary selected by the user. Crossing it first produces **Resolved — Won**.
 
-## Non-Chosen Barrier
+## Non-Chosen Boundary
 
-The other barrier. Crossing it first produces **Resolved — Lost**.
+The other boundary. Crossing it first produces **Resolved — Lost**.
 
 ## Stake
 
@@ -30,11 +30,11 @@ A contract-quoted early close of an active position. Accepting it pays the quote
 
 ## First Touch
 
-The first qualifying stored or in-call mark reading at or beyond one of the two barriers.
+The first qualifying stored or in-call mark reading at or beyond one of the two boundaries.
 
 ## Book
 
-An isolated Barrier Perps contract instance with its own assets, liabilities, positions, LP buffer, risk controls, and HyperCore hedge account.
+An isolated Boundary Perps contract instance with its own assets, liabilities, positions, LP buffer, risk controls, and HyperCore hedge account.
 
 ## Open Interest
 

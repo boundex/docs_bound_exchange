@@ -1,6 +1,6 @@
 # Pricing Overview
 
-Barrier Perps use request-for-quote pricing. Each quote is calculated for one specific product configuration and returns a fixed payout that can be locked by accepting the quote.
+Boundary Perps use request-for-quote pricing. Each quote is calculated for one specific product configuration and returns a fixed payout that can be locked by accepting the quote.
 
 ## What Affects a Quote?
 
@@ -8,13 +8,13 @@ A quote can depend on:
 
 * The selected product and its payoff
 * The current Hyperliquid mark price
-* The position's barriers and chosen outcome
+* The position's boundaries and chosen outcome
 * The USDC stake
 * Expected funding and hedge execution costs
 * The exposure already held by the book
 * The liquidity pool's spread
 
-Different Barrier Perps products can use different pricing models. Each product therefore has its own page explaining how its inputs affect the payout.
+Different Boundary Perps products can use different pricing models. Each product therefore has its own page explaining how its inputs affect the payout.
 
 ## Fixed Payout
 

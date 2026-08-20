@@ -1,6 +1,6 @@
 # Pricing Model
 
-This page describes the technical pricing model for Vanilla Barrier Perps. The accepted onchain quote remains the binding value for every position.
+This page describes the technical pricing model for Vanilla Boundary Perps. The accepted onchain quote remains the binding value for every position.
 
 ## Price Basis
 
@@ -9,9 +9,9 @@ All quoting, validation, position marking, and settlement use the underlying ass
 Let:
 
 * `S` be the current mark price.
-* `U` be the upper barrier.
-* `L` be the lower barrier.
-* `p` be the probability of the chosen barrier crossing first.
+* `U` be the upper boundary.
+* `L` be the lower boundary.
+* `p` be the probability of the chosen boundary crossing first.
 
 Using the launch model's linear touch-probability approximation:
 
@@ -30,7 +30,7 @@ Ignoring costs, the fair gross payout is:
 fair payout = stake / p
 ```
 
-This is equivalent to pricing the position as a standalone perpetual that uses the stake as isolated margin, places liquidation at the non-chosen barrier, and places take profit at the chosen barrier. The replication is a pricing device only. The protocol hedges the net book rather than creating one hedge for every user position.
+This is equivalent to pricing the position as a standalone perpetual that uses the stake as isolated margin, places liquidation at the non-chosen boundary, and places take profit at the chosen boundary. The replication is a pricing device only. The protocol hedges the net book rather than creating one hedge for every user position.
 
 ## Quoted Payout
 
@@ -41,7 +41,7 @@ quoted payout =
   (stake - funding_reserve - execution_reserve - spread) / p
 ```
 
-The three deductions are collected in full regardless of which barrier resolves the position.
+The three deductions are collected in full regardless of which boundary resolves the position.
 
 ### Funding Reserve
 
@@ -53,8 +53,8 @@ E[tau] approximately equals d_up * d_down / sigma^2
 
 Where:
 
-* `d_up` is the fractional distance from the mark to the upper barrier.
-* `d_down` is the fractional distance from the mark to the lower barrier.
+* `d_up` is the fractional distance from the mark to the upper boundary.
+* `d_down` is the fractional distance from the mark to the lower boundary.
 * `sigma` is the configured daily volatility for the asset.
 * `tau` is measured in days.
 
@@ -86,7 +86,7 @@ base_spread = base_spread_rate * hedge notional
 hedge notional approximately equals stake * S / D
 ```
 
-`D` is the distance from the mark to the non-chosen barrier. This stake-based form makes the spread computable before the payout it helps determine.
+`D` is the distance from the mark to the non-chosen boundary. This stake-based form makes the spread computable before the payout it helps determine.
 
 A position that increases the absolute imbalance pays a positive risk charge. A position that reduces imbalance receives a discount. The discount can exceed the base spread and protocol fee, so an exposure-reducing quote may be above the standalone fair payout. The model does not impose a floor of zero on the signed imbalance adjustment.
 
@@ -114,6 +114,6 @@ The accepted payout is fixed as the book's recorded liability for the life of th
 
 ## Leverage Padding
 
-The protocol may optionally quote a position whose non-chosen barrier implies leverage above the venue limit. In that case, the LP buffer supplies additional hedge margin beyond the user's stake.
+The protocol may optionally quote a position whose non-chosen boundary implies leverage above the venue limit. In that case, the LP buffer supplies additional hedge margin beyond the user's stake.
 
-Leverage padding changes which barrier configurations are eligible. It does not change the payout formula. The amount of permitted padding is controlled by a configured cap and may be zero.
+Leverage padding changes which boundary configurations are eligible. It does not change the payout formula. The amount of permitted padding is controlled by a configured cap and may be zero.

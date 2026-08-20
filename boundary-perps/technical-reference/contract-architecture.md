@@ -1,12 +1,12 @@
 # Contract Architecture
 
-Barrier Perps operate through isolated book contracts on HyperEVM. Each book contains its own assets, liabilities, positions, liquidity buffer, risk controls, and HyperCore hedge account.
+Boundary Perps operate through isolated book contracts on HyperEVM. Each book contains its own assets, liabilities, positions, liquidity buffer, risk controls, and HyperCore hedge account.
 
 ## Components
 
 ```mermaid
 flowchart LR
-    U["User"] -->|"Stake + fee"| B["Barrier Perps book contract"]
+    U["User"] -->|"Stake + fee"| B["Boundary Perps book contract"]
     LP["Liquidity provider"] -->|"Buffer deposit"| B
     B -->|"Collateral"| HC["HyperCore account"]
     HC -->|"Net hedge"| HL["Hyperliquid perpetuals"]
@@ -22,7 +22,7 @@ The book contract:
 
 * Validates and prices quotes.
 * Accepts user stakes and protocol fees.
-* Stores barriers, payouts, owners, and lifecycle state.
+* Stores boundaries, payouts, owners, and lifecycle state.
 * Maintains per-underlying net exposure.
 * Posts and recalls HyperCore collateral.
 * Adjusts Hyperliquid hedges.
@@ -68,7 +68,7 @@ Publishing is permissionless. Bound operates a reference implementation, but the
 
 ## Settlement Keeper
 
-The settlement keeper watches active positions and calls `settlePosition` when it detects valid barrier evidence. The method is permissionless and safe to retry.
+The settlement keeper watches active positions and calls `settlePosition` when it detects valid boundary evidence. The method is permissionless and safe to retry.
 
 Bound operates a reference keeper to improve promptness, but any participant can submit a valid settlement call.
 

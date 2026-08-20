@@ -1,6 +1,6 @@
 # Settlement Mechanics
 
-This page defines the detailed first-touch settlement rules for Vanilla Barrier Perps.
+This page defines the detailed first-touch settlement rules for Vanilla Boundary Perps.
 
 ## Settlement Inputs
 
@@ -12,15 +12,15 @@ The contract can read current HyperCore state through precompiles, but it cannot
 For one position:
 
 ```text
-Upper touch: mark >= upper barrier
-Lower touch: mark <= lower barrier
+Upper touch: mark >= upper boundary
+Lower touch: mark <= lower boundary
 ```
 
 ## Position Lifetime
 
 Only readings timestamped at or after the position's activation count. Historical readings from before the acceptance transaction are ignored.
 
-This prevents a position from settling against a barrier crossing that occurred before the position existed.
+This prevents a position from settling against a boundary crossing that occurred before the position existed.
 
 ## Settlement Flow
 
@@ -35,7 +35,7 @@ The contract then:
 1. Loads the active position and its activation time.
 2. Reads the current mark inside the call.
 3. Checks eligible stored mark-worker readings.
-4. Determines whether either barrier has valid touch evidence.
+4. Determines whether either boundary has valid touch evidence.
 5. Selects the earliest valid touch if more than one exists.
 6. Resolves the position within the same call.
 7. Removes its exposure from the active book.
@@ -48,7 +48,7 @@ If multiple touch readings exist:
 1. The earliest timestamp governs.
 2. If readings share a timestamp, their publication order within the block governs.
 
-The chosen barrier crossing first produces **Resolved — Won**. The non-chosen barrier crossing first produces **Resolved — Lost**. If neither barrier has crossed, the position remains active.
+The chosen boundary crossing first produces **Resolved — Won**. The non-chosen boundary crossing first produces **Resolved — Lost**. If neither boundary has crossed, the position remains active.
 
 ## Mark Worker
 

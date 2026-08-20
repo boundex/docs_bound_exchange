@@ -1,10 +1,10 @@
 openapi: 3.0.3
 info:
-  title: Barrier Perps API
+  title: Boundary Perps API
   description: |
-    Programmatic access to Barrier Perps (internally `which-first`) on Bound Exchange.
+    Programmatic access to Boundary Perps (internally `which-first`) on Bound Exchange.
 
-    Pick two price barriers around the current market price, bet on which one is reached first.
+    Pick two price boundaries around the current market price, bet on which one is reached first.
     Positions are non-custodial: Bound builds and prices every action, but the user's own wallet
     signs it and the position lives in the user's own Hyperliquid account.
 
@@ -627,10 +627,10 @@ components:
           description: Which bound you bet on being touched first
         upperBound:
           type: string
-          description: Upper price barrier
+          description: Upper price boundary
         lowerBound:
           type: string
-          description: Lower price barrier
+          description: Lower price boundary
         wager:
           type: string
           description: Isolated margin amount in USDC
@@ -703,7 +703,7 @@ components:
       properties:
         code:
           type: string
-          description: Error code (26xxx for Barrier Perps errors)
+          description: Error code (26xxx for Boundary Perps errors)
         message:
           type: string
           description: Error message key

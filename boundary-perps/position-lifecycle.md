@@ -1,6 +1,6 @@
 # Position Lifecycle
 
-Every Barrier Perp follows a defined lifecycle from quote request through settlement or early close.
+Every Boundary Perp follows a defined lifecycle from quote request through settlement or early close.
 
 ## Lifecycle States
 
@@ -16,7 +16,7 @@ Every Barrier Perp follows a defined lifecycle from quote request through settle
 
 ## State Transitions
 
-<figure><img src="../.gitbook/assets/barrier-perps-position-lifecycle.png" alt="Barrier Perps position lifecycle from quoting through resolution"><figcaption>Barrier Perps position lifecycle</figcaption></figure>
+<figure><img src="../.gitbook/assets/boundary-perps-position-lifecycle.png" alt="Boundary Perps position lifecycle from quoting through resolution"><figcaption>Boundary Perps position lifecycle</figcaption></figure>
 
 ## Before Opening
 

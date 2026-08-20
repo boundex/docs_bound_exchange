@@ -1,12 +1,12 @@
 # FAQ
 
-## What are Barrier Perps?
+## What are Boundary Perps?
 
-Barrier Perps are fixed-payout derivatives whose result depends on a defined price-barrier event. Different products can define different barrier structures and outcomes.
+Boundary Perps are fixed-payout derivatives whose result depends on a defined price-boundary event. Different products can define different boundary structures and outcomes.
 
-## What are Vanilla Barrier Perps?
+## What are Vanilla Boundary Perps?
 
-Vanilla Barrier Perps are the first product in the Barrier Perps family. You select an upper and lower price barrier, then choose which one will be reached first.
+Vanilla Boundary Perps are the first product in the Boundary Perps family. You select an upper and lower price boundary, then choose which one will be reached first.
 
 ## What is my maximum loss?
 
@@ -28,17 +28,17 @@ Gross profit = payout − stake
 
 Fees should also be considered when calculating the net result.
 
-## Which price determines a barrier crossing?
+## Which price determines a boundary crossing?
 
-Vanilla Barrier Perps use the underlying asset's HyperCore mark price. The upper barrier crosses when the mark reaches or exceeds it; the lower crosses when the mark reaches or falls below it.
+Vanilla Boundary Perps use the underlying asset's HyperCore mark price. The upper boundary crosses when the mark reaches or exceeds it; the lower crosses when the mark reaches or falls below it.
 
 ## Can I hold multiple positions on the same asset?
 
 Yes, subject to stake limits, available book capacity, and active safety restrictions.
 
-## Can I change my barriers after opening?
+## Can I change my boundaries after opening?
 
-No. The barriers, chosen outcome, stake, and payout are fixed when the position opens.
+No. The boundaries, chosen outcome, stake, and payout are fixed when the position opens.
 
 ## Can I close a position early?
 
@@ -56,11 +56,11 @@ If a shortfall remains, it is allocated across affected positions according to t
 
 ## Does Bound open a perpetual position in my account?
 
-No. The Barrier Perp is held through the Bound contract. Bound manages and hedges the combined protocol book on Hyperliquid.
+No. The Boundary Perp is held through the Bound contract. Bound manages and hedges the combined protocol book on Hyperliquid.
 
 ## How does Bound price positions?
 
-Pricing begins with the product's estimated outcome probability, then accounts for expected hedge costs, book exposure, and spread. See [Pricing Overview](pricing/readme-1.md) and [Vanilla Barrier Perps Pricing](pricing/vanilla-barrier-perps.md).
+Pricing begins with the product's estimated outcome probability, then accounts for expected hedge costs, book exposure, and spread. See [Pricing Overview](pricing/readme-1.md) and [Vanilla Boundary Perps Pricing](pricing/vanilla-boundary-perps.md).
 
 ## What happens if services are unavailable?
 
@@ -72,4 +72,4 @@ No. They are designed to be permissionless, allowing eligible calls to be submit
 
 ## What assets are supported?
 
-The interface shows the assets currently enabled for each Barrier Perps product. Supported assets may differ because markets have different liquidity, volatility, leverage, and gap-risk characteristics.
+The interface shows the assets currently enabled for each Boundary Perps product. Supported assets may differ because markets have different liquidity, volatility, leverage, and gap-risk characteristics.
