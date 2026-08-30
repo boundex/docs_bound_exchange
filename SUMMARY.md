@@ -100,6 +100,7 @@
 
 ## Developer Guide
 
+* [Barrier Perps API](developer-guide/barrier-perps-api.md)
 * [API Reference](developer-guide/api-reference/README.md)
   * ```yaml
     props:
