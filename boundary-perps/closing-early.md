@@ -1,6 +1,6 @@
 # Closing Early
 
-An active Boundary Perp may be closed before its terminal outcome by accepting a contract-quoted buyback.
+An active Boundary may be closed before its terminal outcome by accepting a contract-quoted buyback.
 
 ## Requesting a Buyback
 

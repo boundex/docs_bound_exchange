@@ -1,6 +1,6 @@
 # Settlement Mechanics
 
-This page defines the detailed first-touch settlement rules for Vanilla Boundary Perps.
+This page defines the detailed first-touch settlement rules for Vanilla Boundaries.
 
 ## Settlement Inputs
 

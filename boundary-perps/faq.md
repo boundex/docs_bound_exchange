@@ -1,12 +1,12 @@
 # FAQ
 
-## What are Boundary Perps?
+## What are Boundaries?
 
-Boundary Perps are fixed-payout derivatives whose result depends on a defined price-boundary event. Different products can define different boundary structures and outcomes.
+Boundaries are a new derivative whose outcome depends on a price bound event, with a fixed payout and a maximum loss set when the position opens. Different products can define different boundary structures and outcomes.
 
-## What are Vanilla Boundary Perps?
+## What are Vanilla Boundaries?
 
-Vanilla Boundary Perps are the first product in the Boundary Perps family. You select an upper and lower price boundary, then choose which one will be reached first.
+Vanilla Boundaries are the first product in the Boundaries family. You select an upper and lower price boundary, then choose which one will be reached first.
 
 ## What is my maximum loss?
 
@@ -30,7 +30,7 @@ Fees should also be considered when calculating the net result.
 
 ## Which price determines a boundary crossing?
 
-Vanilla Boundary Perps use the underlying asset's HyperCore mark price. The upper boundary crosses when the mark reaches or exceeds it; the lower crosses when the mark reaches or falls below it.
+Vanilla Boundaries use the underlying asset's HyperCore mark price. The upper boundary crosses when the mark reaches or exceeds it; the lower crosses when the mark reaches or falls below it.
 
 ## Can I hold multiple positions on the same asset?
 
@@ -56,11 +56,11 @@ If a shortfall remains, it is allocated across affected positions according to t
 
 ## Does Bound open a perpetual position in my account?
 
-No. The Boundary Perp is held through the Bound contract. Bound manages and hedges the combined protocol book on Hyperliquid.
+No. The Boundary is held through the Bound contract. Bound manages and hedges the combined protocol book on Hyperliquid.
 
 ## How does Bound price positions?
 
-Pricing begins with the product's estimated outcome probability, then accounts for expected hedge costs, book exposure, and spread. See [Pricing Overview](pricing/readme-1.md) and [Vanilla Boundary Perps Pricing](pricing/vanilla-boundary-perps.md).
+Pricing begins with the product's estimated outcome probability, then accounts for expected hedge costs, book exposure, and spread. See [Pricing Overview](pricing/readme-1.md) and [Vanilla Boundaries Pricing](pricing/vanilla-boundary-perps.md).
 
 ## What happens if services are unavailable?
 
@@ -72,4 +72,4 @@ No. They are designed to be permissionless, allowing eligible calls to be submit
 
 ## What assets are supported?
 
-The interface shows the assets currently enabled for each Boundary Perps product. Supported assets may differ because markets have different liquidity, volatility, leverage, and gap-risk characteristics.
+The interface shows the assets currently enabled for each Boundary product. Supported assets may differ because markets have different liquidity, volatility, leverage, and gap-risk characteristics.

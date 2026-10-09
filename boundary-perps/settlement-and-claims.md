@@ -1,12 +1,12 @@
 # Settlement & Claims
 
-Boundary Perps settle onchain according to the outcome rules of each product. Vanilla Boundary Perps use first-touch settlement: whichever boundary is observed crossing first determines the result.
+Boundaries settle onchain according to the outcome rules of each product. Vanilla Boundaries use first-touch settlement: whichever boundary is observed crossing first determines the result.
 
 ## Settlement Price
 
 The protocol uses the underlying asset's **HyperCore mark price** as its settlement price reference. The same price basis is used for quoting, validation, marking active positions, and settlement.
 
-For Vanilla Boundary Perps:
+For Vanilla Boundaries:
 
 * The upper boundary is crossed when the mark is greater than or equal to it.
 * The lower boundary is crossed when the mark is less than or equal to it.

@@ -1,6 +1,6 @@
 # Pricing Model
 
-This page describes the technical pricing model for Vanilla Boundary Perps. The accepted onchain quote remains the binding value for every position.
+This page describes the technical pricing model for Vanilla Boundaries. The accepted onchain quote remains the binding value for every position.
 
 ## Price Basis
 

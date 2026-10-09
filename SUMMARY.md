@@ -1,14 +1,14 @@
 # Table of contents
 
-## Boundary Perps
+## Boundaries
 
 * [Overview](README.md)
-* [How Boundary Perps Work](boundary-perps/how-it-works.md)
+* [How Boundaries Work](boundary-perps/how-it-works.md)
 * [Products](boundary-perps/products/README.md)
-  * [Vanilla Boundary Perps](boundary-perps/products/vanilla-boundary-perps.md)
+  * [Vanilla Boundaries](boundary-perps/products/vanilla-boundary-perps.md)
 * [Pricing](boundary-perps/pricing/README.md)
   * [Pricing Overview](boundary-perps/pricing/readme-1.md)
-  * [Vanilla Boundary Perps Pricing](boundary-perps/pricing/vanilla-boundary-perps.md)
+  * [Vanilla Boundaries Pricing](boundary-perps/pricing/vanilla-boundary-perps.md)
 * [Quotes & Opening a Position](boundary-perps/quotes-and-opening.md)
 * [Position Lifecycle](boundary-perps/position-lifecycle.md)
 * [Settlement & Claims](boundary-perps/settlement-and-claims.md)

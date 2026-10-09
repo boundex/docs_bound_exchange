@@ -1,12 +1,12 @@
-# How Boundary Perps Work
+# How Boundaries Work
 
-Every Boundary Perp follows the same basic flow, while each product defines its own outcome and pricing model.
+Every Boundary follows the same basic flow, while each product defines its own outcome and pricing model.
 
 ## 1. Configure a Position
 
-Select a Boundary Perps product and its underlying asset, then configure the product-specific parameters.
+Select a Boundary product and its underlying asset, then configure the product-specific parameters.
 
-For a Vanilla Boundary Perp on a given asset, you select:
+For a Vanilla Boundary on a given asset, you select:
 
 * An upper price boundary
 * A lower price boundary
@@ -41,11 +41,11 @@ If acceptance succeeds:
 
 The contract combines active positions into a net book for each underlying asset. It uses the position stakes and a liquidity buffer as collateral while hedging the book's net market exposure on Hyperliquid.
 
-This hedging happens at the protocol level. Your position remains a fixed-payout Boundary Perp.
+This hedging happens at the protocol level. Your position remains a fixed-payout Boundary.
 
 ## 5. The Position Resolves
 
-The product's settlement condition determines the outcome. For Vanilla Boundary Perps, the position resolves when one of the two boundaries is observed crossing first.
+The product's settlement condition determines the outcome. For Vanilla Boundaries, the position resolves when one of the two boundaries is observed crossing first.
 
 * If your chosen boundary crosses first, the position is **Resolved — Won**.
 * If the other boundary crosses first, the position is **Resolved — Lost**.

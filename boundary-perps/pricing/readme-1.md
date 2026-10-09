@@ -1,6 +1,6 @@
 # Pricing Overview
 
-Boundary Perps use request-for-quote pricing. Each quote is calculated for one specific product configuration and returns a fixed payout that can be locked by accepting the quote.
+Boundaries use request-for-quote pricing. Each quote is calculated for one specific product configuration and returns a fixed payout that can be locked by accepting the quote.
 
 ## What Affects a Quote?
 
@@ -14,7 +14,7 @@ A quote can depend on:
 * The exposure already held by the book
 * The liquidity pool's spread
 
-Different Boundary Perps products can use different pricing models. Each product therefore has its own page explaining how its inputs affect the payout.
+Different Boundary products can use different pricing models. Each product therefore has its own page explaining how its inputs affect the payout.
 
 ## Fixed Payout
 

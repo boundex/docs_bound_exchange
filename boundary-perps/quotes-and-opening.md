@@ -1,10 +1,10 @@
 # Quotes & Opening a Position
 
-A Boundary Perp opens through a quote-and-accept flow. No position exists until the acceptance transaction succeeds.
+A Boundary opens through a quote-and-accept flow. No position exists until the acceptance transaction succeeds.
 
 ## Requesting a Quote
 
-Provide the inputs required by the selected product. For Vanilla Boundary Perps, these are:
+Provide the inputs required by the selected product. For Vanilla Boundaries, these are:
 
 * Underlying asset
 * Upper boundary

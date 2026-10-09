@@ -1,6 +1,6 @@
 # Liquidity & Hedging
 
-Bound manages Boundary Perps as a delta-neutral book, netting user positions into a single position held on HyperCore for optimal capital efficiency.
+Bound manages Boundaries as a delta-neutral book, netting user positions into a single position held on HyperCore for optimal capital efficiency.
 
 ## Per-Underlying Net Books
 

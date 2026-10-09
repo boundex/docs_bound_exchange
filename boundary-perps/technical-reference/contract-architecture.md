@@ -1,12 +1,12 @@
 # Contract Architecture
 
-Boundary Perps operate through isolated book contracts on HyperEVM. Each book contains its own assets, liabilities, positions, liquidity buffer, risk controls, and HyperCore hedge account.
+Boundaries operate through isolated book contracts on HyperEVM. Each book contains its own assets, liabilities, positions, liquidity buffer, risk controls, and HyperCore hedge account.
 
 ## Components
 
 ```mermaid
 flowchart LR
-    U["User"] -->|"Stake + fee"| B["Boundary Perps book contract"]
+    U["User"] -->|"Stake + fee"| B["Boundary book contract"]
     LP["Liquidity provider"] -->|"Buffer deposit"| B
     B -->|"Collateral"| HC["HyperCore account"]
     HC -->|"Net hedge"| HL["Hyperliquid perpetuals"]

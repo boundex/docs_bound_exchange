@@ -1,6 +1,6 @@
 # Risks & Safeguards
 
-Boundary Perps have defined position-level risk, but they still depend on smart contracts, market infrastructure, liquidity, and successful hedging. Review these risks before opening a position.
+Boundaries have defined position-level risk, but they still depend on smart contracts, market infrastructure, liquidity, and successful hedging. Review these risks before opening a position.
 
 ## Position Risk
 
@@ -10,7 +10,7 @@ Closing early does not guarantee recovery of the original stake. The buyback val
 
 ## Boundary Observation Risk
 
-Vanilla Boundary Perps settle using stored HyperCore mark readings. A very brief crossing that occurs and reverses between observable readings may not be captured.
+Vanilla Boundaries settle using stored HyperCore mark readings. A very brief crossing that occurs and reverses between observable readings may not be captured.
 
 Gaps can also move the mark across a boundary between readings. The stored observation sequence, rather than an assumed continuous path, determines the onchain result.
 
@@ -29,7 +29,7 @@ The liquidity buffer absorbs this variance under normal conditions.
 
 ## Infrastructure Risk
 
-Boundary Perps depend on HyperEVM, HyperCore market data, Hyperliquid execution, and the Bound contracts. Outages or congestion can temporarily prevent:
+Boundaries depend on HyperEVM, HyperCore market data, Hyperliquid execution, and the Bound contracts. Outages or congestion can temporarily prevent:
 
 * New quotes or position openings
 * Hedge adjustments

@@ -1,6 +1,6 @@
-# Vanilla Boundary Perps
+# Vanilla Boundaries
 
-Vanilla Boundary Perps let you take a position on which of two price boundaries an asset will reach first.
+Vanilla Boundaries let you take a position on which of two price boundaries an asset will reach first.
 
 ## Defining the Position
 
@@ -52,4 +52,4 @@ The 5,000 USDC payout includes the original 1,000 USDC stake, so the gross profi
 * Boundaries and payout cannot be changed after the position opens.
 * An active position can resolve at a boundary or be [closed early](../closing-early.md).
 
-See [Vanilla Boundary Perps Pricing](../pricing/vanilla-boundary-perps.md) to understand how boundary placement affects the quote.
+See [Vanilla Boundaries Pricing](../pricing/vanilla-boundary-perps.md) to understand how boundary placement affects the quote.

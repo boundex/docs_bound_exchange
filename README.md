@@ -1,12 +1,12 @@
 # Overview
 
-Boundary Perps are fixed-payout derivatives whose outcome depends on a price bound event. You choose a market outcome with clearly defined conditions, a maximum loss, and a payout that is fixed when the position opens.
+Boundaries are a new derivative whose outcome depends on a price bound event. You choose a market outcome with clearly defined conditions, a maximum loss, and a payout that is fixed when the position opens.
 
-The first product in this family is **Vanilla Boundary Perps**. It lets you choose two price boundaries around the current market price and take a position on which boundary will be reached first.
+The first product in this family is **Vanilla Boundaries**. It lets you choose two price boundaries around the current market price and take a position on which boundary will be reached first.
 
 ## At a Glance
 
-With a Boundary Perp, you:
+With a Boundary, you:
 
 1. Select an underlying asset.
 2. Configure its boundaries and choose an outcome.
@@ -22,7 +22,7 @@ Your maximum loss is the stake committed to the position. If your selected outco
 
 ## Example
 
-Assume BTC is trading at **$100,000**. You configure a Vanilla Boundary Perp with:
+Assume BTC is trading at **$100,000**. You configure a Vanilla Boundary with:
 
 | Parameter   | Selection         |
 | ----------- | ----------------- |
@@ -42,4 +42,4 @@ Bound returns a quote with a fixed payout. If you accept it and BTC reaches $110
 * **Onchain settlement:** Positions settle through the Bound contract on HyperEVM using Hyperliquid market data.
 * **Decentralized Execution:** The entire position lifecycle is executed on HyperEVM and HyperCore via smart contracts without reliance on a trusted third-party
 
-Continue to [How Boundary Perps Work](boundary-perps/how-it-works.md) for the complete position flow, or see [Vanilla Boundary Perps](boundary-perps/products/vanilla-boundary-perps.md) for the first product.
+Continue to [How Boundaries Work](boundary-perps/how-it-works.md) for the complete position flow, or see [Vanilla Boundaries](boundary-perps/products/vanilla-boundary-perps.md) for the first product.

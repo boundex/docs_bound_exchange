@@ -1,6 +1,6 @@
 # Hedging Model
 
-The Bound contract is the counterparty to every Boundary Perp. It does not create an independent Hyperliquid position for each user. Instead, it combines active positions into a per-underlying net book and hedges the resulting exposure.
+The Bound contract is the counterparty to every Boundary. It does not create an independent Hyperliquid position for each user. Instead, it combines active positions into a per-underlying net book and hedges the resulting exposure.
 
 ## Position Delta
 

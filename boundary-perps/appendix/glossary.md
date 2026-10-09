@@ -2,7 +2,7 @@
 
 ## Boundary
 
-An upper or lower price level defining a Vanilla Boundary Perp. The upper boundary crosses when the mark reaches or exceeds it. The lower boundary crosses when the mark reaches or falls below it.
+An upper or lower price level defining a Vanilla Boundary. The upper boundary crosses when the mark reaches or exceeds it. The lower boundary crosses when the mark reaches or falls below it.
 
 ## Chosen Boundary
 
@@ -34,7 +34,7 @@ The first qualifying stored or in-call mark reading at or beyond one of the two 
 
 ## Book
 
-An isolated Boundary Perps contract instance with its own assets, liabilities, positions, LP buffer, risk controls, and HyperCore hedge account.
+An isolated Boundary contract instance with its own assets, liabilities, positions, LP buffer, risk controls, and HyperCore hedge account.
 
 ## Open Interest
 

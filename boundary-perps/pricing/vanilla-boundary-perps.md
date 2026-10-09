@@ -1,6 +1,6 @@
-# Vanilla Boundary Perps Pricing
+# Vanilla Boundaries Pricing
 
-Vanilla Boundary Perps pricing begins with the probability that the chosen boundary is reached before the other boundary. The position's fair payout is then adjusted for expected hedge costs and the pool's spread.
+Vanilla Boundaries pricing begins with the probability that the chosen boundary is reached before the other boundary. The position's fair payout is then adjusted for expected hedge costs and the pool's spread.
 
 ## Boundary Geometry
 
