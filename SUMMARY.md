@@ -9,6 +9,7 @@
 * [Pricing](boundary-perps/pricing/README.md)
   * [Pricing Overview](boundary-perps/pricing/readme-1.md)
   * [Vanilla Boundaries Pricing](boundary-perps/pricing/vanilla-boundary-perps.md)
+  * [Fees](boundary-perps/pricing/fees.md)
 * [Quotes & Opening a Position](boundary-perps/quotes-and-opening.md)
 * [Position Lifecycle](boundary-perps/position-lifecycle.md)
 * [Settlement & Claims](boundary-perps/settlement-and-claims.md)
