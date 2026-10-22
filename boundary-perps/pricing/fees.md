@@ -42,3 +42,28 @@ When you close early, the fee depends on whether you are in profit:
 In profit, you pay the share of the Spread you have earned so far: halfway to your target profit means half the Spread. The early-close fee is 1% of the amount you receive.
 
 Your position's value at any moment is its payout times the current chance of hitting your target before your stop. The Current Value shown in the app is the amount you receive after the Early Close fee.
+
+## Example
+
+$20 on BTC Up, stop 5% below, target 5% above (a fair 2× bet). Uses BTC's current settings: 4.5 bp Hyperliquid taker fee, 10.5% yearly funding, 1.6% daily volatility, a balanced book (no skew), and an LP fee of 3.5% at 2×.
+
+| Step | Amount |
+| --- | --- |
+| Stake | $20.00 |
+| Upfront Fee: protocol fee (1%) | −$0.20 |
+| Upfront Fee: Hyperliquid execution, open + close ($389 hedge) | −$0.35 |
+| Priced stake | $19.45 |
+| Fair payout at 2× | $38.90 |
+| Spread at target (LP fee, funding, slippage) | −$3.71 |
+| **You receive if BTC hits the target (5% above) before the stop** | **$35.19** |
+
+Closing early, same position:
+
+| Price | Value | Spread share | You receive (after 1% early-close fee) |
+| --- | --- | --- | --- |
+| Unchanged since open | $19.45 | $0 | $19.26 |
+| Halfway to target | $29.17 | $1.75 | $27.16 |
+| Halfway to stop | $9.72 | $0 | $9.63 |
+| Stop hit first | $0 | $0 | $0 |
+
+_Illustrative. Live quotes can differ by a few cents with market conditions and book exposure._
