@@ -47,15 +47,12 @@ Your position's value at any moment is its payout times the current chance of hi
 
 $20 on BTC Up, stop 5% below, target 5% above (a fair 2× bet). Uses BTC's current settings: 4.5 bp Hyperliquid taker fee, 10.5% yearly funding, 1.6% daily volatility, a balanced book (no skew), and an LP fee of 3.5% at 2×.
 
-| Step | Amount |
-| --- | --- |
-| Stake | $20.00 |
-| Upfront Fee: protocol fee (1%) | −$0.20 |
-| Upfront Fee: Hyperliquid execution, open + close ($389 hedge) | −$0.35 |
-| Priced stake | $19.45 |
-| Fair payout at 2× | $38.90 |
-| Spread at target (LP fee, funding, slippage) | −$3.71 |
-| **You receive if BTC hits the target (5% above) before the stop** | **$35.19** |
+1. **Stake:** $20.00
+2. **Upfront Fee:** −$0.55 ($0.20 protocol fee + $0.35 Hyperliquid execution on a $389 hedge, open and close)
+3. **Priced stake:** $19.45
+4. **Fair payout at 2×:** $38.90
+5. **Spread at target** (LP fee, funding, slippage): −$3.71
+6. **You receive if BTC hits the target (5% above) before the stop: $35.19**
 
 Closing early, same position:
 
