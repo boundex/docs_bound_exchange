@@ -30,7 +30,7 @@ The Spread is included in the payoff multiple of your quote. It includes:
 * **LP fee:** the liquidity pool's fee.
 * **Estimated slippage:** for opening and closing the hedge. Larger hedges have more slippage.
 
-The Spread is only collected if you win. If you lose, no Spread is charged.
+The Spread is only collected when you profit. If you lose, no Spread is charged.
 
 ## Early Close
 
