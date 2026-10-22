@@ -1,57 +1,58 @@
 # Fees
 
-Boundaries charge a small fee when you open and when you close early. The pool's margin is a **share of your profit**, taken only if you make money. If your position loses, or you close it at a loss, you pay no profit share.
+Boundaries have two types of fees: an **Upfront Fee** taken from your USDC stake when you open, and a **Spread** built into the payoff multiple you are offered. The LP fee part of the Spread is only collected when you make a profit.
 
-| Fee | When | Rate today |
+| Fee | What it is | What it includes |
 | --- | --- | --- |
-| Open fee | Every position, at open | 1% of stake |
-| Hedge execution | Every position, priced into the payout at open | Depends on hedge size |
-| Profit share | Only on profit: win at target, or close early in profit | Capped at 50% of profit |
-| Early-close fee | When you close early | 1% of the amount you receive |
+| **Upfront Fee** | Taken from your USDC stake at open | Protocol fee (1% of stake) + Hyperliquid execution fee for opening the hedge (4.5 bp taker fee on the hedge notional) |
+| **Spread** | Built into the payoff multiple shown in your quote | Skew + estimated funding + estimated slippage + LP fee |
+| **Early-close fee** | Taken when you close early | 1% of the amount you receive |
 
-Rates are protocol settings and can change. A change applies only to new positions: an open position keeps the payout, profit share and early-close fee it had when it opened.
+Rates are protocol settings and can change. A change applies only to new positions: an open position keeps the terms it had when it opened.
 
-## Opening a position
+## Upfront Fee
 
-**Open fee.** 1% of your stake goes to the protocol. The rest is your priced stake.
+The Upfront Fee is taken from your stake when the position opens. It covers:
 
-**Hedge execution.** Every position is hedged on Hyperliquid. The trading cost of opening *and* closing that hedge (taker fee plus slippage) is prepaid at open by setting the payout slightly lower. Larger hedges cost more, because slippage grows with size. You are never charged the hedge close cost again later.
+* **Protocol fee:** 1% of your stake.
+* **Hyperliquid execution fee:** the taker fee on the market order that opens the hedge behind your position (4.5 bp of the hedge notional).
 
-**Your payout is fixed at open.** The quote shows what you receive if the price hits your target first: the payout, minus the profit share. That number does not change for the life of the position.
+The rest of your stake is the amount your position is priced on. The fee is shown before you confirm.
 
-## Profit share
+## Spread
 
-The pool earns a share of your profit instead of charging a spread up front. It covers the pool's margin, the balance of the book and expected funding costs on the hedge.
+The Spread is not charged as a separate line. It is already included in the payoff multiple your quote shows, so a quoted 2× is what you receive at target. It includes:
 
-* **Win at target:** you receive the payout minus the profit share shown in your quote.
-* **Close early in profit:** the share is scaled to the profit you have so far. Half of your target profit means half of the share.
-* **Lose, or close early at a loss:** no profit share is charged.
+* **Skew:** a charge (or rebate) depending on whether your position adds to or balances the book's exposure.
+* **Estimated funding:** the expected funding cost of holding the hedge.
+* **Estimated slippage:** the expected price impact of the hedge orders. It grows with hedge size.
+* **LP fee:** the liquidity pool's margin.
 
-The share can never be more than 50% of your profit, and a quote is only offered if a win leaves you with more than your stake.
+**The LP fee only applies to profit.** If you win at target, it is already in your quoted payoff. If you close early in profit, it is scaled to the profit you have so far. If you lose, or close early at a loss, no LP fee is collected. It is never more than 50% of your profit.
 
 ## Closing early
 
 Your position's value at any moment is its payout times the current chance of hitting your target first. When you close early:
 
-1. If you are in profit, the matching part of the profit share is deducted.
+1. If you are in profit, the matching part of the LP fee is deducted.
 2. The 1% early-close fee is deducted from what is left.
 
 The Current Value shown in the app is the amount you receive after both.
 
 ## Example
 
-$20 on BTC Up, stop 5% below, target 5% above (a fair 2× bet). Figures use today's rates.
+$20 on BTC Up, stop 5% below, target 5% above (a fair 2× bet), using today's rates.
 
 | Step | Amount |
 | --- | --- |
-| Stake after 1% open fee | $19.80 |
-| Payout after hedge execution | $38.74 |
-| Profit share at target | $3.58 |
+| Stake after 1% protocol fee | $19.80 |
+| Payout after hedge costs | $38.74 |
+| LP fee at target | $3.58 |
 | **You receive if BTC hits the target** | **$35.16** |
 
 Closing early, same position:
 
-| Price | Value | Profit share | You receive (after 1% fee) |
+| Price | Value | LP fee | You receive (after 1% fee) |
 | --- | --- | --- | --- |
 | Unchanged since open | $19.37 | $0 | $19.18 |
 | Halfway to target | $29.05 | $1.67 | $27.11 |
