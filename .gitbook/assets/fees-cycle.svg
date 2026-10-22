@@ -1,58 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="460" viewBox="0 0 960 460" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" font-family="Saira, 'Public Sans', Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
   <defs>
-    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    <radialGradient id="glow" cx="85%" cy="0%" r="70%">
+      <stop offset="0" stop-color="#3a5df6" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#3a5df6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c2444"/>
+      <stop offset="1" stop-color="#141a30"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#7d95ff"/>
     </marker>
+    <style>
+      .h { font-size: 18px; font-weight: 700; fill: #eceefc; letter-spacing: .2px }
+      .b { font-size: 13px; fill: rgba(236,238,252,0.78) }
+      .d { font-size: 12px; fill: rgba(236,238,252,0.50) }
+      .chip { font-size: 11px; font-weight: 700; letter-spacing: .8px }
+      .num { font-size: 13px; font-weight: 700; fill: #ffffff }
+    </style>
   </defs>
-  <rect x="0" y="0" width="960" height="460" rx="16" fill="#ffffff"/>
 
-  <!-- Open -->
-  <rect x="24" y="150" width="220" height="160" rx="12" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
-  <text x="134" y="182" text-anchor="middle" font-size="17" font-weight="700" fill="#1e1b4b">1. Open</text>
-  <text x="134" y="208" text-anchor="middle" font-size="13" font-weight="600" fill="#4338ca">Upfront Fee (from stake)</text>
-  <text x="134" y="232" text-anchor="middle" font-size="12.5" fill="#334155">1% protocol fee</text>
-  <text x="134" y="252" text-anchor="middle" font-size="12.5" fill="#334155">+ Hyperliquid execution fee</text>
-  <text x="134" y="270" text-anchor="middle" font-size="12.5" fill="#334155">(open + close of the hedge)</text>
-  <text x="134" y="296" text-anchor="middle" font-size="11.5" fill="#64748b">Shown before you confirm</text>
+  <rect width="1000" height="500" rx="20" fill="#090b12"/>
+  <rect width="1000" height="500" rx="20" fill="url(#glow)"/>
 
-  <line x1="244" y1="230" x2="300" y2="230" stroke="#64748b" stroke-width="1.6" marker-end="url(#a)"/>
+  <!-- 1 Open -->
+  <g transform="translate(32,150)">
+    <rect width="240" height="200" rx="16" fill="url(#card)" stroke="rgba(236,238,252,0.10)"/>
+    <circle cx="30" cy="32" r="13" fill="#3a5df6"/><text x="30" y="37" text-anchor="middle" class="num">1</text>
+    <text x="52" y="38" class="h">Open</text>
+    <rect x="20" y="58" width="112" height="22" rx="11" fill="rgba(58,93,246,0.18)" stroke="#3a5df6"/>
+    <text x="76" y="73" text-anchor="middle" class="chip" fill="#7d95ff">UPFRONT FEE</text>
+    <text x="20" y="108" class="b">1% protocol fee</text>
+    <text x="20" y="130" class="b">+ Hyperliquid execution fee</text>
+    <text x="20" y="150" class="d">(open + close of the hedge)</text>
+    <line x1="20" y1="168" x2="220" y2="168" stroke="rgba(236,238,252,0.08)"/>
+    <text x="20" y="188" class="d">Taken from your stake</text>
+  </g>
 
-  <!-- Live -->
-  <rect x="304" y="150" width="240" height="160" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
-  <text x="424" y="182" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">2. Position live</text>
-  <text x="424" y="208" text-anchor="middle" font-size="13" font-weight="600" fill="#0f766e">Spread (in the payoff multiple)</text>
-  <text x="424" y="232" text-anchor="middle" font-size="12.5" fill="#334155">LP fee + skew</text>
-  <text x="424" y="252" text-anchor="middle" font-size="12.5" fill="#334155">+ estimated funding</text>
-  <text x="424" y="272" text-anchor="middle" font-size="12.5" fill="#334155">+ estimated slippage</text>
-  <text x="424" y="296" text-anchor="middle" font-size="11.5" fill="#64748b">Not charged as a separate line</text>
+  <path d="M272,250 L326,250" stroke="#7d95ff" stroke-width="2" fill="none" marker-end="url(#arr)"/>
 
-  <line x1="544" y1="200" x2="618" y2="86" stroke="#64748b" stroke-width="1.6" marker-end="url(#a)"/>
-  <line x1="544" y1="230" x2="618" y2="230" stroke="#64748b" stroke-width="1.6" marker-end="url(#a)"/>
-  <line x1="544" y1="260" x2="618" y2="370" stroke="#64748b" stroke-width="1.6" marker-end="url(#a)"/>
+  <!-- 2 Live -->
+  <g transform="translate(334,150)">
+    <rect width="250" height="200" rx="16" fill="url(#card)" stroke="rgba(236,238,252,0.10)"/>
+    <circle cx="30" cy="32" r="13" fill="#3a5df6"/><text x="30" y="37" text-anchor="middle" class="num">2</text>
+    <text x="52" y="38" class="h">Position live</text>
+    <rect x="20" y="58" width="80" height="22" rx="11" fill="rgba(125,149,255,0.12)" stroke="#7d95ff"/>
+    <text x="60" y="73" text-anchor="middle" class="chip" fill="#b3bef8">SPREAD</text>
+    <text x="20" y="108" class="b">LP fee + skew</text>
+    <text x="20" y="130" class="b">+ estimated funding</text>
+    <text x="20" y="150" class="b">+ estimated slippage</text>
+    <line x1="20" y1="168" x2="230" y2="168" stroke="rgba(236,238,252,0.08)"/>
+    <text x="20" y="188" class="d">Built into the payoff multiple</text>
+  </g>
 
-  <!-- Win -->
-  <rect x="622" y="24" width="314" height="108" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
-  <text x="640" y="54" font-size="16" font-weight="700" fill="#064e3b">3a. Target hit first: win</text>
-  <text x="640" y="80" font-size="12.5" fill="#334155">You receive the quoted payout.</text>
-  <text x="640" y="100" font-size="12.5" fill="#334155">Full Spread already taken out of it.</text>
-  <text x="640" y="120" font-size="12.5" fill="#334155">No further fees.</text>
+  <!-- connectors -->
+  <path d="M584,230 C620,230 610,92 650,92" stroke="#51b19d" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M584,250 L650,250" stroke="#7d95ff" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M584,270 C620,270 610,408 650,408" stroke="#df484c" stroke-width="2" fill="none" marker-end="url(#arr)"/>
 
-  <!-- Close early -->
-  <rect x="622" y="166" width="314" height="128" rx="12" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="640" y="196" font-size="16" font-weight="700" fill="#78350f">3b. Close early</text>
-  <text x="640" y="222" font-size="12.5" font-weight="600" fill="#334155">In profit:</text>
-  <text x="716" y="222" font-size="12.5" fill="#334155">Spread × (profit now ÷</text>
-  <text x="716" y="240" font-size="12.5" fill="#334155">profit at target) + 1% fee</text>
-  <text x="640" y="264" font-size="12.5" font-weight="600" fill="#334155">At a loss:</text>
-  <text x="716" y="264" font-size="12.5" fill="#334155">1% fee only</text>
-  <text x="640" y="284" font-size="11.5" fill="#64748b">Current Value = what you receive</text>
+  <!-- 3a Win -->
+  <g transform="translate(658,30)">
+    <rect width="310" height="124" rx="16" fill="url(#card)" stroke="rgba(81,177,157,0.45)"/>
+    <rect x="0" y="16" width="4" height="92" rx="2" fill="#51b19d"/>
+    <text x="22" y="36" class="h">Win</text>
+    <text x="70" y="36" class="d">· target hit first</text>
+    <text x="22" y="66" class="b">You receive the quoted payout</text>
+    <text x="22" y="88" class="b">Spread already taken out</text>
+    <text x="22" y="110" class="chip" fill="#7ecbb8">NO FURTHER FEES</text>
+  </g>
 
-  <!-- Lose -->
-  <rect x="622" y="328" width="314" height="108" rx="12" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="640" y="358" font-size="16" font-weight="700" fill="#7f1d1d">3c. Stop hit first: lose</text>
-  <text x="640" y="384" font-size="12.5" fill="#334155">You receive $0.</text>
-  <text x="640" y="404" font-size="12.5" fill="#334155">No Spread collected, no further fees.</text>
+  <!-- 3b Close early -->
+  <g transform="translate(658,182)">
+    <rect width="310" height="136" rx="16" fill="url(#card)" stroke="rgba(125,149,255,0.45)"/>
+    <rect x="0" y="16" width="4" height="104" rx="2" fill="#3a5df6"/>
+    <text x="22" y="36" class="h">Close early</text>
+    <text x="22" y="64" class="chip" fill="#7ecbb8">IN PROFIT</text>
+    <text x="104" y="64" class="b">Spread × (profit now ÷</text>
+    <text x="104" y="82" class="b">profit at target) + 1% fee</text>
+    <text x="22" y="108" class="chip" fill="#f2888b">AT A LOSS</text>
+    <text x="104" y="108" class="b">1% fee only</text>
+  </g>
 
-  <text x="24" y="420" font-size="12" fill="#64748b">Upfront Fee is paid on every position.</text>
-  <text x="24" y="438" font-size="12" fill="#64748b">Spread is only collected when you profit.</text>
+  <!-- 3c Lose -->
+  <g transform="translate(658,346)">
+    <rect width="310" height="124" rx="16" fill="url(#card)" stroke="rgba(223,72,76,0.45)"/>
+    <rect x="0" y="16" width="4" height="92" rx="2" fill="#df484c"/>
+    <text x="22" y="36" class="h">Lose</text>
+    <text x="76" y="36" class="d">· stop hit first</text>
+    <text x="22" y="66" class="b">You receive $0</text>
+    <text x="22" y="88" class="b">No Spread charged</text>
+    <text x="22" y="110" class="chip" fill="#f2888b">NO FURTHER FEES</text>
+  </g>
+
+  <text x="32" y="420" class="d">Upfront Fee: paid on every position</text>
+  <text x="32" y="442" class="d">Spread: only collected when you profit</text>
 </svg>
