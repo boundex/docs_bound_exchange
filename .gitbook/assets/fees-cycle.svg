@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="460" viewBox="0 0 960 460" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="460" rx="16" fill="#ffffff"/>
+
+  <!-- Open -->
+  <rect x="24" y="150" width="220" height="160" rx="12" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="134" y="182" text-anchor="middle" font-size="17" font-weight="700" fill="#1e1b4b">1. Open</text>
+  <text x="134" y="208" text-anchor="middle" font-size="13" font-weight="600" fill="#4338ca">Upfront Fee (from stake)</text>
+  <text x="134" y="232" text-anchor="middle" font-size="12.5" fill="#334155">1% protocol fee</text>
+  <text x="134" y="252" text-anchor="middle" font-size="12.5" fill="#334155">+ Hyperliquid execution fee</text>
+  <text x="134" y="270" text-anchor="middle" font-size="12.5" fill="#334155">(open + close of the hedge)</text>
+  <text x="134" y="296" text-anchor="middle" font-size="11.5" fill="#64748b">Shown before you confirm</text>
+
+  <line x1="244" y1="230" x2="300" y2="230" stroke="#64748b" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <!-- Live -->
+  <rect x="304" y="150" width="240" height="160" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="424" y="182" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">2. Position live</text>
+  <text x="424" y="208" text-anchor="middle" font-size="13" font-weight="600" fill="#0f766e">Spread (in the payoff multiple)</text>
+  <text x="424" y="232" text-anchor="middle" font-size="12.5" fill="#334155">LP fee + skew</text>
+  <text x="424" y="252" text-anchor="middle" font-size="12.5" fill="#334155">+ estimated funding</text>
+  <text x="424" y="272" text-anchor="middle" font-size="12.5" fill="#334155">+ estimated slippage</text>
+  <text x="424" y="296" text-anchor="middle" font-size="11.5" fill="#64748b">Not charged as a separate line</text>
+
+  <line x1="544" y1="200" x2="618" y2="86" stroke="#64748b" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="544" y1="230" x2="618" y2="230" stroke="#64748b" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="544" y1="260" x2="618" y2="370" stroke="#64748b" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <!-- Win -->
+  <rect x="622" y="24" width="314" height="108" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+  <text x="640" y="54" font-size="16" font-weight="700" fill="#064e3b">3a. Target hit first: win</text>
+  <text x="640" y="80" font-size="12.5" fill="#334155">You receive the quoted payout.</text>
+  <text x="640" y="100" font-size="12.5" fill="#334155">Full Spread already taken out of it.</text>
+  <text x="640" y="120" font-size="12.5" fill="#334155">No further fees.</text>
+
+  <!-- Close early -->
+  <rect x="622" y="166" width="314" height="128" rx="12" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="640" y="196" font-size="16" font-weight="700" fill="#78350f">3b. Close early</text>
+  <text x="640" y="222" font-size="12.5" font-weight="600" fill="#334155">In profit:</text>
+  <text x="716" y="222" font-size="12.5" fill="#334155">Spread × (profit now ÷</text>
+  <text x="716" y="240" font-size="12.5" fill="#334155">profit at target) + 1% fee</text>
+  <text x="640" y="264" font-size="12.5" font-weight="600" fill="#334155">At a loss:</text>
+  <text x="716" y="264" font-size="12.5" fill="#334155">1% fee only</text>
+  <text x="640" y="284" font-size="11.5" fill="#64748b">Current Value = what you receive</text>
+
+  <!-- Lose -->
+  <rect x="622" y="328" width="314" height="108" rx="12" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="640" y="358" font-size="16" font-weight="700" fill="#7f1d1d">3c. Stop hit first: lose</text>
+  <text x="640" y="384" font-size="12.5" fill="#334155">You receive $0.</text>
+  <text x="640" y="404" font-size="12.5" fill="#334155">No Spread collected, no further fees.</text>
+
+  <text x="24" y="420" font-size="12" fill="#64748b">Upfront Fee is paid on every position.</text>
+  <text x="24" y="438" font-size="12" fill="#64748b">Spread is only collected when you profit.</text>
+</svg>

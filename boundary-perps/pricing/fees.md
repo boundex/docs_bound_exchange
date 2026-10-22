@@ -2,6 +2,8 @@
 
 Boundaries have three fee categories: an **Upfront Fee** taken from your USDC stake when you open, a **Spread** built into the payoff multiple you are offered, and an **Early Close** fee that applies only if you close before the position resolves.
 
+![How fees apply across a position's life](../../.gitbook/assets/fees-cycle.svg)
+
 | Category | When | What it includes |
 | --- | --- | --- |
 | **Upfront Fee** | Taken from your USDC stake at open | Protocol fee + Hyperliquid execution fee for opening and closing the hedge |
