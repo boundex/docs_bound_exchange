@@ -49,7 +49,7 @@ $20 on BTC Up, stop 5% below, target 5% above (a fair 2× bet), using today's ra
 | Stake after 1% protocol fee | $19.80 |
 | Payout after hedge costs | $38.74 |
 | LP fee at target | $3.58 |
-| **You receive if BTC hits the target** | **$35.16** |
+| **You receive if BTC hits the target (5% above) before the stop** | **$35.16** |
 
 Closing early, same position:
 
