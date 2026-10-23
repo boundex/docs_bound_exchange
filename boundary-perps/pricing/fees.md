@@ -38,12 +38,24 @@ The Early Close fee depends on whether your position is in profit:
 
 | Your position | Early Close fee |
 | --- | --- |
-| In profit | Spread × (your profit now ÷ your profit at target) + early-close fee |
+| In profit | Spread × (your profit now ÷ your profit at target before Spread) + early-close fee |
 | At a loss or break-even | Early-close fee only |
 
 For example, if your profit is halfway to your profit at target, you pay half the Spread. The early-close fee is 1%.
 
-Current Value in the app is the amount you receive if you close now, after the Early Close fee.
+The Spread is only charged once. The payout is stored before Spread, and the Spread is stored separately, so the share is taken from the full value.
+
+Example: $100 position, 2× payout before Spread ($200), $20 Spread (1.8× after Spread). Price is halfway to target.
+
+| Step | Amount |
+| --- | --- |
+| Position value ($200 × 75%) | $150.00 |
+| Profit now ($150 × 99% − $100) | $48.50 |
+| Spread share ($20 × $48.50 ÷ $100) | −$9.70 |
+| Early-close fee (1% of $140.30) | −$1.40 |
+| **You receive** | **$138.90** |
+
+Current Value in the app is your position value minus the Spread share. Closing early pays Current Value minus the 1% early-close fee. Right after you open, Current Value is your stake minus the Upfront Fee.
 
 ## Example
 
@@ -59,9 +71,9 @@ $20 on BTC Up, stop 5% below, target 5% above (2× fair payout). Uses BTC's curr
 
 Early close on the same position:
 
-| Price | Value | Spread share | You receive (after 1% early-close fee) |
-| --- | --- | --- | --- |
-| Unchanged since open | $19.45 | $0 | $19.26 |
-| Halfway to target | $29.17 | $1.75 | $27.16 |
-| Halfway to stop | $9.72 | $0 | $9.63 |
-| Stop hit first | $0 | $0 | $0 |
+| Price | Position value | Spread share | Current Value | You receive (after 1% fee) |
+| --- | --- | --- | --- | --- |
+| Unchanged since open | $19.45 | $0 | $19.45 | $19.26 |
+| Halfway to target | $29.17 | $1.74 | $27.43 | $27.16 |
+| Halfway to stop | $9.72 | $0 | $9.72 | $9.63 |
+| Stop hit first | $0 | $0 | $0 | $0 |
