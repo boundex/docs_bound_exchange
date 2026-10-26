@@ -2,7 +2,7 @@
 
 Every position has an **Upfront Fee**, taken from your stake at open, and a **Spread**, a share of your profit built into the payoff multiple. Closing early adds a 1% **early-close fee**.
 
-![How fees apply across a position's life](../../.gitbook/assets/fees-cycle.svg)
+![Fees and profit share across a position's life](../../.gitbook/assets/fees-cycle.svg)
 
 | Category | When | What it includes |
 | --- | --- | --- |
