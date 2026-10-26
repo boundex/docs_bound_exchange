@@ -44,13 +44,13 @@
     <rect width="250" height="200" rx="16" fill="url(#card)" stroke="rgba(236,238,252,0.10)"/>
     <circle cx="30" cy="32" r="13" fill="#3a5df6"/><text x="30" y="37" text-anchor="middle" class="num">2</text>
     <text x="52" y="38" class="h">Position live</text>
-    <rect x="20" y="58" width="180" height="22" rx="11" fill="rgba(125,149,255,0.12)" stroke="#7d95ff"/>
-    <text x="110" y="73" text-anchor="middle" class="chip" fill="#b3bef8">SPREAD · PROFIT SHARE</text>
+    <rect x="20" y="58" width="80" height="22" rx="11" fill="rgba(125,149,255,0.12)" stroke="#7d95ff"/>
+    <text x="60" y="73" text-anchor="middle" class="chip" fill="#b3bef8">SPREAD</text>
     <text x="20" y="108" class="b">Skew + estimated funding</text>
     <text x="20" y="130" class="b">+ estimated slippage</text>
     <text x="20" y="150" class="b">+ LP fee</text>
     <line x1="20" y1="168" x2="230" y2="168" stroke="rgba(236,238,252,0.08)"/>
-    <text x="20" y="188" class="d">Built into the payoff multiple, not a fee</text>
+    <text x="20" y="188" class="d">Built into the payoff multiple</text>
   </g>
 
   <!-- connectors -->
@@ -65,7 +65,7 @@
     <text x="22" y="36" class="h">Win</text>
     <text x="70" y="36" class="d">· target hit first</text>
     <text x="22" y="66" class="b">You receive the quoted payout</text>
-    <text x="22" y="88" class="b">Profit share already taken out</text>
+    <text x="22" y="88" class="b">Spread already taken out</text>
     <text x="22" y="110" class="chip" fill="#7ecbb8">NO FURTHER FEES</text>
   </g>
 
@@ -75,7 +75,7 @@
     <rect x="0" y="16" width="4" height="104" rx="2" fill="#3a5df6"/>
     <text x="22" y="36" class="h">Close early</text>
     <text x="22" y="64" class="chip" fill="#7ecbb8">IN PROFIT</text>
-    <text x="104" y="64" class="b">Profit share × (profit now ÷</text>
+    <text x="104" y="64" class="b">Spread × (profit now ÷</text>
     <text x="104" y="82" class="b">profit at target) + 1% fee</text>
     <text x="22" y="108" class="chip" fill="#f2888b">AT A LOSS</text>
     <text x="104" y="108" class="b">1% fee only</text>
@@ -88,10 +88,10 @@
     <text x="22" y="36" class="h">Lose</text>
     <text x="76" y="36" class="d">· stop hit first</text>
     <text x="22" y="66" class="b">You receive $0</text>
-    <text x="22" y="88" class="b">No profit share taken</text>
+    <text x="22" y="88" class="b">No Spread charged</text>
     <text x="22" y="110" class="chip" fill="#f2888b">NO FURTHER FEES</text>
   </g>
 
   <text x="32" y="420" class="d">Upfront Fee: paid on every position</text>
-  <text x="32" y="442" class="d">Spread: a share of your profit, only taken when you profit</text>
+  <text x="32" y="442" class="d">Spread: only collected when you profit</text>
 </svg>

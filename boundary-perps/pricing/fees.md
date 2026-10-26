@@ -1,13 +1,13 @@
 # Fees
 
-Every position has an **Upfront Fee**, taken from your stake at open, and a **Spread**, a share of your profit built into the payoff multiple. Closing early adds a 1% **early-close fee**.
+Every position has an **Upfront Fee**, taken from your stake at open, and a **Spread**, built into the payoff multiple and only collected when you profit. Closing early adds a 1% **early-close fee**.
 
-![Fees and profit share across a position's life](../../.gitbook/assets/fees-cycle.svg)
+![How fees apply across a position's life](../../.gitbook/assets/fees-cycle.svg)
 
 | Category | When | What it includes |
 | --- | --- | --- |
 | **Upfront Fee** | Taken from your USDC stake at open | Protocol fee + Hyperliquid execution fee for opening and closing the hedge |
-| **Spread** (profit share) | Built into the payoff multiple shown in your quote | Skew + estimated funding + estimated slippage for opening and closing the hedge + LP fee |
+| **Spread** | Built into the payoff multiple shown in your quote | Skew + estimated funding + estimated slippage for opening and closing the hedge + LP fee |
 | **Early-close fee** | Taken when you close early | 1% of the amount paid out |
 
 Rates can change over time. Changes only apply to new positions. Open positions keep the rates they were opened with.
@@ -23,12 +23,12 @@ Your payout is calculated on the remaining stake.
 
 ## Spread
 
-The Spread is a share of your profit, not a fee. It is built into the payoff multiple of your quote. Skew, funding and slippage cover costs. Only the LP fee is revenue.
+The Spread is built into the payoff multiple of your quote. It includes:
 
 * **Skew:** an extra charge if your position adds to the book's imbalance, or a discount if it reduces it.
 * **Estimated funding:** the expected funding cost of the hedge.
 * **Estimated slippage:** for opening and closing the hedge. Larger hedges have more slippage.
-* **LP fee:** the liquidity pool's revenue.
+* **LP fee:** a fee paid to the liquidity pool.
 
 The Spread is only collected when you profit. If you lose, no Spread is charged.
 
