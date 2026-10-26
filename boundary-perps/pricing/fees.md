@@ -1,14 +1,14 @@
 # Fees
 
-Boundaries have three types of fees: the **Upfront Fee**, the **Spread** and the **Early Close** fee.
+Every position has an **Upfront Fee**, taken from your stake at open, and a **Spread**, a share of your profit built into the payoff multiple. Closing early adds a 1% **early-close fee**.
 
 ![How fees apply across a position's life](../../.gitbook/assets/fees-cycle.svg)
 
 | Category | When | What it includes |
 | --- | --- | --- |
 | **Upfront Fee** | Taken from your USDC stake at open | Protocol fee + Hyperliquid execution fee for opening and closing the hedge |
-| **Spread** | Built into the payoff multiple shown in your quote | Skew + estimated funding + LP fee + estimated slippage for opening and closing the hedge |
-| **Early Close** | Taken when you close early | Your share of the Spread so far (only if in profit) + early-close fee |
+| **Spread** (profit share) | Built into the payoff multiple shown in your quote | Skew + estimated funding + estimated slippage for opening and closing the hedge + LP fee |
+| **Early-close fee** | Taken when you close early | 1% of the amount paid out |
 
 Rates can change over time. Changes only apply to new positions. Open positions keep the rates they were opened with.
 
@@ -23,20 +23,20 @@ Your payout is calculated on the remaining stake.
 
 ## Spread
 
-The Spread is included in the payoff multiple of your quote. It includes:
+The Spread is a share of your profit, not a fee. It is built into the payoff multiple of your quote. Skew, funding and slippage cover costs. Only the LP fee is revenue.
 
 * **Skew:** an extra charge if your position adds to the book's imbalance, or a discount if it reduces it.
 * **Estimated funding:** the expected funding cost of the hedge.
-* **LP fee:** the liquidity pool's fee.
 * **Estimated slippage:** for opening and closing the hedge. Larger hedges have more slippage.
+* **LP fee:** the liquidity pool's revenue.
 
 The Spread is only collected when you profit. If you lose, no Spread is charged.
 
 ## Early Close
 
-The Early Close fee depends on whether your position is in profit:
+What you pay when closing early depends on whether your position is in profit:
 
-| Your position | Early Close fee |
+| Your position | What you pay |
 | --- | --- |
 | In profit | Spread × (your profit now ÷ your profit at target before Spread) + early-close fee |
 | At a loss or break-even | Early-close fee only |
