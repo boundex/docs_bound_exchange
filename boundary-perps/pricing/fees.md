@@ -43,15 +43,19 @@ What you pay when closing early depends on whether your position is in profit:
 
 For example, if your profit is halfway to your profit at target, you pay half the Spread. The early-close fee is 1%.
 
-Example: $100 position, 2× payout before Spread ($200), $20 Spread (1.8× after Spread). Price is halfway to target.
+Example: $100 stake, $20 Spread. Price is halfway from entry to target, and you close early.
 
 | Step | Amount |
 | --- | --- |
-| Implied value ($200 × 75%) | $150.00 |
-| Profit now ($150 × 99% − $100) | $48.50 |
-| Spread share ($20 × $48.50 ÷ $100) | −$9.70 |
-| Early-close fee (1% of $140.30) | −$1.40 |
-| **You receive** | **$138.90** |
+| Stake | $100.00 |
+| Upfront Fee ($1 protocol fee + $1 Hyperliquid execution fee) | −$2.00 |
+| Working stake | $98.00 |
+| Implied value at target ($176 payout + $20 Spread) | $196.00 |
+| Implied value now ($196 × 75%) | $147.00 |
+| Profit now ($147 × 99% − $98) | $47.53 |
+| Spread share ($20 × $47.53 ÷ $98) | −$9.70 |
+| Early-close fee (1% of $137.30) | −$1.37 |
+| **You receive** | **$135.93** |
 
 Current Value in the app is your implied value minus the Spread share. Closing early pays Current Value minus the 1% early-close fee. Right after you open, Current Value is your stake minus the Upfront Fee.
 
