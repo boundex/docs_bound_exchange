@@ -49,7 +49,7 @@ Example: $100 stake, $20 Spread. Price is halfway from entry to target, and you 
 | --- | --- |
 | Stake | $100.00 |
 | Upfront Fee ($1 protocol fee + $1 Hyperliquid execution fee) | −$2.00 |
-| Working stake | $98.00 |
+| Effective stake | $98.00 |
 | Implied value at target ($176 payout + $20 Spread) | $196.00 |
 | Implied value now ($196 × 75%) | $147.00 |
 | Profit now ($147 × 99% − $98) | $47.53 |
