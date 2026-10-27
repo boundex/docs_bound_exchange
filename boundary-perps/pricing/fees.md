@@ -17,7 +17,7 @@ Rates can change over time. Changes only apply to new positions. Open positions 
 The Upfront Fee is taken from your stake when you open a position. It includes:
 
 * **Protocol fee:** 1% of your stake.
-* **Hyperliquid execution fee:** 4.5 bp of the hedge size, charged twice (once to open the hedge, once to close it).
+* **Hyperliquid execution fee:** Hyperliquid's taker fee on the hedge size, charged twice (once to open the hedge, once to close it). The rate depends on the asset; see [Hyperliquid fees](https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees). Assets in Hyperliquid's [growth mode](https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees#growth-mode-for-hip-3-perps), such as TSLA, HOOD, COIN and SP500, have a much lower fee.
 
 Your payout is calculated on the remaining stake.
 
@@ -59,7 +59,7 @@ Current Value in the app is your position value minus the Spread share. Closing 
 
 ## Example
 
-$20 on BTC Up, stop 5% below, target 5% above (2× fair payout). Uses BTC's current rates: 4.5 bp Hyperliquid fee, 10.5% yearly funding, 1.6% daily volatility, 3.5% LP fee, no skew.
+$20 on BTC Up, stop 5% below, target 5% above (2× fair payout). Uses BTC's current rates: 4.5 bp Hyperliquid taker fee, 10.5% yearly funding, 1.6% daily volatility, 3.5% LP fee, no skew.
 
 | Step | Amount |
 | --- | --- |
