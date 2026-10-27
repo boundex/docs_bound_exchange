@@ -43,12 +43,12 @@ What you pay when closing early depends on whether your position is in profit:
 
 For example, if your profit is halfway to your profit at target, you pay half the Spread. The early-close fee is 1%.
 
-Example: $100 stake, $20 Spread. Price is halfway from entry to target, and you close early.
+Example: $100 stake, $20 Spread. Price is halfway from entry to target, and you close early. The $2 Upfront Fee is an example amount. The Hyperliquid execution fee depends on the size of the hedge.
 
 | Step | Amount |
 | --- | --- |
 | Stake | $100.00 |
-| Upfront Fee ($1 protocol fee + $1 Hyperliquid execution fee) | −$2.00 |
+| Upfront Fee (example: $1 protocol fee + $1 Hyperliquid execution fee) | −$2.00 |
 | Stake after Upfront Fee | $98.00 |
 | Implied value at target ($176 payout + $20 Spread) | $196.00 |
 | Implied value now ($196 × 75%) | $147.00 |
@@ -58,24 +58,3 @@ Example: $100 stake, $20 Spread. Price is halfway from entry to target, and you 
 | **You receive** | **$135.93** |
 
 Current Value in the app is your implied value minus the Spread share. Closing early pays Current Value minus the 1% early-close fee. Right after you open, Current Value is your stake minus the Upfront Fee.
-
-## Example
-
-$20 on BTC Up, stop 5% below, target 5% above (2× fair payout). Uses BTC's current rates: 4.5 bp Hyperliquid taker fee, 10.5% yearly funding, 1.6% daily volatility, 3.5% LP fee, no skew.
-
-| Step | Amount |
-| --- | --- |
-| Stake | $20.00 |
-| Upfront Fee ($0.20 protocol + $0.35 Hyperliquid execution) | −$0.55 |
-| Fair payout at 2× (on the $19.45 left) | $38.90 |
-| Spread at target (LP fee, funding, slippage) | −$3.71 |
-| **You receive if BTC hits the target (5% above) before the stop** | **$35.19** |
-
-Early close on the same position:
-
-| Price | Implied value | Spread share | Current Value | You receive (after 1% fee) |
-| --- | --- | --- | --- | --- |
-| Unchanged since open | $19.45 | $0 | $19.45 | $19.26 |
-| Halfway to target | $29.17 | $1.74 | $27.43 | $27.16 |
-| Halfway to stop | $9.72 | $0 | $9.72 | $9.63 |
-| Stop hit first | $0 | $0 | $0 | $0 |
